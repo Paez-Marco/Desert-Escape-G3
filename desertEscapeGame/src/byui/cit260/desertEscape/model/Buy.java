@@ -11,4 +11,5 @@ package byui.cit260.desertEscape.model;
  */
 public class Buy {
     
+    
 }
