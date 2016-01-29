@@ -6,7 +6,7 @@
 package byui.cit260.desertEscape.model;
 
 /**
- *
+ * Example work
  * @author mambou
  */
 public class Buy {
