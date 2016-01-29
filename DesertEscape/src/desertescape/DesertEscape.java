@@ -18,7 +18,7 @@ public class DesertEscape {
      */
     public static void main(String[] args) {
         
-         //class instance variable Player
+         //class instance variable Player 
         Player playerOne = new Player();
         playerOne.setPlayerName("Gilles");
         playerOne.setPlayerTime(5);
