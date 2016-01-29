@@ -10,6 +10,6 @@ package byui.cit260.desertEscape.model;
  * @author mambou
  */
 public class Buy {
-    
+    //test class
     
 }

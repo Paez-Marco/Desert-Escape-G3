@@ -6,7 +6,7 @@
 package byui.cit260.desertEscape.model;
 
 /**
- *
+ * test
  * @author mambou
  */
 public class Sell {
