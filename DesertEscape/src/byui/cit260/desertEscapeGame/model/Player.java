@@ -15,11 +15,8 @@ import java.util.Objects;
 public class Player implements Serializable {
     
     private String playerName;
-    private double playerTime;
-    
-    public Player() {
-    }
-  
+    private Integer playerTime;
+
     public String getPlayerName() {
         return playerName;
     }
@@ -28,24 +25,22 @@ public class Player implements Serializable {
         this.playerName = playerName;
     }
 
-    public double getPlayerTime() {
+    public Integer getPlayerTime() {
         return playerTime;
     }
 
-    public void setPlayerTime(double playerTime) {
+    public void setPlayerTime(Integer playerTime) {
         this.playerTime = playerTime;
     }
 
-    @Override
-    public String toString() {
-        return "Player{" + "playerName=" + playerName + ", playerTime=" + playerTime + '}';
+    public Player() {
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
+        int hash = 5;
         hash = 31 * hash + Objects.hashCode(this.playerName);
-        hash = 31 * hash + (int) (Double.doubleToLongBits(this.playerTime) ^ (Double.doubleToLongBits(this.playerTime) >>> 32));
+        hash = 31 * hash + Objects.hashCode(this.playerTime);
         return hash;
     }
 
@@ -61,14 +56,20 @@ public class Player implements Serializable {
             return false;
         }
         final Player other = (Player) obj;
-        if (Double.doubleToLongBits(this.playerTime) != Double.doubleToLongBits(other.playerTime)) {
+        if (!Objects.equals(this.playerName, other.playerName)) {
             return false;
         }
-        if (!Objects.equals(this.playerName, other.playerName)) {
+        if (!Objects.equals(this.playerTime, other.playerTime)) {
             return false;
         }
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "Player{" + "playerName=" + playerName + ", playerTime=" + playerTime + '}';
+    }
     
+     
     
 }
