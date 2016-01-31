@@ -12,13 +12,13 @@ import java.util.Objects;
  *
  * @author mambou & Paez
  */
-public class pyramid implements Serializable{
+public class Pyramids implements Serializable{
     
     private String description;
     private double amountAvailable;
     private String resources;
 
-    public pyramid() {
+    public Pyramids() {
     }
 
     public String getDescription() {
@@ -47,7 +47,7 @@ public class pyramid implements Serializable{
 
     @Override
     public String toString() {
-        return "pyramid{" + "description=" + description + ", amountAvailable=" + amountAvailable + ", resources=" + resources + '}';
+        return "Pyramids{" + "description=" + description + ", amountAvailable=" + amountAvailable + ", resources=" + resources + '}';
     }
 
     @Override
@@ -70,7 +70,7 @@ public class pyramid implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final pyramid other = (pyramid) obj;
+        final Pyramids other = (Pyramids) obj;
         if (Double.doubleToLongBits(this.amountAvailable) != Double.doubleToLongBits(other.amountAvailable)) {
             return false;
         }
