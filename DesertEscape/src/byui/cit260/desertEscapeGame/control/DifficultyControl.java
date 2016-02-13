@@ -5,10 +5,19 @@
  */
 package byui.cit260.desertEscapeGame.control;
 
+import byui.cit260.desertEscapeGame.model.Player;
+
 /**
  *
- * @author mambou
+ * @author Mambou & Paez
  */
 public class DifficultyControl {
     
+    public Integer setDifficultyLevel(Player playerName, Integer difficulty) {
+        
+        if (playerName == null || difficulty <= 0)
+            return -1;
+        
+        return difficulty++;
+    }
 }

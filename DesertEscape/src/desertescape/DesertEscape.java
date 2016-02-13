@@ -12,6 +12,7 @@ import byui.cit260.desertEscapeGame.model.Scene;
 import byui.cit260.desertEscapeGame.model.Villain;
 import byui.cit260.desertEscapeGame.model.Map;
 
+
 /**
  *
  * @author Mambou & Paez
@@ -75,7 +76,7 @@ public class DesertEscape {
         System.out.println(villCar.toString());
         System.out.println(sceneData.toString());
         System.out.println(mapSite.toString());
-                
+                    
     }
-    
+
 }
