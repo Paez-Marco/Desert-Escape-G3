@@ -5,18 +5,17 @@
  */
 package byui.cit260.desertEscapeGame.control;
 
+import byui.cit260.desertEscapeGame.model.Player;
+
 /**
  *
  * @author mambou
  */
 public class GameControl {
+
+    public static Player createPlayer(String playersName) {
+        System.out.println("\n*** createPlayer() function called ***");
+        return new Player();
+    }
     
-}   
-
-public static 
-
-PAGE 25
-PAGE 25
-PAGE 25
-PAGE 25
-PAGE 25
+}    

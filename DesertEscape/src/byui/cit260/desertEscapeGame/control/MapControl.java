@@ -5,8 +5,6 @@
  */
 package byui.cit260.desertEscapeGame.control;
 
-import byui.cit260.desertEscapeGame.model.Player;
-
 /**
  *
  * @author Mambou & Paez
@@ -17,9 +15,8 @@ public class MapControl {
         
         String nameSite;
         
-        if (nameOfPlayer.toString() == null || location == null) {
+        if (nameOfPlayer == null || location == null) {
             nameSite = "Can not visit this Location";
-            return;
         }
         
         // locations to visit
