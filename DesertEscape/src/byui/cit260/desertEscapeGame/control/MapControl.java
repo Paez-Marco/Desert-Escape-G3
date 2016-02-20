@@ -5,8 +5,6 @@
  */
 package byui.cit260.desertEscapeGame.control;
 
-import byui.cit260.desertEscapeGame.model.Player;
-
 /**
  *
  * @author Mambou & Paez

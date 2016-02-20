@@ -8,13 +8,14 @@ package desertescape;
 import byui.cit260.desertEscapeGame.model.Difficulty;
 import byui.cit260.desertEscapeGame.model.Game;
 import byui.cit260.desertEscapeGame.model.Inventory;
+import byui.cit260.desertEscapeGame.model.Map;
 import byui.cit260.desertEscapeGame.model.Player;
 import byui.cit260.desertEscapeGame.model.Scene;
 import byui.cit260.desertEscapeGame.model.Villain;
 import byui.cit260.desertEscapeGame.model.Map;
 import citbyui.cit260.desertEscapeGame.view.GettingHelpView;
 import citbyui.cit260.desertEscapeGame.view.MainMenuView;
-import citbyui.cit260.desertEscapeGame.view.StartProgramView;
+import citbyui.cit260.desertEscapeGame.view.StartProgramView; 
 
 
 /**
@@ -113,9 +114,11 @@ public class DesertEscape {
         System.out.println(villCar.toString());
         System.out.println(sceneData.toString());
         System.out.println(mapSite.toString());
+        
                     
     }
 
     
 }
 
+      
