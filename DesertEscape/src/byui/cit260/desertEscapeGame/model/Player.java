@@ -68,8 +68,6 @@ public class Player implements Serializable {
     @Override
     public String toString() {
         return "Player{" + "playerName=" + playerName + ", playerTime=" + playerTime + '}';
-    }
-    
-     
+    }   
     
 }

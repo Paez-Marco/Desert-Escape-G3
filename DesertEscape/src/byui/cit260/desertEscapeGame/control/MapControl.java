@@ -15,15 +15,16 @@ public class MapControl {
     
      public void visitLocation(String nameOfPlayer, String location) {
         
-        String nameSite;
+       
+        nameOfPlayer = toString();
         
-        if (nameOfPlayer.toString() == null || location == null) {
-            nameSite = "Can not visit this Location";
+        if (nameOfPlayer == null || location == null) {
+            String nameSite = "Can not visit this Location";
             return;
         }
         
         // locations to visit
-        System.out.println("Welcome " + nameOfPlayer.toString() + "\n");
+        System.out.println("Welcome " + nameOfPlayer + "\n");
         System.out.println("Site to visit:\n");
         System.out.println("1. The Alien Camp");
         System.out.println("2. The Terrible Caves");
@@ -36,7 +37,7 @@ public class MapControl {
         String selectSite = System.in.toString();
                 
         // valid location
-        nameSite = moveLocation(nameOfPlayer, selectSite);
+        String nameSite = moveLocation(nameOfPlayer, selectSite);
         
         if (validLocation(nameOfPlayer, nameSite))
             System.out.println("Time to win: " + nameSite);
@@ -48,12 +49,12 @@ public class MapControl {
     public String moveLocation(String player, String location) {
         
         // verifying the parameters are not null
-        String moveMessage = "Invalid Location";
+        String moveMessage = location;
         if (player == null || location == null)
             return moveMessage;
                 
         // Assign the name of the location to visit
-        if ("1".equals(location))
+        if ("1".equals(location)) 
             moveMessage = "\"The Alien Camp\"";
         if ("2".equals(location))
             moveMessage = "\"The Terrible Caves\"";
@@ -73,15 +74,14 @@ public class MapControl {
     
     public boolean validLocation(String player, String location) {
         
-        if (player == null || location == null)
-            return false;
-        
+        if (player == null || location == null) {
+            return true;
+        }
         String nameSite = moveLocation(player, location);
         
-        if (nameSite == "Invalid Location")
-            return false;
-        
-        return true;
+        if (nameSite !=  location){
+            return false;}
+        return false;
         
     }
     

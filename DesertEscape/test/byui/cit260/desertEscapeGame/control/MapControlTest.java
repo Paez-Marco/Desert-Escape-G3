@@ -23,8 +23,8 @@ public class MapControlTest {
     @Test
     public void testVisitLocation() {
         System.out.println("visitLocation");
-        String nameOfPlayer = "";
-        String location = "";
+        String nameOfPlayer = "Marco";
+        String location = "1. The Alien Camp";
         MapControl instance = new MapControl();
         instance.visitLocation(nameOfPlayer, location);
         
@@ -36,10 +36,10 @@ public class MapControlTest {
     @Test
     public void testMoveLocation() {
         System.out.println("moveLocation");
-        String player = "";
-        String location = "";
+        String player = "Marco";
+        String location = "1. The Alien Camp";
         MapControl instance = new MapControl();
-        String expResult = "";
+        String expResult = "1. The Alien Camp";
         String result = instance.moveLocation(player, location);
         assertEquals(expResult, result);
         
@@ -51,8 +51,8 @@ public class MapControlTest {
     @Test
     public void testValidLocation() {
         System.out.println("validLocation");
-        String player = "";
-        String location = "";
+        String player = "Marco";
+        String location = "1. The Alien Camp";
         MapControl instance = new MapControl();
         boolean expResult = false;
         boolean result = instance.validLocation(player, location);

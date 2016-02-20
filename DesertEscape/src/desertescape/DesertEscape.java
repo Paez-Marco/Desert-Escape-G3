@@ -6,11 +6,15 @@
 package desertescape;
 
 import byui.cit260.desertEscapeGame.model.Difficulty;
+import byui.cit260.desertEscapeGame.model.Game;
 import byui.cit260.desertEscapeGame.model.Inventory;
 import byui.cit260.desertEscapeGame.model.Player;
 import byui.cit260.desertEscapeGame.model.Scene;
 import byui.cit260.desertEscapeGame.model.Villain;
 import byui.cit260.desertEscapeGame.model.Map;
+import citbyui.cit260.desertEscapeGame.view.GettingHelpView;
+import citbyui.cit260.desertEscapeGame.view.MainMenuView;
+import citbyui.cit260.desertEscapeGame.view.StartProgramView;
 
 
 /**
@@ -22,8 +26,33 @@ public class DesertEscape {
     /**
      * @param args the command line arguments
      */
+    
+    private static Game currentGame = null;
+    private static Player player = null;
+
+    public static Game getCurrentGame() {
+        return currentGame;
+    }
+
+    public static void setCurrentGame(Game currentGame) {
+        DesertEscape.currentGame = currentGame;
+    }
+
+    public static Player getPlayer() {
+        return player;
+    }
+
+    public static void setPlayer(Player player) {
+        DesertEscape.player = player;
+    }
+    
     public static void main(String[] args) {
         
+        //create GettingHelpView() rig and display the Getting help view
+        GettingHelpView gettingHelpView = new GettingHelpView();
+        gettingHelpView.displayGettingHelpView();
+        
+          
          // Class instance variable Player 
         Player playerOne = new Player();
         playerOne.setPlayerName("Gilles");
@@ -79,4 +108,6 @@ public class DesertEscape {
                     
     }
 
+    
 }
+
