@@ -11,4 +11,12 @@ package byui.cit260.desertEscapeGame.control;
  */
 public class GameControl {
     
-}
+}   
+
+public static 
+
+PAGE 25
+PAGE 25
+PAGE 25
+PAGE 25
+PAGE 25
