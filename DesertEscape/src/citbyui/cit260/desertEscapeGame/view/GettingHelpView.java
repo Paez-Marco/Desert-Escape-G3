@@ -33,6 +33,7 @@ public class GettingHelpView {
                 +"\nS - Stocked resources"
                 +"\nQ - Quit"
                 +"\n----------------------------------------------------------";
+                 System.out.println(this.help);
     }
     
      public void displayGettingHelpView() {

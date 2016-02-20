@@ -50,12 +50,12 @@ public class DesertEscape {
     public static void main(String[] args) {
         
         //create StartProgramView()rig and display the start program view
-        StartProgramView startProgramView = new StartProgramView();
-        startProgramView.dislayStartProgramView();
+        /*StartProgramView startProgramView = new StartProgramView();
+        startProgramView.dislayStartProgramView();*/
         
         //create MainMenuProgramView() rig and display the main menu view
-        MainMenuView mainMenuView = new MainMenuView();
-        mainMenuView.displayMainMenuView();
+       /* MainMenuView mainMenuView = new MainMenuView();
+        mainMenuView.displayMainMenuView();*/
         
         //create GettingHelpView() rig and display the Getting help view
         GettingHelpView gettingHelpView = new GettingHelpView();
@@ -63,7 +63,7 @@ public class DesertEscape {
         
           
          // Class instance variable Player 
-        Player playerOne = new Player();
+        /*Player playerOne = new Player();
         playerOne.setPlayerName("Gilles");
         playerOne.setPlayerTime(5);
         
@@ -113,7 +113,7 @@ public class DesertEscape {
         System.out.println(villPhD.toString());
         System.out.println(villCar.toString());
         System.out.println(sceneData.toString());
-        System.out.println(mapSite.toString());
+        System.out.println(mapSite.toString());*/
         
                     
     }

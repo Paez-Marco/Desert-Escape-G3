@@ -33,7 +33,7 @@ public class MainMenuView {
                 +"\nS - Save Game"
                 +"\nQ - Quit"
                 +"\n----------------------------------------------------------";
-             
+           System.out.println(this.menu);
     }
     
     public void displayMainMenuView() {
