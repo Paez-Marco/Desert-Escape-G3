@@ -48,6 +48,14 @@ public class DesertEscape {
     
     public static void main(String[] args) {
         
+        //create StartProgramView()rig and display the start program view
+        StartProgramView startProgramView = new StartProgramView();
+        startProgramView.dislayStartProgramView();
+        
+        //create MainMenuProgramView() rig and display the main menu view
+        MainMenuView mainMenuView = new MainMenuView();
+        mainMenuView.displayMainMenuView();
+        
         //create GettingHelpView() rig and display the Getting help view
         GettingHelpView gettingHelpView = new GettingHelpView();
         gettingHelpView.displayGettingHelpView();

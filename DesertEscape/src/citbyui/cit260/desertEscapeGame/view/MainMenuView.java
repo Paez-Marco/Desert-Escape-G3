@@ -20,7 +20,7 @@ public class MainMenuView {
     
     public MainMenuView(){
         
-         //promptMessage = "Please enter menu option "       
+         //promptMessage = "Please enter any menu option "       
         this.promptMessage = "\nPlease enter menu option";
         
      this.menu = "\n"  

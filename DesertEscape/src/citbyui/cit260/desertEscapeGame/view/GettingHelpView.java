@@ -14,7 +14,6 @@ import java.util.Scanner;
  * @author mambou
  */
 public class GettingHelpView {
-    
     private String promptMessage;
     private String help;
     
@@ -83,7 +82,7 @@ public class GettingHelpView {
             case "M": // how to move
                  this.moveGame();
                  break;
-            case "E": // amount of resources estimated
+            case "E": // amount of resources estimated and available
                  this.displayEstimatedResource();
                  break;
             case "S": // stocked resources

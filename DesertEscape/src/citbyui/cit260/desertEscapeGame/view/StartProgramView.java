@@ -30,7 +30,7 @@ public class StartProgramView {
         System.out.println(
         "\n*****************************************************************"
        +"\n*                                                               *"
-       +"\n* This is Nicolas Williams Desert Escape Game :                 *"         
+       +"\n* This is Nicolas Williams Desert Escape Game                   *"         
        +"\n* In this game you will take the role of Nicolas Williams       *"
        +"\n* who was born on earth in a distant futur                      *"
        +"\n* But there was a global catastroph.                            *"         

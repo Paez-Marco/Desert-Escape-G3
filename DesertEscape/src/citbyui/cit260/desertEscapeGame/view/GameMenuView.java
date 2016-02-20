@@ -12,7 +12,7 @@ package citbyui.cit260.desertEscapeGame.view;
 public class GameMenuView {
 
     void displayMenu() {
-        System.out.println("*** displayMenu stub function called ");
+        System.out.println("*** displayMenu stub function called process ");
     }
     
 }
