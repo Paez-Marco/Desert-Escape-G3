@@ -14,89 +14,92 @@ import java.util.Scanner;
  * @author mambou
  */
 public class GettingHelpView {
+
     private String promptMessage;
     private String help;
-    
-    
-    public GettingHelpView(){
-        
+
+    public GettingHelpView() {
+
         //promptMessage = "Please enter to view help "       
         this.promptMessage = "\nGet some help here";
-        
-     this.help = "\n"  
-                +"\n----------------------------------------------------------"
-                +"\n|  Getting Help                                          |"
-                +"\n----------------------------------------------------------"
-                +"\nG - What is the goal of the game? "
-                +"\nM - How to move"
-                +"\nE - Estimating the amount of resources"
-                +"\nS - Stocked resources"
-                +"\nQ - Quit"
-                +"\n----------------------------------------------------------";
-                 System.out.println(this.help);
+
+        this.help = "\n"
+                + "\n--------------------------------------"
+                + "\n    GETTING HELP"
+                + "\n--------------------------------------"
+                + "\nG - What is the goal of the game? "
+                + "\nM - How to move"
+                + "\nE - Estimating the amount of resources"
+                + "\nS - Stocked resources"
+                + "\nB - Return back"
+                + "\n--------------------------------------";
+        System.out.println(this.help);
     }
-    
-     public void displayGettingHelpView() {
-         
+
+    public void displayGettingHelpView() {
+
         boolean done = false; // set flag to not done
-        do{
+        do {
             // prompt for and get players name
             String helpOption = this.getHelpOption();
-            if(helpOption.toUpperCase().equals("Q")) // user wants to quit
+            if (helpOption.toUpperCase().equals("B")) // user wants to go back
+            {
                 return; // exit the game
-            
+            }
             // do the requested action and display the next view
             done = this.doAction(helpOption);
-            
-        } while (!done);  
+
+        } while (!done);
     }
 
     private String getHelpOption() {
-        
-         Scanner keyboard = new Scanner(System.in); //get infile for keyboard
+
+        Scanner keyboard = new Scanner(System.in); //get infile for keyboard
         String value = ""; //value to be returned
         boolean valid = false; //initialize to not valid
-        
-        while(!valid){ //loop while an invalid is entered
+
+        while (!valid) { //loop while an invalid is entered
             System.out.println("\n" + this.promptMessage);
-            
-        value = keyboard.nextLine();// get next line typed on keyboard
-        value = value.trim();// trim of leading and trailing blanks
-        
-        if(value.length() < 1){ // value is blank
-            System.out.println("\nInvalid value: value cannot be blank");
-            continue;
-        }
-        break; // end loop
+
+            value = keyboard.nextLine();// get next line typed on keyboard
+            value = value.trim();// trim of leading and trailing blanks
+
+            if (value.length() < 1) { // value is blank
+                System.out.println("\nInvalid value: value cannot be blank");
+                continue;
+            }
+            break; // end loop
         }
         return value; // return value entered
     }
 
     private boolean doAction(String helpOption) {
-        
-         helpOption = helpOption.toUpperCase(); // Convert helpOption to uppercase
-        
-        switch(helpOption) {
+
+        helpOption = helpOption.toUpperCase(); // Convert helpOption to uppercase
+
+        switch (helpOption) {
             case "G": // Goal of the game
-                 this.goalGame();
-                 break;
+                this.goalGame();
+                break;
             case "M": // how to move
-                 this.moveGame();
-                 break;
+                this.moveGame();
+                break;
             case "E": // amount of resources estimated and available
-                 this.displayEstimatedResource();
-                 break;
+                this.displayEstimatedResource();
+                break;
             case "S": // stocked resources
-                 this.stockResource();
-                 break;
+                this.stockResource();
+                break;
+            case "B":
+                break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;
-                  }
-       return false;
+        }
+        return false;
     }
 
-    private void goalGame() {      
+    private void goalGame() {
         System.out.println("\n*** goalGame stub function called ***");
     }
 

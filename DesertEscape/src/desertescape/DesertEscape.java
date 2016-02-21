@@ -15,8 +15,7 @@ import byui.cit260.desertEscapeGame.model.Villain;
 import byui.cit260.desertEscapeGame.model.Map;
 import citbyui.cit260.desertEscapeGame.view.GettingHelpView;
 import citbyui.cit260.desertEscapeGame.view.MainMenuView;
-import citbyui.cit260.desertEscapeGame.view.StartProgramView; 
-
+import citbyui.cit260.desertEscapeGame.view.StartProgramView;
 
 /**
  *
@@ -27,39 +26,21 @@ public class DesertEscape {
     /**
      * @param args the command line arguments
      */
-    
     private static Game currentGame = null;
     private static Player player = null;
 
-    public static Game getCurrentGame() {
-        return currentGame;
-    }
-
-    public static void setCurrentGame(Game currentGame) {
-        DesertEscape.currentGame = currentGame;
-    }
-
-    public static Player getPlayer() {
-        return player;
-    }
-
-    public static void setPlayer(Player player) {
-        DesertEscape.player = player;
-    }
-    
     public static void main(String[] args) {
-        
+
         //create StartProgramView()rig and display the start program view
-        /*StartProgramView startProgramView = new StartProgramView();
-        startProgramView.dislayStartProgramView();*/
-        
+        StartProgramView startProgramView = new StartProgramView();
+        startProgramView.displayStartProgramView();
+
         //create MainMenuProgramView() rig and display the main menu view
-       /* MainMenuView mainMenuView = new MainMenuView();
+        /* MainMenuView mainMenuView = new MainMenuView();
         mainMenuView.displayMainMenuView();*/
-        
         //create GettingHelpView() rig and display the Getting help view
-        GettingHelpView gettingHelpView = new GettingHelpView();
-        gettingHelpView.displayGettingHelpView();
+        /*GettingHelpView gettingHelpView = new GettingHelpView();
+        gettingHelpView.displayGettingHelpView();/
         
           
          // Class instance variable Player 
@@ -114,11 +95,21 @@ public class DesertEscape {
         System.out.println(villCar.toString());
         System.out.println(sceneData.toString());
         System.out.println(mapSite.toString());*/
-        
-                    
     }
 
-    
-}
+    public static Game getCurrentGame() {
+        return currentGame;
+    }
 
-      
+    public static void setCurrentGame(Game currentGame) {
+        DesertEscape.currentGame = currentGame;
+    }
+
+    public static Player getPlayer() {
+        return player;
+    }
+
+    public static void setPlayer(Player player) {
+        DesertEscape.player = player;
+    }
+}
