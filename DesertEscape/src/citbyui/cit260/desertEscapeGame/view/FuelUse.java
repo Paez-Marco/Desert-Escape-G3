@@ -5,8 +5,6 @@
  */
 package citbyui.cit260.desertEscapeGame.view;
 
-import byui.cit260.desertEscapeGame.control.GameControl;
-import byui.cit260.desertEscapeGame.model.Player;
 import java.util.Scanner;
 
 /**
@@ -15,38 +13,18 @@ import java.util.Scanner;
  */
 public class FuelUse {
 
-    private String PlanetName;
+    private String planetLevel;
+    private String radiusTank;
+    private String lenghtTank;
+    private String volumeTank;
 
     // public FuelUse(Integer CurrentFuelLevel) {
     public void fuelUse() {
-        
+
         //Display a banner when view is created
         this.displayBanner();
-        
-        // 
-        this.PlanetName = "\nName of Planet to visit";
-        
-        // get input
-        this.getInput();
 
-    }
-
-    public void displayMenu() {
-        String lenghtTank, wideTank, volTank;
-
-        this.displayBanner();
-        System.out.println(PlanetName);
-        
-        // PlanetName = this.getInput();
-        System.out.println("Lenght of Tank");
-        lenghtTank = this.getInput();
-        
-        System.out.println("Wide of Tank");
-        wideTank = this.getInput();
-        
-        System.out.println("Volume of Tank");
-        volTank = this.getInput();
-
+        this.doAction(planetLevel);
     }
 
     private void displayBanner() {
@@ -59,10 +37,10 @@ public class FuelUse {
                 + "\n*    X    X    X  X  X XX X      X      X       XXX-XXXXX       *"
                 + "\n*    X    XXXX X  X  X  X XXXX   X   XXX         XXXX-XX        *"
                 + "\n*                                                               *"
-                + "\n* Your Star Fighter requires the following fuel volumens:       *"
+                + "\n* Your Star Fighter requires the following fuel volumes:       *"
                 + "\n*                                                               *"
                 + "\n* PLANET            DESCRIPTION                 VOLUME   LEVEL  *"
-                + "\n* Ar3this     Stone robot lives                 100GGal    1    *"
+                + "\n* Ar3this     Stop and destry your stones       100GGal    1    *"
                 + "\n* BrOnChTis   Infection contagion expander      500GGal    2    *"
                 + "\n* CrampMusc   Muscle Cramp in all body         1000GGal    3    *"
                 + "\n* DermTiTis   Skin destroy without return      2000GGal    4    *"
@@ -72,6 +50,45 @@ public class FuelUse {
                 + "\n*                                                               *"
                 + "\n*****************************************************************"
         );
+
+        boolean valid = false;
+
+        while (!valid) {
+            planetLevel = "\nLevel of the Planet to visit";
+            System.out.println(planetLevel);
+            planetLevel = this.getInput();
+
+            switch (planetLevel) {
+                case "1":
+                    System.out.println("YOU GOING TO Ar3this");
+                    System.out.println("REMEMBER IT: Stop and destry your stones");
+                    System.out.println("YOU NEED: 100 Giga Gallons");
+                    valid = true;
+                    break;
+                case "2":
+                    System.out.println("YOU GOING TO BrOnChTis");
+                    System.out.println("REMEMBER IT: Infection contagion expander");
+                    System.out.println("YOU NEED: 500 Giga Gallons");
+                    valid = true;
+                    break;
+                case "3":
+                    System.out.println("YOU GOING TO CrampMusc");
+                    System.out.println("REMEMBER IT: Muscle Cramp in all body");
+                    System.out.println("YOU NEED: 1000 Giga Gallons");
+                    valid = true;
+                    break;
+                case "4":
+                    System.out.println("YOU GOING TO DermTiTis");
+                    System.out.println("REMEMBER IT: Skin destroy without return");
+                    System.out.println("YOU NEED: 2000 Giga Gallons");
+                    valid = true;
+                    break;
+                default:
+                    System.out.println("Invalid level selection");
+            }
+
+        }
+
     }
 
     private String getInput() {
@@ -92,26 +109,19 @@ public class FuelUse {
         return selection;
     }
 
-    private boolean doAction(String playerName) {
+    private boolean doAction(String planetToVisit) {
 
-        /* if (playerName.length() < 2) {
-            System.out.println("\nInvalid player name: "
-                    + "The name must be greater than one character in length");
-            return false;
-        }
+        System.out.println("Lenght of Tank");
+        radiusTank = this.getInput();
 
-        //call createPlayer() control function
-        Player player = GameControl.createPlayer(playerName);
+        System.out.println("Wide of Tank");
+        lenghtTank = this.getInput();
 
-        if (player == null) { // if unsuccesful
-            System.out.println("\nError creating the player.");
-            return false;
-        }
+        System.out.println("Volume of Tank");
+        volumeTank = this.getInput();
 
-        //display next view
-        // this.displayNextView(player); */
-        return true; 
+        
+        return true;
     }
 
-    
 }
