@@ -16,6 +16,7 @@ import byui.cit260.desertEscapeGame.model.Map;
 import citbyui.cit260.desertEscapeGame.view.GettingHelpView;
 import citbyui.cit260.desertEscapeGame.view.MainMenuView;
 import citbyui.cit260.desertEscapeGame.view.StartProgramView;
+import citbyui.cit260.desertEscapeGame.view.FuelUse;
 
 /**
  *
@@ -34,6 +35,9 @@ public class DesertEscape {
         //create StartProgramView()rig and display the start program view
         StartProgramView startProgramView = new StartProgramView();
         startProgramView.displayStartProgramView();
+        
+        FuelUse fuelUsePlanet = new FuelUse();
+        fuelUsePlanet.fuelUse();
 
         //create MainMenuProgramView() rig and display the main menu view
         /* MainMenuView mainMenuView = new MainMenuView();
