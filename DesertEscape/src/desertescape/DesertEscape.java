@@ -39,7 +39,7 @@ public class DesertEscape {
         
         //create SceneView()rig and display the scene view
         /*SceneView sceneView = new SceneView();
-        sceneView.displaySceneView();
+        sceneView.displaySceneView();*/
         
         //create StartProgramView()rig and display the start program view
         /*StartProgramView startProgramView = new StartProgramView();
