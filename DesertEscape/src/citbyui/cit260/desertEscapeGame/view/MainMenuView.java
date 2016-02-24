@@ -31,6 +31,7 @@ public class MainMenuView {
                 + "\nR - Resume Game"
                 + "\nH - Help on how to play the game"
                 + "\nS - Save Game"
+                + "\nG - Go to Scenes"
                 + "\nQ - Quit"
                 + "\n--------------------------------";
         System.out.println(this.menu);
@@ -90,6 +91,9 @@ public class MainMenuView {
             case "S": // save the game
                 this.saveGame();
                 break;
+            case "G": // Go to Scenes
+                this.goToScene();
+                break;    
             case "Q": // quit the game
                 break;
             default:
@@ -120,5 +124,10 @@ public class MainMenuView {
 
     private void saveGame() {
         System.out.println("\n*** saveGame() function called ***");
+    }
+
+    private void goToScene() {
+        SceneView sceneView = new SceneView();
+        sceneView.displaySceneView();
     }
 }

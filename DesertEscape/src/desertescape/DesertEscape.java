@@ -13,8 +13,10 @@ import byui.cit260.desertEscapeGame.model.Player;
 import byui.cit260.desertEscapeGame.model.Scene;
 import byui.cit260.desertEscapeGame.model.Villain;
 import byui.cit260.desertEscapeGame.model.Map;
+import citbyui.cit260.desertEscapeGame.view.BodyMassView;
 import citbyui.cit260.desertEscapeGame.view.GettingHelpView;
 import citbyui.cit260.desertEscapeGame.view.MainMenuView;
+import citbyui.cit260.desertEscapeGame.view.SceneView;
 import citbyui.cit260.desertEscapeGame.view.StartProgramView;
 
 /**
@@ -30,17 +32,26 @@ public class DesertEscape {
     private static Player player = null;
 
     public static void main(String[] args) {
-
+        
+     //create BodyMassView() and display the calculation
+     BodyMassView bodyMassView = new BodyMassView();
+     bodyMassView.displayBodyMassView();
+        
+        //create SceneView()rig and display the scene view
+        /*SceneView sceneView = new SceneView();
+        sceneView.displaySceneView();
+        
         //create StartProgramView()rig and display the start program view
-        StartProgramView startProgramView = new StartProgramView();
-        startProgramView.displayStartProgramView();
+        /*StartProgramView startProgramView = new StartProgramView();
+        startProgramView.displayStartProgramView();*/
 
         //create MainMenuProgramView() rig and display the main menu view
-        /* MainMenuView mainMenuView = new MainMenuView();
-        mainMenuView.displayMainMenuView();*/
+         /*MainMenuView mainMenuView = new MainMenuView();
+        mainMenuView.displayMainMenuView();
+        
         //create GettingHelpView() rig and display the Getting help view
-        /*GettingHelpView gettingHelpView = new GettingHelpView();
-        gettingHelpView.displayGettingHelpView();/
+       /* GettingHelpView gettingHelpView = new GettingHelpView();
+        gettingHelpView.displayGettingHelpView();
         
           
          // Class instance variable Player 

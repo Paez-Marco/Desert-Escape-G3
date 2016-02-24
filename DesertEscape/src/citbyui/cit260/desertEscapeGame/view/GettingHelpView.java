@@ -31,7 +31,7 @@ public class GettingHelpView {
                 + "\nM - How to move"
                 + "\nE - Estimating the amount of resources"
                 + "\nS - Stocked resources"
-                + "\nB - Return back"
+                + "\nQ - Return back"
                 + "\n--------------------------------------";
         System.out.println(this.help);
     }
@@ -42,7 +42,7 @@ public class GettingHelpView {
         do {
             // prompt for and get players name
             String helpOption = this.getHelpOption();
-            if (helpOption.toUpperCase().equals("B")) // user wants to go back
+            if (helpOption.toUpperCase().equals("Q")) // user wants to go back
             {
                 return; // exit the game
             }
@@ -90,7 +90,7 @@ public class GettingHelpView {
             case "S": // stocked resources
                 this.stockResource();
                 break;
-            case "B":
+            case "Q":
                 break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");

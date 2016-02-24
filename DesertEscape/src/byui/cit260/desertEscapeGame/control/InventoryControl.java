@@ -5,15 +5,18 @@
  */
 package byui.cit260.desertEscapeGame.control;
 
+import citbyui.cit260.desertEscapeGame.view.BodyMassView;
+
 /**
  *
  * @author mambou
  */
 public class InventoryControl {
     
-    
+    // Body Mass Index
     public double calcBodyMassIndex(double weight, double height) {
-        
+        BodyMassView body = new BodyMassView();
+        body.displayBodyMassView();
         if (weight <= 0 || height <= 0) {
 		//weight (lbs) or height (inch) value cannot be less than 1
 		return -1;
