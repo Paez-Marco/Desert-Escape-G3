@@ -14,17 +14,18 @@ import java.util.Scanner;
 public class FuelUse {
 
     private String planetLevel;
-    private String radiusTank;
-    private String lenghtTank;
-    private String volumeTank;
-
+    private double radiusTank;
+    private double lenghtTank;
+    private double volumeTank;
+        
+    
     // public FuelUse(Integer CurrentFuelLevel) {
     public void fuelUse() {
 
         //Display a banner when view is created
         this.displayBanner();
 
-        this.doAction(planetLevel);
+        this.doAction();
     }
 
     private void displayBanner() {
@@ -40,10 +41,10 @@ public class FuelUse {
                 + "\n* Your Star Fighter requires the following fuel volumes:       *"
                 + "\n*                                                               *"
                 + "\n* PLANET            DESCRIPTION                 VOLUME   LEVEL  *"
-                + "\n* Ar3this     Stop and destry your stones       100GGal    1    *"
-                + "\n* BrOnChTis   Infection contagion expander      500GGal    2    *"
-                + "\n* CrampMusc   Muscle Cramp in all body         1000GGal    3    *"
-                + "\n* DermTiTis   Skin destroy without return      2000GGal    4    *"
+                + "\n* Ar3this     Stop and destry your stones       100 Gal    1    *"
+                + "\n* BrOnChTis   Infection contagion expander      500 Gal    2    *"
+                + "\n* CrampMusc   Muscle Cramp in all body         1000 Gal    3    *"
+                + "\n* DermTiTis   Skin destroy without return      2000 Gal    4    *"
                 + "\n*                                                               *"
                 + "\n* Each destroyed planet gives you 10 times their GGal required  *"
                 + "\n* and you win 100GGal in each war win.                          *"
@@ -109,19 +110,62 @@ public class FuelUse {
         return selection;
     }
 
-    private boolean doAction(String planetToVisit) {
+    private double getValueInput() {
+        Scanner keyboard = new Scanner(System.in);
+        boolean valid = false;
+        double selection = 10;
 
-        System.out.println("Lenght of Tank");
-        radiusTank = this.getInput();
+        while (!valid) {
+            selection = keyboard.nextDouble();
+            
+            if (selection < 10) {
+                System.out.println("\n*** Value less than 10, try again ***");
+                continue;
+            }
+            break;
+        }
+        return selection;
+    }
 
-        System.out.println("Wide of Tank");
-        lenghtTank = this.getInput();
+    
+    private void doAction() {
 
-        System.out.println("Volume of Tank");
-        volumeTank = this.getInput();
+        System.out.println("Lenght of Tank (in meters)");
+        radiusTank = this.getValueInput();
 
+        System.out.println("Wide of Tank (in meters)");
+        lenghtTank = this.getValueInput();
+
+        System.out.println("Volume of Tank (in Giga Gallons)");
+        volumeTank = Math.PI * Math.pow(radiusTank, 2) * lenghtTank;
+        System.out.println(volumeTank);
         
-        return true;
+        switch(planetLevel) {
+            case "1": 
+                if (volumeTank < 100) {
+                    System.out.println("You need 100 gallons at least");
+                }
+                break;
+            case "2": 
+                if (volumeTank < 500) {
+                    System.out.println("You need 500 gallons at least");
+                }
+                break;
+            case "3": 
+                if (volumeTank < 1000) {
+                    System.out.println("You need 1000 gallons at least");
+                }
+                break;
+            case "4": 
+                if (volumeTank < 2000) {
+                    System.out.println("You need 2000 gallons at least");
+                }
+                break;
+            default:
+                System.out.println("GOOD TRAVEL!!!");
+        }
+        
+        // return;
     }
 
 }
