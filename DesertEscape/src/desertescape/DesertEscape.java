@@ -42,8 +42,13 @@ public class DesertEscape {
         sceneView.displaySceneView();*/
         
         //create StartProgramView()rig and display the start program view
+
         /*StartProgramView startProgramView = new StartProgramView();
         startProgramView.displayStartProgramView();*/
+        
+        /*FuelUse fuelUsePlanet = new FuelUse();
+        fuelUsePlanet.fuelUse();*/
+
 
         //create MainMenuProgramView() rig and display the main menu view
          /*MainMenuView mainMenuView = new MainMenuView();

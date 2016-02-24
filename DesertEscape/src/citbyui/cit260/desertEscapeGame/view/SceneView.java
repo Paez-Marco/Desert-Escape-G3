@@ -18,17 +18,30 @@ public class SceneView {
       public SceneView() {
 
           this.message = "\nPlease enter a desired scene";
-        this.scene = "\n"
-                + "\n--------------------------------"
-                + "\n  SCENES MENU"
-                + "\n--------------------------------"
-                + "\nD - Desert Scene"
-                + "\nP - Pyramid Scene"
-                + "\nC - Caves Scene"
-                + "\nA - Alien Camp Scene"
-                + "\nF - Cliffs Scene"
-                + "\nM - Moutains Scene"
-                + "\n--------------------------------";
+        this.scene = "\n**************************************************************"
+                + "\n*                                                               *"
+                + "\n*    XXX  X    XXXX  X  X XXXX XXXXX  XXX        XX-XXXX        *"
+                + "\n*    X  X X    X  X  X  X X      X   X          XXXXX-XXX       *"
+                + "\n*    XXX  X    XXXX  XX X XXX    X    XX       XX-XXXXXXXX      *"
+                + "\n*    X    X    X  X  X XX X      X      X       XXX-XXXXX       *"
+                + "\n*    X    XXXX X  X  X  X XXXX   X   XXX         XXXX-XX        *"
+                + "\n*                                                               *"
+                + "\n*                                                               *"
+                + "\n*                                                               *"
+                + "\n*                           PLANET SCENE MENU                   *"
+                + "\n*D                            Desert Scene                      *"
+                + "\n*P                            Pyramid Scene                     *"
+                + "\n*C                            Caves Scene                       *"
+                + "\n*A                           Alien Camp Scene                   *"
+                + "\n*F                             Cliffs Scene                     *"
+                + "\n*M                           Moutains Scene*                    *"  
+                + "\n*Q                                 Quit                         *"
+                + "\n*                                                               *"
+                + "\n*                                                               *"
+                + "\n*                                                               *"
+                + "\n*****************************************************************";
+                 
+               
         System.out.println(this.scene);
     }
       

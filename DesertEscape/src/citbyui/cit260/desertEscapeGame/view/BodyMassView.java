@@ -49,10 +49,10 @@ public class BodyMassView {
             
             
             if (weight <= 0 || height <= 0){
-                System.out.println("\nInvalid: weight and height cannot be less than 0");
+                System.out.println("\nInvalid: error : weight and height cannot be less than 0");
                 continue;
             } else if (weight > 140 || height > 63){
-                    System.out.println("\nInvalid: Values to high; weight must be less than 140 and height less than 63."+ "\n Please try again");
+                    System.out.println("\nError!!!: Values to high; weight must be less than 140 and height less than 63."+ "\n Please try again");
                 continue;
             } else { mass = (weight/Math.pow(height, 2))*703;
              System.out.println("\n Body Mass Index is:" + mass);}
