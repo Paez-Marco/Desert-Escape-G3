@@ -14,6 +14,7 @@ import byui.cit260.desertEscapeGame.model.Scene;
 import byui.cit260.desertEscapeGame.model.Villain;
 import byui.cit260.desertEscapeGame.model.Map;
 import citbyui.cit260.desertEscapeGame.view.BodyMassView;
+import citbyui.cit260.desertEscapeGame.view.FuelUse;
 import citbyui.cit260.desertEscapeGame.view.GettingHelpView;
 import citbyui.cit260.desertEscapeGame.view.MainMenuView;
 import citbyui.cit260.desertEscapeGame.view.SceneView;
@@ -34,8 +35,12 @@ public class DesertEscape {
     public static void main(String[] args) {
         
      //create BodyMassView() and display the calculation
-     BodyMassView bodyMassView = new BodyMassView();
-     bodyMassView.displayBodyMassView();
+//     BodyMassView bodyMassView = new BodyMassView();
+//     bodyMassView.displayBodyMassView();
+        
+        //For testing
+        FuelUse f = new FuelUse();
+        f.fuelUse();
         
         //create SceneView()rig and display the scene view
         /*SceneView sceneView = new SceneView();

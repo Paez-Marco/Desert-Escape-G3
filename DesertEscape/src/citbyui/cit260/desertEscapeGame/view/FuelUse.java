@@ -17,8 +17,7 @@ public class FuelUse {
     private double radiusTank;
     private double lenghtTank;
     private double volumeTank;
-        
-    
+
     // public FuelUse(Integer CurrentFuelLevel) {
     public void fuelUse() {
 
@@ -117,7 +116,7 @@ public class FuelUse {
 
         while (!valid) {
             selection = keyboard.nextDouble();
-            
+
             if (selection < 10) {
                 System.out.println("\n*** Value less than 10, try again ***");
                 continue;
@@ -127,45 +126,59 @@ public class FuelUse {
         return selection;
     }
 
-    
     private void doAction() {
 
-        System.out.println("Lenght of Tank (in meters)");
-        radiusTank = this.getValueInput();
+        boolean valid = false;
 
-        System.out.println("Wide of Tank (in meters)");
-        lenghtTank = this.getValueInput();
+        while (!valid) {
+            System.out.println("Lenght of Tank (in meters)");
+            radiusTank = this.getValueInput();
 
-        System.out.println("Volume of Tank (in Giga Gallons)");
-        volumeTank = Math.PI * Math.pow(radiusTank, 2) * lenghtTank;
-        System.out.println(volumeTank);
-        
-        switch(planetLevel) {
-            case "1": 
-                if (volumeTank < 100) {
-                    System.out.println("You need 100 gallons at least");
-                }
-                break;
-            case "2": 
-                if (volumeTank < 500) {
-                    System.out.println("You need 500 gallons at least");
-                }
-                break;
-            case "3": 
-                if (volumeTank < 1000) {
-                    System.out.println("You need 1000 gallons at least");
-                }
-                break;
-            case "4": 
-                if (volumeTank < 2000) {
-                    System.out.println("You need 2000 gallons at least");
-                }
-                break;
-            default:
-                System.out.println("GOOD TRAVEL!!!");
+            System.out.println("Wide of Tank (in meters)");
+            lenghtTank = this.getValueInput();
+
+            System.out.println("Volume of Tank (in Giga Gallons)");
+            volumeTank = Math.PI * Math.pow(radiusTank, 2) * lenghtTank;
+            System.out.println(volumeTank);
+
+            switch (planetLevel) {
+                case "1":
+                    if (volumeTank < 100) {
+                        System.out.println("You need 100 gallons at least");
+                    } else {
+                        valid = true;
+                        System.out.println("GOOD TRAVEL!!!");
+                    }
+                    break;
+                case "2":
+                    if (volumeTank < 500) {
+                        System.out.println("You need 500 gallons at least");
+                    } else {
+                        valid = true;
+                        System.out.println("GOOD TRAVEL!!!");
+                    }
+                    break;
+                case "3":
+                    if (volumeTank < 1000) {
+                        System.out.println("You need 1000 gallons at least");
+                    } else {
+                        valid = true;
+                        System.out.println("GOOD TRAVEL!!!");
+                    }
+                    break;
+                case "4":
+                    if (volumeTank < 2000) {
+                        System.out.println("You need 2000 gallons at least");
+                    } else {
+                        valid = true;
+                        System.out.println("GOOD TRAVEL!!!");
+                    }
+                    break;
+                default:
+                    valid = true;
+                    System.out.println("GOOD TRAVEL!!!");
+            }
         }
-        
-        // return;
     }
 
 }
