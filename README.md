@@ -1,2 +1,2 @@
 # DesertEscape
-Desert Escape Game created by Marco &amp; Gilles (CIT260)
+Desert Escape Game created by Marco and Gilles (CIT260)
