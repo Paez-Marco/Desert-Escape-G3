@@ -26,111 +26,108 @@ import citbyui.cit260.desertEscapeGame.view.StartProgramView;
  */
 public class DesertEscape {
 
-    /**
-     * @param args the command line arguments
-     */
-    private static Game currentGame = null;
-    private static Player player = null;
+  /**
+   * @param args the command line arguments
+   */
+  private static Game currentGame = null;
+  private static Player player = null;
 
-    public static void main(String[] args) {
-        
-     //create BodyMassView() and display the calculation
-//     BodyMassView bodyMassView = new BodyMassView();
-//     bodyMassView.displayBodyMassView();
-        
-        //For testing
-        FuelUse f = new FuelUse();
-        f.fuelUse();
-        
-        //create SceneView()rig and display the scene view
-        /*SceneView sceneView = new SceneView();
-        sceneView.displaySceneView();*/
-        
-        //create StartProgramView()rig and display the start program view
+  public static void main(String[] args) {
 
-        /*StartProgramView startProgramView = new StartProgramView();
-        startProgramView.displayStartProgramView();*/
-        
-        /*FuelUse fuelUsePlanet = new FuelUse();
-        fuelUsePlanet.fuelUse();*/
+    //create SceneView()rig and display the scene view
+    SceneView sV = new SceneView();
+    sV.displaySceneView();
+    
+    // For testing
+    FuelUse f = new FuelUse();
+    f.fuelUse();
 
+    //create BodyMassView() and display the calculation
+    BodyMassView bMV = new BodyMassView();
+    bMV.displayBodyMassView();
+    
+    //create StartProgramView()rig and display the start program view
 
-        //create MainMenuProgramView() rig and display the main menu view
-         /*MainMenuView mainMenuView = new MainMenuView();
-        mainMenuView.displayMainMenuView();
+    /*StartProgramView startProgramView = new StartProgramView();
+    startProgramView.displayStartProgramView();*/
+    /*FuelUse fuelUsePlanet = new FuelUse();
+    fuelUsePlanet.fuelUse();*/
+    //create MainMenuProgramView() rig and display the main menu view
+    /*MainMenuView mainMenuView = new MainMenuView();
+    mainMenuView.displayMainMenuView();
         
-        //create GettingHelpView() rig and display the Getting help view
-       /* GettingHelpView gettingHelpView = new GettingHelpView();
-        gettingHelpView.displayGettingHelpView();
+    //create GettingHelpView() rig and display the Getting help view
+    /* GettingHelpView gettingHelpView = new GettingHelpView();
+    gettingHelpView.displayGettingHelpView();
         
           
-         // Class instance variable Player 
-        /*Player playerOne = new Player();
-        playerOne.setPlayerName("Gilles");
-        playerOne.setPlayerTime(5);
+     // Class instance variable Player 
+     /*Player playerOne = new Player();
+     playerOne.setPlayerName("Gilles");
+     playerOne.setPlayerTime(5);
         
-        Player playerTwo = new Player();
-        playerTwo.setPlayerName("Marco");
-        playerTwo.setPlayerTime(5);
+     Player playerTwo = new Player();
+     playerTwo.setPlayerName("Marco");
+     playerTwo.setPlayerTime(5);
         
-        // Class Difficulty
-        Difficulty diff = new Difficulty();
-        diff.setName("BEGINNER");
-        diff.setDescription("Starting level");
+     // Class Difficulty
+     Difficulty diff = new Difficulty();
+     diff.setName("BEGINNER");
+     diff.setDescription("Starting level");
         
-        // Class Inventory
-        Inventory invQ = new Inventory();
-        invQ.setInventoryItem("Guns");
-        invQ.setStockQuantity(0);
+     // Class Inventory
+     Inventory invQ = new Inventory();
+     invQ.setInventoryItem("Guns");
+     invQ.setStockQuantity(0);
         
-        // Class Villain
-        Villain villPhD = new Villain();
-        villPhD.setName("Photo Destroyer");
-        villPhD.setDescription("Destroys all that he photografier and print");
-        villPhD.setKind("Changeable");
+     // Class Villain
+     Villain villPhD = new Villain();
+     villPhD.setName("Photo Destroyer");
+     villPhD.setDescription("Destroys all that he photografier and print");
+     villPhD.setKind("Changeable");
         
-        Villain villCar = new Villain();
-        villCar.setName("Car Destroyer");
-        villCar.setDescription("Destroys all kind of cars");
-        villCar.setKind("Changeable");
+     Villain villCar = new Villain();
+     villCar.setName("Car Destroyer");
+     villCar.setDescription("Destroys all kind of cars");
+     villCar.setKind("Changeable");
         
-        // Class Scene
-        Scene sceneData = new Scene();
-        sceneData.setName("The Earth");
+     // Class Scene
+     Scene sceneData = new Scene();
+     sceneData.setName("The Earth");
         
-        // Class Map
-        Map mapSite = new Map();
-        mapSite.setColumnSite(1);
-        mapSite.setRowSite(1);
+     // Class Map
+     Map mapSite = new Map();
+     mapSite.setColumnSite(1);
+     mapSite.setRowSite(1);
                 
-        // toString fields
-        String playerInfo1 = playerOne.toString();
-        System.out.println(playerInfo1);
+     // toString fields
+     String playerInfo1 = playerOne.toString();
+     System.out.println(playerInfo1);
         
-        String playerInfo2 = playerTwo.toString();
-        System.out.println(playerInfo2);
+     String playerInfo2 = playerTwo.toString();
+     System.out.println(playerInfo2);
         
-        System.out.println(diff.toString());
-        System.out.println(invQ.toString());
-        System.out.println(villPhD.toString());
-        System.out.println(villCar.toString());
-        System.out.println(sceneData.toString());
-        System.out.println(mapSite.toString());*/
-    }
+     System.out.println(diff.toString());
+     System.out.println(invQ.toString());
+     System.out.println(villPhD.toString());
+     System.out.println(villCar.toString());
+     System.out.println(sceneData.toString());
+     System.out.println(mapSite.toString());*/
+  }
 
-    public static Game getCurrentGame() {
-        return currentGame;
-    }
+  public static Game getCurrentGame() {
+    return currentGame;
+  }
 
-    public static void setCurrentGame(Game currentGame) {
-        DesertEscape.currentGame = currentGame;
-    }
+  public static void setCurrentGame(Game currentGame) {
+    DesertEscape.currentGame = currentGame;
+  }
 
-    public static Player getPlayer() {
-        return player;
-    }
+  public static Player getPlayer() {
+    return player;
+  }
 
-    public static void setPlayer(Player player) {
-        DesertEscape.player = player;
-    }
+  public static void setPlayer(Player player) {
+    DesertEscape.player = player;
+  }
 }
