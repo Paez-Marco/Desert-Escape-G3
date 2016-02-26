@@ -11,14 +11,14 @@ import java.util.Scanner;
  *
  * @author Paez &
  */
-public class FuelUse {
+public class FuelUseVolume {
 
     private String planetLevel;
     private double radiusTank;
     private double lenghtTank;
     private double volumeTank;
 
-    // public FuelUse(Integer CurrentFuelLevel) {
+    // public FuelUseVolume(Integer CurrentFuelLevel) {
     public void fuelUse() {
 
         //Display a banner when view is created

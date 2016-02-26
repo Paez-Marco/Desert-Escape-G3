@@ -14,7 +14,7 @@ import byui.cit260.desertEscapeGame.model.Scene;
 import byui.cit260.desertEscapeGame.model.Villain;
 import byui.cit260.desertEscapeGame.model.Map;
 import citbyui.cit260.desertEscapeGame.view.BodyMassView;
-import citbyui.cit260.desertEscapeGame.view.FuelUse;
+import citbyui.cit260.desertEscapeGame.view.FuelUseVolume;
 import citbyui.cit260.desertEscapeGame.view.GettingHelpView;
 import citbyui.cit260.desertEscapeGame.view.MainMenuView;
 import citbyui.cit260.desertEscapeGame.view.SceneView;
@@ -39,7 +39,7 @@ public class DesertEscape {
     sV.displaySceneView();
     
     // For testing
-    FuelUse f = new FuelUse();
+    FuelUseVolume f = new FuelUseVolume();
     f.fuelUse();
 
     //create BodyMassView() and display the calculation
@@ -50,7 +50,7 @@ public class DesertEscape {
 
     /*StartProgramView startProgramView = new StartProgramView();
     startProgramView.displayStartProgramView();*/
-    /*FuelUse fuelUsePlanet = new FuelUse();
+    /*FuelUseVolume fuelUsePlanet = new FuelUseVolume();
     fuelUsePlanet.fuelUse();*/
     //create MainMenuProgramView() rig and display the main menu view
     /*MainMenuView mainMenuView = new MainMenuView();
