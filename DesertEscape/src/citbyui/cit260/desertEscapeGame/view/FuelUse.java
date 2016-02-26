@@ -61,25 +61,25 @@ public class FuelUse {
 
             switch (planetLevel) {
                 case "1":
-                    System.out.println("YOU GOING TO Ar3this");
+                    System.out.println("YOU'RE GOING TO Ar3this");
                     System.out.println("REMEMBER IT: Stop and destry your stones");
                     System.out.println("YOU NEED: 100 Giga Gallons");
                     valid = true;
                     break;
                 case "2":
-                    System.out.println("YOU GOING TO BrOnChTis");
+                    System.out.println("YOU'RE GOING TO BrOnChTis");
                     System.out.println("REMEMBER IT: Infection contagion expander");
                     System.out.println("YOU NEED: 500 Giga Gallons");
                     valid = true;
                     break;
                 case "3":
-                    System.out.println("YOU GOING TO CrampMusc");
+                    System.out.println("YOU'RE GOING TO CrampMusc");
                     System.out.println("REMEMBER IT: Muscle Cramp in all body");
                     System.out.println("YOU NEED: 1000 Giga Gallons");
                     valid = true;
                     break;
                 case "4":
-                    System.out.println("YOU GOING TO DermTiTis");
+                    System.out.println("YOU'RE GOING TO DermTiTis");
                     System.out.println("REMEMBER IT: Skin destroy without return");
                     System.out.println("YOU NEED: 2000 Giga Gallons");
                     valid = true;
