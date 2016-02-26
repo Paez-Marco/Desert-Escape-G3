@@ -13,12 +13,35 @@ import java.util.Scanner;
  */
 public class BodyMassView {
 
+
     private String message1 = "";
     private String message2 = "";
+    private String promptMessage="";
 
     public BodyMassView() {
         this.message1 = "\nEnter weight value here";
         this.message2 = "\nEnter height value here";
+        
+        this.promptMessage =
+                "\n*************************************************************"
+                + "\n*                                                         *"
+                + "\n* Welcome! to:*                                           *"
+                + "\n*              *** BUILD TIME MACHINE***                  *"
+                + "\n* For this mission, you will be required                  *"
+                + "\n* to build a time machine. You will be requiered          *"
+                + "\n* to enter both your weight and height                    *"
+                + "\n* The system calculates the BMI (Body Mass Index          *"
+                + "\n* of the character based on weight (inches) and height    *" 
+                + "\n* If the You have those items in the                      *" 
+                + "\n* inventory, then the game is won. If not, then a message *"
+                + "\n* will be displayed prompting you to search for more items*" 
+                + "\n* to build either a stronger or weaker time machine.      *"
+                + "\n*                  **GOOD LUCK**                          *"
+                + "\n*                                                         *"
+                + "\n*                                                         *"
+                + "\n**********************************************************";
+    
+    System.out.println(this.promptMessage);
     }
 
     public void displayBodyMassView() {
@@ -30,6 +53,9 @@ public class BodyMassView {
             
             // do the requested action and display the next view
             //done = this.doAction(bodyMass);
+
+
+
 
        // } while (!done);
     }
@@ -66,22 +92,21 @@ public class BodyMassView {
         return mass; // return value entered
     }
 
-   /* private boolean doAction(double bodyMass) {
-        Scanner keyboard = new Scanner(System.in);
-        double weight = keyboard.nextDouble();
-        double height = keyboard.nextDouble();
-        double mass;
+  private boolean doAction(double bodyMass) {
+    Scanner keyboard = new Scanner(System.in);
+    double weight = keyboard.nextDouble();
+    double height = keyboard.nextDouble();
+    double mass;
 
-        if (weight <= 0 || height <= 0) {
-            System.out.println("\nInvalid: weight and height cannot be less than 0");
-        } else if (weight > 140 || height > 63) {
-            System.out.println("\nInvalid: Values to high; weight must be less than 140 and height less than 63." + "\n Please try again");
-        } else {
-            mass = (weight / Math.pow(height, 2)) * 703;
-            System.out.println("\n Body Mass Index is:" + getBodyMass());}
-
-            return true;
-        }*/
+    if (weight <= 0 || height <= 0) {
+      System.out.println("\nInvalid: weight and height cannot be less than 0");
+    } else if (weight > 140 || height > 63) {
+      System.out.println("\nInvalid: Values to high; weight must be less than 140 and height less than 63." + "\n Please try again");
+    } else {
+      mass = (weight / Math.pow(height, 2)) * 703;
+      System.out.println("\n Body Mass Index is:" + mass);
     }
-
+    return true;
+  }
+}
 

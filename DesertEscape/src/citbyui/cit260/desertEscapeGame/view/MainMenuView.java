@@ -34,13 +34,14 @@ public class MainMenuView {
                 + "\nG - Go to Scenes"
                 + "\nQ - Quit"
                 + "\n--------------------------------";
-        System.out.println(this.menu);
+        
     }
 
     public void displayMainMenuView() {
 
         boolean done = false; // set flag to not done
         do {
+            System.out.println(this.menu);
             // prompt for and get players name
             String menuOption = this.getMenuOption();
             if (menuOption.toUpperCase().equals("Q")) // user wants to quit
@@ -106,11 +107,20 @@ public class MainMenuView {
     private void startNewGame() {
 
         // create a new game
-        GameControl.createNewGame(DesertEscape.getPlayer());
+       // GameControl.createNewGame(DesertEscape.getPlayer());
 
         //display the new game
-        GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu();
+       // GameMenuView gameMenu = new GameMenuView();
+        //gameMenu.displayMenu();
+        
+        FuelUseVolume f = new FuelUseVolume();
+         f.fuelUse();
+
+
+         //create BodyMassView() and display the calculation
+        BodyMassView bMV = new BodyMassView();
+        bMV.displayBodyMassView();
+        
     }
 
     private void resumeGame() {

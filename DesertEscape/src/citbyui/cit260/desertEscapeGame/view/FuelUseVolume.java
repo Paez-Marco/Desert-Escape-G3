@@ -11,15 +11,14 @@ import java.util.Scanner;
  *
  * @author Paez &
  */
-public class FuelUse {
+public class FuelUseVolume {
 
     private String planetLevel;
     private double radiusTank;
     private double lenghtTank;
     private double volumeTank;
-        
-    
-    // public FuelUse(Integer CurrentFuelLevel) {
+
+    // public FuelUseVolume(Integer CurrentFuelLevel) {
     public void fuelUse() {
 
         //Display a banner when view is created
@@ -61,25 +60,25 @@ public class FuelUse {
 
             switch (planetLevel) {
                 case "1":
-                    System.out.println("YOU'RE GOING TO Ar3this");
+                    System.out.println("YOU GOING TO Ar3this");
                     System.out.println("REMEMBER IT: Stop and destry your stones");
                     System.out.println("YOU NEED: 100 Giga Gallons");
                     valid = true;
                     break;
                 case "2":
-                    System.out.println("YOU'RE GOING TO BrOnChTis");
+                    System.out.println("YOU GOING TO BrOnChTis");
                     System.out.println("REMEMBER IT: Infection contagion expander");
                     System.out.println("YOU NEED: 500 Giga Gallons");
                     valid = true;
                     break;
                 case "3":
-                    System.out.println("YOU'RE GOING TO CrampMusc");
+                    System.out.println("YOU GOING TO CrampMusc");
                     System.out.println("REMEMBER IT: Muscle Cramp in all body");
                     System.out.println("YOU NEED: 1000 Giga Gallons");
                     valid = true;
                     break;
                 case "4":
-                    System.out.println("YOU'RE GOING TO DermTiTis");
+                    System.out.println("YOU GOING TO DermTiTis");
                     System.out.println("REMEMBER IT: Skin destroy without return");
                     System.out.println("YOU NEED: 2000 Giga Gallons");
                     valid = true;
@@ -117,7 +116,7 @@ public class FuelUse {
 
         while (!valid) {
             selection = keyboard.nextDouble();
-            
+
             if (selection < 10) {
                 System.out.println("\n*** Value less than 10, try again ***");
                 continue;
@@ -127,45 +126,59 @@ public class FuelUse {
         return selection;
     }
 
-    
     private void doAction() {
 
-        System.out.println("Lenght of Tank (in meters)");
-        radiusTank = this.getValueInput();
+        boolean valid = false;
 
-        System.out.println("Wide of Tank (in meters)");
-        lenghtTank = this.getValueInput();
+        while (!valid) {
+            System.out.println("Lenght of Tank (in meters)");
+            radiusTank = this.getValueInput();
 
-        System.out.println("Volume of Tank (in Giga Gallons)");
-        volumeTank = Math.PI * Math.pow(radiusTank, 2) * lenghtTank;
-        System.out.println(volumeTank);
-        
-        switch(planetLevel) {
-            case "1": 
-                if (volumeTank < 100) {
-                    System.out.println("You need 100 gallons at least");
-                }
-                break;
-            case "2": 
-                if (volumeTank < 500) {
-                    System.out.println("You need 500 gallons at least");
-                }
-                break;
-            case "3": 
-                if (volumeTank < 1000) {
-                    System.out.println("You need 1000 gallons at least");
-                }
-                break;
-            case "4": 
-                if (volumeTank < 2000) {
-                    System.out.println("You need 2000 gallons at least");
-                }
-                break;
-            default:
-                System.out.println("GOOD TRAVEL!!!");
+            System.out.println("Wide of Tank (in meters)");
+            lenghtTank = this.getValueInput();
+
+            System.out.println("Volume of Tank (in Giga Gallons)");
+            volumeTank = Math.PI * Math.pow(radiusTank, 2) * lenghtTank;
+            System.out.println(volumeTank);
+
+            switch (planetLevel) {
+                case "1":
+                    if (volumeTank < 100) {
+                        System.out.println("You need 100 gallons at least");
+                    } else {
+                        valid = true;
+                        System.out.println("GOOD TRAVEL!!!");
+                    }
+                    break;
+                case "2":
+                    if (volumeTank < 500) {
+                        System.out.println("You need 500 gallons at least");
+                    } else {
+                        valid = true;
+                        System.out.println("GOOD TRAVEL!!!");
+                    }
+                    break;
+                case "3":
+                    if (volumeTank < 1000) {
+                        System.out.println("You need 1000 gallons at least");
+                    } else {
+                        valid = true;
+                        System.out.println("GOOD TRAVEL!!!");
+                    }
+                    break;
+                case "4":
+                    if (volumeTank < 2000) {
+                        System.out.println("You need 2000 gallons at least");
+                    } else {
+                        valid = true;
+                        System.out.println("GOOD TRAVEL!!!");
+                    }
+                    break;
+                default:
+                    valid = true;
+                    System.out.println("GOOD TRAVEL!!!");
+            }
         }
-        
-        // return;
     }
 
 }

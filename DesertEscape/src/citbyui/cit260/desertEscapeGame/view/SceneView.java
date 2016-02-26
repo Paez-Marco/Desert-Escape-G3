@@ -42,13 +42,14 @@ public class SceneView {
                 + "\n*****************************************************************";
                  
                
-        System.out.println(this.scene);
+        
     }
       
       public void displaySceneView() {
 
         boolean done = false; // set flag to not done
         do {
+            System.out.println(this.scene);
             // prompt for and get players name
             String sceneMenu = this.getSceneMenu();
             if (sceneMenu.toUpperCase().equals("Q")) // user wants to quit

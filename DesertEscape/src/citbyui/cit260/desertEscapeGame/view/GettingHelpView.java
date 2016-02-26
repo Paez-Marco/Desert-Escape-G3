@@ -33,13 +33,14 @@ public class GettingHelpView {
                 + "\nS - Stocked resources"
                 + "\nQ - Return back"
                 + "\n--------------------------------------";
-        System.out.println(this.help);
+        
     }
 
     public void displayGettingHelpView() {
 
         boolean done = false; // set flag to not done
         do {
+            System.out.println(this.help);
             // prompt for and get players name
             String helpOption = this.getHelpOption();
             if (helpOption.toUpperCase().equals("Q")) // user wants to go back
