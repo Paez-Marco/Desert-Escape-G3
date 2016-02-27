@@ -29,6 +29,7 @@ public class SceneView {
                 + "\n*                                                               *"
                 + "\n*                                                               *"
                 + "\n*                           PLANET SCENE MENU                   *"
+                + "\n*                                                               *"
                 + "\n*D                            Desert Scene                      *"
                 + "\n*P                            Pyramid Scene                     *"
                 + "\n*C                            Caves Scene                       *"
