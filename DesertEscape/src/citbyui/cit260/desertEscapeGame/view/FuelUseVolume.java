@@ -31,19 +31,19 @@ public class FuelUseVolume {
         System.out.println(
                 "\n*****************************************************************"
                 + "\n*                                                               *"
-                + "\n*    XXX  X    XXXX  X  X XXXX XXXXX  XXX        XX-XXXX        *"
-                + "\n*    X  X X    X  X  X  X X      X   X          XXXXX-XXX       *"
-                + "\n*    XXX  X    XXXX  XX X XXX    X    XX       XX-XXXXXXXX      *"
-                + "\n*    X    X    X  X  X XX X      X      X       XXX-XXXXX       *"
-                + "\n*    X    XXXX X  X  X  X XXXX   X   XXX         XXXX-XX        *"
+                + "\n*    XXX  X    XXXX  X  X XXXX XXXXX  XXX        XX=XX0X        *"
+                + "\n*    X  X X    X  X  X  X X      X   X          XX-XX=XXX       *"
+                + "\n*    XXX  X    XXXX  XX X XXX    X    XX       XX=XX-XX0XX      *"
+                + "\n*    X    X    X  X  X XX X      X      X       XXX=XX-XX       *"
+                + "\n*    X    XXXX X  X  X  X XXXX   X   XXX         X-XX=XX        *"
                 + "\n*                                                               *"
-                + "\n* Your Star Fighter requires the following fuel volumes:       *"
+                + "\n* Your Star Fighter requires the following fuel volumes:        *"
                 + "\n*                                                               *"
-                + "\n* PLANET            DESCRIPTION                 VOLUME   LEVEL  *"
-                + "\n* Ar3this     Stop and destry your stones       100 Gal    1    *"
-                + "\n* BrOnChTis   Infection contagion expander      500 Gal    2    *"
-                + "\n* CrampMusc   Muscle Cramp in all body         1000 Gal    3    *"
-                + "\n* DermTiTis   Skin destroy without return      2000 Gal    4    *"
+                + "\n* LEVEL    PLANET           DESCRIPTION               VOLUME    *"
+                + "\n*   1     Ar3this     Stop and destry your stones     100 Gal   *"
+                + "\n*   2     BrOnChTis   Infection contagion expander    500 Gal   *"
+                + "\n*   3     CrampMusc   Muscle Cramp in all body       1000 Gal   *"
+                + "\n*   4     DermTiTis   Skin destroy without return    2000 Gal   *"
                 + "\n*                                                               *"
                 + "\n* Each destroyed planet gives you 10 times their GGal required  *"
                 + "\n* and you win 100GGal in each war win.                          *"
@@ -86,9 +86,7 @@ public class FuelUseVolume {
                 default:
                     System.out.println("Invalid level selection");
             }
-
         }
-
     }
 
     private String getInput() {
@@ -131,13 +129,13 @@ public class FuelUseVolume {
         boolean valid = false;
 
         while (!valid) {
-            System.out.println("Lenght of Tank (in meters)");
+            System.out.println("\nLenght of Tank (in meters and more than 10)");
             radiusTank = this.getValueInput();
 
-            System.out.println("Wide of Tank (in meters)");
+            System.out.println("Wide of Tank (in meters and more than 10)");
             lenghtTank = this.getValueInput();
 
-            System.out.println("Volume of Tank (in Giga Gallons)");
+            System.out.println("The Volume of Tank is ");
             volumeTank = Math.PI * Math.pow(radiusTank, 2) * lenghtTank;
             System.out.println(volumeTank);
 
@@ -180,5 +178,4 @@ public class FuelUseVolume {
             }
         }
     }
-
 }

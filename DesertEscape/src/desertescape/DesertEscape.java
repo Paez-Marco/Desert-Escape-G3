@@ -32,48 +32,10 @@ public class DesertEscape {
   private static Game currentGame = null;
   private static Player player = null;
 
+  public static void main(String[] args) {
 
-    public static void main(String[] args) {
-        
-     //create BodyMassView() and display the calculation
-    /* BodyMassView bodyMassView = new BodyMassView();
-     bodyMassView.displayBodyMassView();*/
-        
-        //create SceneView()rig and display the scene view
-        /*SceneView sceneView = new SceneView();
-        sceneView.displaySceneView();*/
-        
-        //create StartProgramView()rig and display the start program view
-
-        /*StartProgramView startProgramView = new StartProgramView();
-        startProgramView.displayStartProgramView();*/
-        
-
-        //create SceneView()rig and display the scene view
-    /*SceneView sV = new SceneView();
-    sV.displaySceneView();*/
-    
-    // For testing
-    
-    
-    //create StartProgramView()rig and display the start program view
-
-    /*StartProgramView startProgramView = new StartProgramView();
-    startProgramView.displayStartProgramView();*/
-    /*FuelUseVolume fuelUsePlanet = new FuelUseVolume();
-    fuelUsePlanet.fuelUse();*/
-    
-//create MainMenuProgramView() rig and display the main menu view
-    MainMenuView mainMenuView = new MainMenuView();
-    mainMenuView.displayMainMenuView();
-        
-    //create GettingHelpView() rig and display the Getting help view
-    /* GettingHelpView gettingHelpView = new GettingHelpView();
-    gettingHelpView.displayGettingHelpView();
-        
-          
      // Class instance variable Player 
-     /*Player playerOne = new Player();
+     Player playerOne = new Player();
      playerOne.setPlayerName("Gilles");
      playerOne.setPlayerTime(5);
         
@@ -85,6 +47,35 @@ public class DesertEscape {
      Difficulty diff = new Difficulty();
      diff.setName("BEGINNER");
      diff.setDescription("Starting level");
+        
+    //create MainMenuProgramView() rig and display the main menu view
+    MainMenuView mainMenuView = new MainMenuView();
+    mainMenuView.displayMainMenuView();
+
+    //create BodyMassView() and display the calculation
+     /* BodyMassView bodyMassView = new BodyMassView();
+     bodyMassView.displayBodyMassView();*/
+        //create SceneView()rig and display the scene view
+        /*SceneView sceneView = new SceneView();
+     sceneView.displaySceneView();*/
+        //create StartProgramView()rig and display the start program view
+
+    /*StartProgramView startProgramView = new StartProgramView();
+     startProgramView.displayStartProgramView();*/
+        //create SceneView()rig and display the scene view
+    /*SceneView sV = new SceneView();
+     sV.displaySceneView();*/
+    // For testing
+    //create StartProgramView()rig and display the start program view
+
+    /*StartProgramView startProgramView = new StartProgramView();
+     startProgramView.displayStartProgramView();*/
+    /*FuelUseVolume fuelUsePlanet = new FuelUseVolume();
+     fuelUsePlanet.fuelUse();*/
+    
+         //create GettingHelpView() rig and display the Getting help view
+    /* GettingHelpView gettingHelpView = new GettingHelpView();
+     gettingHelpView.displayGettingHelpView();
         
      // Class Inventory
      Inventory invQ = new Inventory();
