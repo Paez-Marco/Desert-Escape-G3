@@ -49,6 +49,37 @@ public class DesertEscape {
      diff.setDescription("Starting level");
         
     //create MainMenuProgramView() rig and display the main menu view
+    MainMenuView mainMenuView = new MainMenuView();
+    mainMenuView.display();
+
+    //create BodyMassView() and display the calculation
+     /* BodyMassView bodyMassView = new BodyMassView();
+     bodyMassView.displayBodyMassView();*/
+        
+//create SceneView()rig and display the scene view
+       /* SceneView sceneView = new SceneView();
+     sceneView.displaySceneView();*/
+        
+//create StartProgramView()rig and display the start program view
+    StartProgramView startProgramView = new StartProgramView();
+     startProgramView.display();
+     
+        //create SceneView()rig and display the scene view
+    /*SceneView sV = new SceneView();
+     sV.displaySceneView();*/
+    // For testing
+    //create StartProgramView()rig and display the start program view
+
+    /*StartProgramView startProgramView = new StartProgramView();
+     startProgramView.displayStartProgramView();*/
+    /*FuelUseVolume fuelUsePlanet = new FuelUseVolume();
+     fuelUsePlanet.fuelUse();*/
+    
+         //create GettingHelpView() rig and display the Getting help view
+    /* GettingHelpView gettingHelpView = new GettingHelpView();
+     gettingHelpView.displayGettingHelpView();
+        
+    //create MainMenuProgramView() rig and display the main menu view
     /*MainMenuView mainMenuView = new MainMenuView();
     mainMenuView.displayMainMenuView();*/
 
@@ -75,7 +106,7 @@ public class DesertEscape {
     
          //create GettingHelpView() rig and display the Getting help view
     GettingHelpView gettingHelpView = new GettingHelpView();
-     gettingHelpView.displayGettingHelpView();
+     gettingHelpView.display();
         
      // Class Inventory
      /*Inventory invQ = new Inventory();

@@ -5,23 +5,23 @@
  */
 package citbyui.cit260.desertEscapeGame.view;
 
+import citbyui.cit260.desertEscapeGame.view.ViewInterface.View;
 import java.util.Scanner;
 
 /**
  *
  * @author mambou
  */
-public class GettingHelpView {
+public class GettingHelpView extends View {
 
-  private String promptMessage;
+  private String displayHelp;
   private String help;
 
   public GettingHelpView() {
 
-    //promptMessage = "Please enter to view help "       
-    this.promptMessage = "\nGet some help here";
+    //promptMessage = "Please enter to view help "
 
-    this.help = "\n"
+    super("\n"
             + "\n  ======================================"
             + "\n             GETTING HELP"
             + "\n  ======================================"
@@ -30,52 +30,16 @@ public class GettingHelpView {
             + "\n  E - Estimating the amount of resources"
             + "\n  S - Stocked resources"
             + "\n  Q - Return back"
-            + "\n  ======================================";
+            + "\n  ======================================");
 
   }
 
-  public void displayGettingHelpView() {
+  
+  @Override
+  public boolean doAction(String value) {
 
-    boolean done; // set flag to not done
-    do {
-      System.out.println(this.help);
-      // prompt for and get players name
-      String helpOption = this.getHelpOption();
-      if (helpOption.toUpperCase().equals("Q")) // user wants to go back
-      {
-        return; // exit the game
-      }
-      // do the requested action and display the next view
-      done = this.doAction(helpOption);
-
-    } while (!done);
-  }
-
-  private String getHelpOption() {
-
-    Scanner keyboard = new Scanner(System.in); //get infile for keyboard
-    String value = ""; //value to be returned
-    boolean valid = false; //initialize to not valid
-
-    while (!valid) { //loop while an invalid is entered
-      System.out.println("\n" + this.promptMessage);
-
-      value = keyboard.nextLine();// get next line typed on keyboard
-      value = value.trim();// trim of leading and trailing blanks
-
-      if (value.length() < 1) { // value is blank
-        System.out.println("\nInvalid value: value cannot be blank");
-        continue;
-      }
-      break; // end loop
-    }
-    return value; // return value entered
-  }
-
-  private boolean doAction(String helpOption) {
-
-    helpOption = helpOption.toUpperCase(); // Convert helpOption to uppercase
-    switch (helpOption) {
+    value = value.toUpperCase(); // Convert helpOption to uppercase
+    switch (value) {
       case "G": // Goal of the game
         this.goalGame();
         break;

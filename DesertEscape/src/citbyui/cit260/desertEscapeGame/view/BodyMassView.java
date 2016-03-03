@@ -49,14 +49,14 @@ public class BodyMassView {
     boolean done = false; // set flag to not done
     //do {
     // prompt for and get players input
-    double bodyMass = getBodyMass();
+    double bodyMass = getInputBodyMass();
 
     // do the requested action and display the next view
     //done = this.doAction(bodyMass);
     // } while (!done);
   }
 
-  private double getBodyMass() {
+  private double getInputBodyMass() {
     Scanner keyboard = new Scanner(System.in); //get infile for keyboard
     double weight, height;
     double mass = 25;

@@ -7,27 +7,22 @@ package citbyui.cit260.desertEscapeGame.view;
 
 import byui.cit260.desertEscapeGame.control.GameControl;
 import byui.cit260.desertEscapeGame.model.Player;
+import citbyui.cit260.desertEscapeGame.view.ViewInterface.View;
 import java.util.Scanner;
 
 /**
  *
  * @author mambou
  */
-public class StartProgramView {
+public class StartProgramView extends View {
 
-    private String promptMessage;
+    private String displayPromptMessage;
 
     public StartProgramView() {
-        //promptMessage = "Please enter your name"       
-        this.promptMessage = "\nPlease enter your name";
+          
+       // this.displayPromptMessage = "\nPlease enter your name";
 
-        //Display a banner when view is created
-        this.displayBanner();
-    }
-
-    private void displayBanner() {
-        System.out.println(
-                "\n*****************************************************************"
+            super("\n*****************************************************************"
                 + "\n*                                                               *"
                 + "\n*    T H E <<<<< = = = = = = = = = =                            *"
                 + "\n*                                                 ///\\\\\\        *"
@@ -61,53 +56,18 @@ public class StartProgramView {
                 + "\n*****************************************************************"
         );
     }
+    
+    @Override
+    public boolean doAction(String value) {
 
-    public void displayStartProgramView() {
-        boolean done = false; //set flag to not done
-        do {
-            //prompt for and get player name
-            String playerName = this.getPlayeName();
-            if (playerName.toUpperCase().equals("Q"))// user wants to quit
-            {
-                return; // exit the game
-            }
-            //do the requested action and  display the next view
-            done = this.doAction(playerName);
-
-        } while (!done);
-    }
-
-    private String getPlayeName() {
-
-        Scanner keyboard = new Scanner(System.in); //get infile for keyboard
-        String value = ""; //value to be returned
-        boolean valid = false; //initialize to not valid
-
-        while (!valid) { //loop while an invalid is entered
-            System.out.println("\n" + this.promptMessage);
-
-            value = keyboard.nextLine();// get next line typed on keyboard
-            value = value.trim();// trim of leading and trailing blanks
-
-            if (value.length() < 1) { // value is blank
-                System.out.println("\nInvalid value: value cannot be blank");
-                continue;
-            }
-            break; // end loop
-        }
-        return value; // return value entered
-    }
-
-    private boolean doAction(String playerName) {
-
-        if (playerName.length() < 2) {
+        if (value.length() < 2) {
             System.out.println("\nInvalid player name: "
                     + "The name must be greater than one character in length");
             return false;
         }
 
         //call createPlayer() control function
-        Player player = GameControl.createPlayer(playerName);
+        Player player = GameControl.createPlayer(value);
 
         if (player == null) { // if unsuccesful
             System.out.println("\nError creating the player.");
@@ -130,12 +90,12 @@ public class StartProgramView {
         MainMenuView mainMenuView = new MainMenuView();
 
         // Display the main menu view
-        mainMenuView.displayMainMenuView();
+        mainMenuView.display();
 
         // Create GettingHelpView object
         GettingHelpView gettingHelpView = new GettingHelpView();
 
         // display the getting help view
-        gettingHelpView.displayGettingHelpView();
+        gettingHelpView.display();
     }
 }

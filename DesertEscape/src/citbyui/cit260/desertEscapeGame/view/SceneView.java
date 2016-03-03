@@ -5,21 +5,22 @@
  */
 package citbyui.cit260.desertEscapeGame.view;
 
+import citbyui.cit260.desertEscapeGame.view.ViewInterface.View;
 import java.util.Scanner;
 
 /**
  *
  * @author mambou
  */
-public class SceneView {
+public class SceneView extends View {
 
   private String message = "";
-  private String scene = "";
+  private String displayScene = "";
 
   public SceneView() {
 
-    this.message = "\nPlease enter a desired scene";
-    this.scene = "\n****************************************************************"
+    
+    super( "\n****************************************************************"
             + "\n*                                                              *"
             + "\n*    XXX  X    XXXX  X  X XXXX XXXXX  XXX        XX-XXXX       *"
             + "\n*    X  X X    X  X  X  X X      X   X          XXXXX-XXX      *"
@@ -36,50 +37,15 @@ public class SceneView {
             + "\n*            (M)             Moutains Scene                    *"
             + "\n*            (Q)                   Quit                        *"
             + "\n*                                                              *"
-            + "\n****************************************************************";
+            + "\n****************************************************************");
   }
+  
+  @Override
+  public boolean doAction(String value) {
+      System.out.println("\n Choose your Scene");
+    value = value.toUpperCase(); // Convert menuOpton to uppercase
 
-  public void displaySceneView() {
-
-    boolean done = false; // set flag to not done
-    do {
-      System.out.println(this.scene);
-      // prompt for and get players name
-      String sceneMenu = this.getSceneMenu();
-      if (sceneMenu.toUpperCase().equals("Q")) // user wants to quit
-      {
-        return; // exit the game
-      }
-      // do the requested action and display the next view
-      done = this.doAction(sceneMenu);
-
-    } while (!done);
-  }
-
-  private String getSceneMenu() {
-    Scanner keyboard = new Scanner(System.in); //get infile for keyboard
-    String value = ""; //value to be returned
-    boolean valid = false; //initialize to not valid
-
-    while (!valid) { //loop while an invalid is entered
-      System.out.println("\n" + this.message);
-
-      value = keyboard.nextLine();// get next line typed on keyboard
-      value = value.trim();// trim of leading and trailing blanks
-
-      if (value.length() < 1) { // value is blank
-        System.out.println("\nInvalid value: value cannot be blank");
-        continue;
-      }
-      break; // end loop
-    }
-    return value; // return value entered
-  }
-
-  private boolean doAction(String sceneMenu) {
-    sceneMenu = sceneMenu.toUpperCase(); // Convert menuOpton to uppercase
-
-    switch (sceneMenu) {
+    switch (value) {
       case "A": // start Alien Camp  Scene
         this.alienCampScene();
         break;
@@ -131,3 +97,4 @@ public class SceneView {
     System.out.println("\n*** pyramidScene() function called ***");
   }
 }
+
