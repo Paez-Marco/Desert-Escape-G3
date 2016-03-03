@@ -23,7 +23,6 @@ public class StartProgramView {
 
         //Display a banner when view is created
         this.displayBanner();
-
     }
 
     private void displayBanner() {
@@ -76,7 +75,6 @@ public class StartProgramView {
             done = this.doAction(playerName);
 
         } while (!done);
-
     }
 
     private String getPlayeName() {
@@ -140,5 +138,4 @@ public class StartProgramView {
         // display the getting help view
         gettingHelpView.displayGettingHelpView();
     }
-
 }
