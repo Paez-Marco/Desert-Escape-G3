@@ -87,5 +87,5 @@ public interface ViewInterface {
            return false;
        }
        
-        }
+        } 
    } 

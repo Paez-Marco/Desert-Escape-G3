@@ -48,6 +48,10 @@ public class DesertEscape {
      diff.setName("BEGINNER");
      diff.setDescription("Starting level");
         
+     //create StartProgramView()rig and display the start program view
+    StartProgramView startProgramView = new StartProgramView();
+     startProgramView.display();
+     
     //create MainMenuProgramView() rig and display the main menu view
     MainMenuView mainMenuView = new MainMenuView();
     mainMenuView.display();
@@ -59,10 +63,6 @@ public class DesertEscape {
 //create SceneView()rig and display the scene view
        /* SceneView sceneView = new SceneView();
      sceneView.displaySceneView();*/
-        
-//create StartProgramView()rig and display the start program view
-    StartProgramView startProgramView = new StartProgramView();
-     startProgramView.display();
      
         //create SceneView()rig and display the scene view
     /*SceneView sV = new SceneView();

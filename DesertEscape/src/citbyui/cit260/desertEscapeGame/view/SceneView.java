@@ -37,6 +37,7 @@ public class SceneView extends View {
             + "\n*            (M)             Moutains Scene                    *"
             + "\n*            (Q)                   Quit                        *"
             + "\n*                                                              *"
+            + "\n*             Enter Your Selection Here Below                  *"
             + "\n****************************************************************");
   }
   

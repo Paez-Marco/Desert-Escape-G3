@@ -34,6 +34,9 @@ public class MainMenuView extends View {
                 + "\n  S - Save Game"
                 + "\n  G - Go to Scenes"
                 + "\n  Q - Quit"
+                + "\n"
+                + "\n  Please Ente Your Menu Selection Below"
+                + "\n  "
                 + "\n----------------------------");
     }
     

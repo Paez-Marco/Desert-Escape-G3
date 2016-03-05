@@ -51,10 +51,11 @@ public class StartProgramView extends View {
                 + "\n* Find the resources needed to build the time machine and       *"
                 + "\n* save the earth.                                               *"
                 + "\n*                                                               *"
-                + "\n* Good luck and enjoy the adventure                             *"
+                + "\n*            Good luck and enjoy the adventure                  *"
                 + "\n*                                                               *"
-                + "\n*****************************************************************"
-        );
+                + "\n*     Please Enter Your Name Here Below (eg: Shawn or shawn)    *"   
+                + "\n*                                                               *"    
+                + "\n*****************************************************************");
     }
     
     @Override
@@ -81,7 +82,7 @@ public class StartProgramView extends View {
 
     private void displayNextView(Player player) {
         System.out.println("\n================================================"
-                + "\n Welcome to Desert Escape " + player.getPlayerName()
+                + "\n Welcome to Desert Escape *** " + player.getPlayerName() + " ***"
                 + "\n We hope that you have a lot of fun!"
                 + "\n=================================================="
         );

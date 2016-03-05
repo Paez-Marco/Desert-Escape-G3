@@ -30,6 +30,8 @@ public class GettingHelpView extends View {
             + "\n  E - Estimating the amount of resources"
             + "\n  S - Stocked resources"
             + "\n  Q - Return back"
+            + "\n"
+            + "\n  Enter Your Selection Below"
             + "\n  ======================================");
 
   }

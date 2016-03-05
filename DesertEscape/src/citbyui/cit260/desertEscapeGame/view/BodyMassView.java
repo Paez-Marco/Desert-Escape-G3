@@ -13,13 +13,13 @@ import java.util.Scanner;
  */
 public class BodyMassView {
 
-  private String message1 = "";
-  private String message2 = "";
+  private String displayMessage1 = "";
+  private String displayMessage2 = "";
   private String promptMessage = "";
 
   public BodyMassView() {
-    this.message1 = "Enter weight value here";
-    this.message2 = "Enter height value here";
+    this.displayMessage1 = "Enter weight value here";
+    this.displayMessage2 = "Enter height value here";
 
     this.promptMessage
             = "\n***********************************************************"
@@ -49,14 +49,14 @@ public class BodyMassView {
     boolean done = false; // set flag to not done
     //do {
     // prompt for and get players input
-    double bodyMass = getInputBodyMass();
+    double bodyMass = getInput();
 
     // do the requested action and display the next view
     //done = this.doAction(bodyMass);
     // } while (!done);
   }
 
-  private double getInputBodyMass() {
+  private double getInput() {
     Scanner keyboard = new Scanner(System.in); //get infile for keyboard
     double weight, height;
     double mass = 25;
@@ -64,10 +64,10 @@ public class BodyMassView {
     boolean valid = false; //initialize to not valid
 
     while (!valid) { //loop while an invalid is entered
-      System.out.println("\n" + this.message1);
+      System.out.println("\n" + this.displayMessage1);
       weight = keyboard.nextDouble();// get next line typed on keyboard
 
-      System.out.println("\n" + this.message2);
+      System.out.println("\n" + this.displayMessage2);
       height = keyboard.nextDouble();// get next line typed on keyboard
 
       if (weight <= 0 || height <= 0) {
