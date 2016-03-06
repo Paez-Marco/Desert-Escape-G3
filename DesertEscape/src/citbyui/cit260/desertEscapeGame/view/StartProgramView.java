@@ -19,10 +19,9 @@ public class StartProgramView extends View {
     private String displayPromptMessage;
 
     public StartProgramView() {
-          
-       // this.displayPromptMessage = "\nPlease enter your name";
 
-            super("\n*****************************************************************"
+        // this.displayPromptMessage = "\nPlease enter your name";
+        super("\n*****************************************************************"
                 + "\n*                                                               *"
                 + "\n*    T H E <<<<< = = = = = = = = = =                            *"
                 + "\n*                                                 ///\\\\\\        *"
@@ -53,11 +52,11 @@ public class StartProgramView extends View {
                 + "\n*                                                               *"
                 + "\n*            Good luck and enjoy the adventure                  *"
                 + "\n*                                                               *"
-                + "\n*     Please Enter Your Name Here Below (eg: Shawn or shawn)    *"   
-                + "\n*                                                               *"    
+                + "\n*     Please Enter Your Name Here Below (eg: Shawn or shawn)    *"
+                + "\n*                                                               *"
                 + "\n*****************************************************************");
     }
-    
+
     @Override
     public boolean doAction(String value) {
 
@@ -89,13 +88,10 @@ public class StartProgramView extends View {
 
         // Create MainNenuView object
         //MainMenuView mainMenuView = new MainMenuView();
-
         // Display the main menu view
         //mainMenuView.display();
-
         // Create GettingHelpView object
         // GettingHelpView gettingHelpView = new GettingHelpView();
-
         // display the getting help view
         // gettingHelpView.display();
     }
