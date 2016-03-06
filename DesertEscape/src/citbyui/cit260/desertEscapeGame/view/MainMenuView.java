@@ -21,9 +21,8 @@ public class MainMenuView extends View {
 
     public MainMenuView() {
 
-         // displayPromptMessage = "Please enter any menu option ";       
+        // displayPromptMessage = "Please enter any menu option ";       
         //this.displayMessage = "\nPlease enter menu option";
-
         super("\n"
                 + "\n----------------------------"
                 + "\n         MAIN MENU"
@@ -39,7 +38,7 @@ public class MainMenuView extends View {
                 + "\n  "
                 + "\n----------------------------");
     }
-    
+
     @Override
     public boolean doAction(String value) {
         value = value.toUpperCase(); // Convert menuOpton to uppercase

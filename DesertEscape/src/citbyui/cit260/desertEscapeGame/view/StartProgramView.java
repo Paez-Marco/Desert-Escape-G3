@@ -88,15 +88,15 @@ public class StartProgramView extends View {
         );
 
         // Create MainNenuView object
-        MainMenuView mainMenuView = new MainMenuView();
+        //MainMenuView mainMenuView = new MainMenuView();
 
         // Display the main menu view
-        mainMenuView.display();
+        //mainMenuView.display();
 
         // Create GettingHelpView object
-        GettingHelpView gettingHelpView = new GettingHelpView();
+        // GettingHelpView gettingHelpView = new GettingHelpView();
 
         // display the getting help view
-        gettingHelpView.display();
+        // gettingHelpView.display();
     }
 }
