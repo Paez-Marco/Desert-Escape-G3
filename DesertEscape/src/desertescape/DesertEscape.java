@@ -8,7 +8,6 @@ package desertescape;
 import byui.cit260.desertEscapeGame.model.Difficulty;
 import byui.cit260.desertEscapeGame.model.Game;
 import byui.cit260.desertEscapeGame.model.Player;
-import citbyui.cit260.desertEscapeGame.view.GettingHelpView;
 import citbyui.cit260.desertEscapeGame.view.MainMenuView;
 import citbyui.cit260.desertEscapeGame.view.StartProgramView;
 

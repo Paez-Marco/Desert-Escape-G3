@@ -5,6 +5,7 @@
  */
 package citbyui.cit260.desertEscapeGame.view;
 
+import byui.cit260.desertEscapeGame.control.GameControl;
 import java.util.Scanner;
 
 /**
@@ -141,41 +142,69 @@ public class FuelUseVolume {
 
             switch (planetLevel) {
                 case "1":
-                    if (volumeTank < 100) {
+                    this.startNewGame();
+                    break;
+                /* if (volumeTank < 100) {
                         System.out.println("You need 100 gallons at least");
                     } else {
                         valid = true;
                         System.out.println("GOOD TRAVEL!!!");
                     }
-                    break;
+                    break; */
                 case "2":
-                    if (volumeTank < 500) {
+                    this.startNewGame();
+                    break;
+                /* if (volumeTank < 500) {
                         System.out.println("You need 500 gallons at least");
                     } else {
                         valid = true;
                         System.out.println("GOOD TRAVEL!!!");
                     }
-                    break;
+                    break; */
                 case "3":
-                    if (volumeTank < 1000) {
+                    this.startNewGame();
+                    break;
+                /* if (volumeTank < 1000) {
                         System.out.println("You need 1000 gallons at least");
                     } else {
                         valid = true;
                         System.out.println("GOOD TRAVEL!!!");
                     }
-                    break;
+                    break; */
                 case "4":
-                    if (volumeTank < 2000) {
+                    this.startNewGame();
+                    break;
+                /* if (volumeTank < 2000) {
                         System.out.println("You need 2000 gallons at least");
                     } else {
                         valid = true;
                         System.out.println("GOOD TRAVEL!!!");
                     }
-                    break;
+                    break; */
                 default:
-                    valid = true;
+                    // valid = true;
                     System.out.println("GOOD TRAVEL!!!");
             }
+            valid = true;
         }
+    }
+
+    private void startNewGame() {
+
+        if (volumeTank < 500) {
+            System.out.println("You need 500 gallons at least");
+        } else {
+              System.out.println("GOOD TRAVEL!!!");
+        }
+        
+        /*
+        // Create a new game
+        GameControl.createNewGame(.getPlayer()
+        );
+        
+        // Display the game menu
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
+        */
     }
 }

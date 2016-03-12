@@ -18,8 +18,8 @@ public class BodyMassView {
     private String promptMessage = "";
 
     public BodyMassView() {
-        this.displayMessage1 = "Enter weight value here";
-        this.displayMessage2 = "Enter height value here";
+        this.displayMessage1 = "Enter weight value here (maximun value is 140)";
+        this.displayMessage2 = "Enter height value here (maximun value is 63)";
 
         this.promptMessage
                 = "\n***********************************************************"

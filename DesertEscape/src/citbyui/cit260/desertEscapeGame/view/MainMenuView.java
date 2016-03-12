@@ -5,14 +5,11 @@
  */
 package citbyui.cit260.desertEscapeGame.view;
 
-import byui.cit260.desertEscapeGame.control.GameControl;
 import citbyui.cit260.desertEscapeGame.view.ViewInterface.View;
-import desertescape.DesertEscape;
-import java.util.Scanner;
 
 /**
  *
- * @author mambou
+ * @author Paez & Mambou
  */
 public class MainMenuView extends View {
 
@@ -70,12 +67,16 @@ public class MainMenuView extends View {
 
     private void startNewGame() {
 
-        FuelUseVolume f = new FuelUseVolume();
-        f.fuelUse();
+        // fuel use control
+        FuelUseVolume fuelUse = new FuelUseVolume();
+        fuelUse.fuelUse();
 
         //create BodyMassView() and display the calculation
-        BodyMassView bMV = new BodyMassView();
-        bMV.displayBodyMassView();
+        BodyMassView bodyMassView = new BodyMassView();
+        bodyMassView.displayBodyMassView();
+        
+        // Run Mission select
+        // Mission(AlienCamp);
     }
 
     private void resumeGame() {

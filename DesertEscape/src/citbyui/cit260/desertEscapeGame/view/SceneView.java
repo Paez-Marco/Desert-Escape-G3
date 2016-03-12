@@ -6,11 +6,10 @@
 package citbyui.cit260.desertEscapeGame.view;
 
 import citbyui.cit260.desertEscapeGame.view.ViewInterface.View;
-import java.util.Scanner;
 
 /**
  *
- * @author mambou
+ * @author Paez & Mambou
  */
 public class SceneView extends View {
 
@@ -22,11 +21,11 @@ public class SceneView extends View {
     
     super( "\n****************************************************************"
             + "\n*                                                              *"
-            + "\n*    XXX  X    XXXX  X  X XXXX XXXXX  XXX        XX-XXXX       *"
-            + "\n*    X  X X    X  X  X  X X      X   X          XXXXX-XXX      *"
-            + "\n*    XXX  X    XXXX  XX X XXX    X    XX       XX-XXXXXXXX     *"
-            + "\n*    X    X    X  X  X XX X      X      X       XXX-XXXXX      *"
-            + "\n*    X    XXXX X  X  X  X XXXX   X   XXX         XXXX-XX       *"
+            + "\n*        XXX  XXX XXXX  X  X XXXX  XXX        XX-XXXX          *"
+            + "\n*       X    X    X     X  X X    X          XXXXX-XXX         *"
+            + "\n*        XX  X    XXX   XX X XXX   XX       XX-XXXXXXXX        *"
+            + "\n*          X X    X     X XX X       X       XXX-XXXXX         *"
+            + "\n*       XXX   XXX XXXX  X  X XXXX XXX         XXXX-XX          *"
             + "\n*                                                              *"
             + "\n*           LETTER          PLANET SCENE MENU                  *"
             + "\n*            (D)              Desert Scene                     *"
@@ -43,7 +42,7 @@ public class SceneView extends View {
   
   @Override
   public boolean doAction(String value) {
-      System.out.println("\n Choose your Scene");
+    System.out.println("\n Choose your Scene");
     value = value.toUpperCase(); // Convert menuOpton to uppercase
 
     switch (value) {
