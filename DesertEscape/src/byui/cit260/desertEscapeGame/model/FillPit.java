@@ -20,7 +20,7 @@ public class FillPit implements Serializable {
     private double volumeOfShovel;
     
     public FillPit(){
-        this.description = "n\This is the Desert escape Game Mission "
+        this.description = "\nThis is the Desert escape Game Mission "
                 + " you have to build a time machine to win";
         this.sizeOfShovel = 0;
         this.amountOfShovelFull = 0;

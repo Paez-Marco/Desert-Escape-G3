@@ -13,7 +13,7 @@ public enum SceneType  {
     start,
     alienCamp,
     caves,
-    Ccliffs,
+    cliffs,
     desert,
     mountain,
     pyramids,

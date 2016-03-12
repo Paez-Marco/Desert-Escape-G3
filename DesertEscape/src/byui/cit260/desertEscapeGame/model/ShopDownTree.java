@@ -16,10 +16,10 @@ public class ShopDownTree implements Serializable {
     
     public ShopDownTree(){
         this.description = description;
-        System.out.println("\n required to chop down a tree to the exact length"
-                + " in order to span the length of a crevasse."
-                + "If the length is too long, it will not fit, "
-                + "if it is too short, the tree will not fit.");
+        System.out.println("\n You are required to chop down a tree to the exact length"
+                + "\n in order to span the length of a crevasse."
+                + "\n If the length is too long, it will not fit, "
+                + "\n if it is too short, the tree will not fit.");
     }
     
 }

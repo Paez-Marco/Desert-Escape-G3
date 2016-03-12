@@ -6,35 +6,85 @@
 package byui.cit260.desertEscapeGame.model;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  *
  * @author Mambou & Paez
  */
-public enum Mission implements Serializable{
+public class Mission implements Serializable{
     
-    AlienCamp("Mission Alien Camp"),
+    /*AlienCamp("Mission Alien Camp"),
     Caves("Mission Caves"),
     Cliffs("Mission Cliffs"),
     Desert("Mission Desert"),
     Mountain("Mission Mountain"),
     Pyramids("Mission Pyramids"),
-    Villain("Mission Villain");
+    Villain("Mission Villain");*/
     
-    private final String description;
-    private final double amountTime;
+    /*private final String description;
+    private final double amountTime;*/
+    
+    private String buildTimeMachine;
+    private String fillPit;
+    private String shopDownTree;
+    private String description;
+    private int amountOfTime;
 
-    Mission(String description) {
+    /*Mission(String description) {
         this.description = description;
         amountTime = 10;
-        // return "Mission{" + "name=" + name + ", description=" + description + ", amountTime=" + amountTime + '}';
+        // return "Mission{" + "name=" + name + ", description=" + description + ", amountTime=" + amountTime + '}';*/
+
+    public Mission() {
+    }
+
+    public String getBuildTimeMachine() {
+        return buildTimeMachine;
+    }
+
+    public void setBuildTimeMachine(String buildTimeMachine) {
+        this.buildTimeMachine = buildTimeMachine;
+    }
+
+    public String getFillPit() {
+        return fillPit;
+    }
+
+    public void setFillPit(String fillPit) {
+        this.fillPit = fillPit;
+    }
+
+    public String getShopDownTree() {
+        return shopDownTree;
+    }
+
+    public void setShopDownTree(String shopDownTree) {
+        this.shopDownTree = shopDownTree;
     }
 
     public String getDescription() {
         return description;
     }
 
-    public double getAmountTime() {
-        return amountTime;
+    public void setDescription(String description) {
+        this.description = description;
     }
+
+    public int getAmountOfTime() {
+        return amountOfTime;
+    }
+
+    public void setAmountOfTime(int amountOfTime) {
+        this.amountOfTime = amountOfTime;
+    }
+
+    
+    
+    
+    
+
 }
+
+    
+

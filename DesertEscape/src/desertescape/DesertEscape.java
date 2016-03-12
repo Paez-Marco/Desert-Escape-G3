@@ -25,27 +25,35 @@ public class DesertEscape {
 
     public static void main(String[] args) {
 
+        Player player = new Player();
+        player.setPlayerName("");
+        player.setPlayerTime(5);
+        
+        /*Game game = new Game();
+         DesertEscape.setCurrentGame(game);
+          game.setPlayer(name);*/
+         
         // Class instance variable Player 
-        Player playerOne = new Player();
-        playerOne.setPlayerName("Gilles");
-        playerOne.setPlayerTime(5);
+        //Player playerOne = new Player();
+        //playerOne.setPlayerName("Gilles");
+        //playerOne.setPlayerTime(5);
 
-        Player playerTwo = new Player();
-        playerTwo.setPlayerName("Marco");
-        playerTwo.setPlayerTime(5);
+        //Player playerTwo = new Player();
+       // playerTwo.setPlayerName("Marco");
+       // playerTwo.setPlayerTime(5);
 
         // Class Difficulty
-        Difficulty diff = new Difficulty();
-        diff.setName("BEGINNER");
-        diff.setDescription("Starting level");
+       // Difficulty diff = new Difficulty();
+       // diff.setName("BEGINNER");
+       // diff.setDescription("Starting level");
 
         //create StartProgramView()rig and display the start program view
-        StartProgramView startProgramView = new StartProgramView();
-        startProgramView.display();
+       // StartProgramView startProgramView = new StartProgramView();
+        //startProgramView.display();
 
         //create MainMenuProgramView() rig and display the main menu view
-        MainMenuView mainMenuView = new MainMenuView();
-        mainMenuView.display();
+       // MainMenuView mainMenuView = new MainMenuView();
+       // mainMenuView.display();
 
     }
 

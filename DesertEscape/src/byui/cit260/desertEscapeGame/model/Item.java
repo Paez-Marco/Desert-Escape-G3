@@ -5,13 +5,12 @@
  */
 package byui.cit260.desertEscapeGame.model;
 
-import java.io.Serializable;
 
 /**
  *
  * @author mambou
  */
-public enum Item implements Serializable {
+public enum Item {
     
     water,
     food,

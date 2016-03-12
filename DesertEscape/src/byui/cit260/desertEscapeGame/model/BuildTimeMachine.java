@@ -20,11 +20,12 @@ public class BuildTimeMachine implements Serializable {
     private String requiredItems;
     
     public BuildTimeMachine(){
-        this.description = "n\This is the Desert escape Game Mission "
+        this.description = "\nThis is the Desert escape Game Mission "
                 + " you have to build a time machine to win";
         this.height = 0;
         this.weight = 0;
         this.requiredDimension = 0;
-        this.requiredItems = "n\ Find all the Items first";
+        this.requiredItems = "\n Find all the Items first";
     }
+    
 }

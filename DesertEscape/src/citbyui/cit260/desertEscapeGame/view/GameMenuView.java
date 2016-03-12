@@ -5,6 +5,8 @@
  */
 package citbyui.cit260.desertEscapeGame.view;
 
+import byui.cit260.desertEscapeGame.control.GameControl;
+import byui.cit260.desertEscapeGame.model.Inventory;
 import citbyui.cit260.desertEscapeGame.view.ViewInterface.View;
 
 /**
@@ -22,6 +24,7 @@ public class GameMenuView extends View{
                 + "\n  V - View Map"
                 + "\n  I - View list of item in the inventory"
                 + "\n  A - View list of actors"
+                + "\n  T - View time machine status"
                 + "\n  L - View content of locations"
                 + "\n  M - Move person to New location"
                 + "\n  E - Estimate the resource needed"
@@ -47,6 +50,9 @@ public class GameMenuView extends View{
             case "A": // View list of actors
                 this.displayActors();
                 break;
+            case "T": // View time machine status
+                this.displayTimeMachineStatus();
+                break;
             case "L": // View content of locations
                 this.displayContentLocation();
                  break;
@@ -69,11 +75,27 @@ public class GameMenuView extends View{
     }
 
     private void displayMap() {
-        System.out.println("\n *** viewMap stub function called ***");
+        System.out.println("\n *** displayMap stub function called ***");
     }
 
     private void displayInventory() {
-       System.out.println("\n *** viewInventoryItems stub function called ***");
+      
+        //get the sorted list of inventory items for the currunt game
+        Inventory[] inventoryItem = GameControl.getSortedInventoryList();
+        
+        System.out.println("\n List of Inventory Items");
+        System.out.println("Description" + "\t" +
+                "Required" + "\t" +
+                "In Stock");
+        
+        //for each inventory item
+        for(Inventory inventory : inventoryItem) {
+            //display the description, the required amount and amount in stock
+            System.out.println(inventory.getDescription() + "\t" +
+                    inventory.getRequiredAmount() + "\t" +
+                    inventory.getQuantityInStock());
+        }
+        
     }
 
     private void displayActors() {
@@ -94,6 +116,10 @@ public class GameMenuView extends View{
 
     private void displayMove() {
          System.out.println("\n *** viewMoves stub function called ***");
+    }
+
+    private void displayTimeMachineStatus() {
+        System.out.println("\n *** viewTimeMachineStatus stub function called ***");
     }
 
 }

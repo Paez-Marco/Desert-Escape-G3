@@ -22,7 +22,7 @@ public class MapControl {
         Map map = new Map(20, 20);
         
         //create a list of the different scene in the game
-        Scene[ ] scenes = createScenes();
+        Scene[] scenes = createScenes();
         
         //assign the different scene to location in the map
         GameControl.assignScenesToLocations(map, scenes);
@@ -54,6 +54,10 @@ public class MapControl {
         
         return scenes;
         }
+
+    static void moveActorsToStartinglocation(Map map) {
+        System.out.println("\n moveActorsToStartinglocation() stub function called");
+    }
     
      public void visitLocation(String nameOfPlayer, String location) {
         

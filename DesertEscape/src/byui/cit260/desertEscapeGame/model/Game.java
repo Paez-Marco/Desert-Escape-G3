@@ -18,6 +18,9 @@ public class Game implements Serializable{
     private long numberOfPeople;
     
     private Mission mission;
+    private BuildTimeMachine machine;
+    private FillPit pit;
+    private ShopDownTree tree;
     private Player player;
     private Inventory[ ] inventoryItem;
     private Map map;
@@ -51,6 +54,32 @@ public class Game implements Serializable{
     public void setMission(Mission mission){
         this.mission = mission;
     }
+
+    public BuildTimeMachine getMachine() {
+        return machine;
+    }
+
+    public void setMachine(BuildTimeMachine machine) {
+        this.machine = machine;
+    }
+
+    public FillPit getPit() {
+        return pit;
+    }
+
+    public void setPit(FillPit pit) {
+        this.pit = pit;
+    }
+
+    public ShopDownTree getTree() {
+        return tree;
+    }
+
+    public void setTree(ShopDownTree tree) {
+        this.tree = tree;
+    }
+    
+    
     
     public Player getPlayer(){
         return player;

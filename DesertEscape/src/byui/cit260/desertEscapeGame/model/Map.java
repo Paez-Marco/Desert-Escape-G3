@@ -21,8 +21,6 @@ public class Map implements Serializable{
 
     public Map() {
     }
-
-    
     
     public Map(int noOfRows, int noOfColumns){
         
