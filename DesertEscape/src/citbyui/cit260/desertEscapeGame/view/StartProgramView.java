@@ -35,7 +35,7 @@ public class StartProgramView extends View {
                 + "\n*                                                               *"
                 + "\n* This is Nicolas Williams Desert Escape Game                   *"
                 + "\n* In this game you will take the role of Nicolas Williams       *"
-                + "\n* who was born on earth in a distant futur                      *"
+                + "\n* who was born on earth in a distant future                     *"
                 + "\n* But there was a global catastroph.                            *"
                 + "\n* You are forced to leave earth and travel to another planet    *"
                 + "\n*                                                               *"
@@ -52,7 +52,7 @@ public class StartProgramView extends View {
                 + "\n*                                                               *"
                 + "\n*            Good luck and enjoy the adventure                  *"
                 + "\n*                                                               *"
-                + "\n*     Please Enter Your Name Here Below (eg: Shawn or shawn)    *"
+                + "\n*     Please Enter Your Name Below (eg: Shawn or shawn)         *"
                 + "\n*                                                               *"
                 + "\n*****************************************************************");
     }
@@ -85,14 +85,5 @@ public class StartProgramView extends View {
                 + "\n We hope that you have a lot of fun!"
                 + "\n=================================================="
         );
-
-        // Create MainNenuView object
-        //MainMenuView mainMenuView = new MainMenuView();
-        // Display the main menu view
-        //mainMenuView.display();
-        // Create GettingHelpView object
-        // GettingHelpView gettingHelpView = new GettingHelpView();
-        // display the getting help view
-        // gettingHelpView.display();
     }
 }
