@@ -5,11 +5,55 @@
  */
 package byui.cit260.desertEscapeGame.control;
 
+import byui.cit260.desertEscapeGame.model.Game;
+import byui.cit260.desertEscapeGame.model.Map;
+import byui.cit260.desertEscapeGame.model.Scene;
+import byui.cit260.desertEscapeGame.model.SceneType;
+import desertescape.DesertEscape;
+
 /**
  *
  * @author Mambou & Paez
  */
 public class MapControl {
+
+    public static Map createMap() {
+        //create the map
+        Map map = new Map(20, 20);
+        
+        //create a list of the different scene in the game
+        Scene[ ] scenes = createScenes();
+        
+        //assign the different scene to location in the map
+        GameControl.assignScenesToLocations(map, scenes);
+        return map;
+    }
+
+    private static Scene[] createScenes() {
+        Game game = DesertEscape.getCurrentGame();
+        
+        Scene[] scenes = new Scene[SceneType.values().length];
+        
+        Scene startingScene = new Scene();
+        startingScene.setDescription(
+                     "\n "
+        );
+        startingScene.setMapSymbol("ST");
+        startingScene.setBlocked(false);
+        startingScene.setTravelTime(300);
+        scenes[SceneType.start.ordinal()] = startingScene;
+        
+        Scene finishScene = new Scene();
+        finishScene.setDescription(
+                "\n "
+        );
+        finishScene.setMapSymbol("ST");
+        finishScene.setBlocked(false);
+        finishScene.setTravelTime(Double.POSITIVE_INFINITY);
+        scenes[SceneType.finish.ordinal()] = finishScene;
+        
+        return scenes;
+        }
     
      public void visitLocation(String nameOfPlayer, String location) {
         

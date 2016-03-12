@@ -16,7 +16,8 @@ public class Player implements Serializable {
     
     private String playerName;
     private Integer playerTime;
-
+    
+    
     public String getPlayerName() {
         return playerName;
     }
@@ -68,6 +69,6 @@ public class Player implements Serializable {
     @Override
     public String toString() {
         return "Player{" + "playerName=" + playerName + ", playerTime=" + playerTime + '}';
-    }   
+    }
     
 }

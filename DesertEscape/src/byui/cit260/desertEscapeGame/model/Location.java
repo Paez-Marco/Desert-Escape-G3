@@ -6,6 +6,7 @@
 package byui.cit260.desertEscapeGame.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -16,12 +17,16 @@ public class Location implements Serializable{
     
     private Integer row;
     private Integer column;
-    private String placeVisited;
+    private boolean placeVisited;
     private double amountRemaining;
+    private Scene scene;
+    private ArrayList<Actor> actors;
 
     public Location() {
     }
 
+    
+    
     public Integer getRow() {
         return row;
     }
@@ -38,11 +43,11 @@ public class Location implements Serializable{
         this.column = column;
     }
 
-    public String getPlaceVisited() {
+    public boolean isPlaceVisited() {
         return placeVisited;
     }
 
-    public void setPlaceVisited(String placeVisited) {
+    public void setPlaceVisited(boolean placeVisited) {
         this.placeVisited = placeVisited;
     }
 
@@ -54,18 +59,38 @@ public class Location implements Serializable{
         this.amountRemaining = amountRemaining;
     }
 
-    @Override
-    public String toString() {
-        return "Location{" + "row=" + row + ", column=" + column + ", placeVisited=" + placeVisited + ", amountRemaining=" + amountRemaining + '}';
+    public Scene getScene() {
+        return scene;
+    }
+
+    public void setScene(Scene scene) {
+        this.scene = scene;
+    }
+
+    public ArrayList<Actor> getActors() {
+        return actors;
+    }
+
+    public void setActors(ArrayList<Actor> actors) {
+        this.actors = actors;
     }
 
     @Override
+    public String toString() {
+        return "Location{" + "row=" + row + ", column=" + column + ", placeVisited=" + placeVisited + ", amountRemaining=" + amountRemaining + ", scene=" + scene + ", actors=" + actors + '}';
+    }
+
+    
+    
+    @Override
     public int hashCode() {
-        int hash = 5;
+        int hash = 7;
         hash = 19 * hash + Objects.hashCode(this.row);
         hash = 19 * hash + Objects.hashCode(this.column);
-        hash = 19 * hash + Objects.hashCode(this.placeVisited);
+        hash = 19 * hash + (this.placeVisited ? 1 : 0);
         hash = 19 * hash + (int) (Double.doubleToLongBits(this.amountRemaining) ^ (Double.doubleToLongBits(this.amountRemaining) >>> 32));
+        hash = 19 * hash + Objects.hashCode(this.scene);
+        hash = 19 * hash + Objects.hashCode(this.actors);
         return hash;
     }
 
@@ -81,10 +106,10 @@ public class Location implements Serializable{
             return false;
         }
         final Location other = (Location) obj;
-        if (Double.doubleToLongBits(this.amountRemaining) != Double.doubleToLongBits(other.amountRemaining)) {
+        if (this.placeVisited != other.placeVisited) {
             return false;
         }
-        if (!Objects.equals(this.placeVisited, other.placeVisited)) {
+        if (Double.doubleToLongBits(this.amountRemaining) != Double.doubleToLongBits(other.amountRemaining)) {
             return false;
         }
         if (!Objects.equals(this.row, other.row)) {
@@ -93,7 +118,15 @@ public class Location implements Serializable{
         if (!Objects.equals(this.column, other.column)) {
             return false;
         }
+        if (!Objects.equals(this.scene, other.scene)) {
+            return false;
+        }
+        if (!Objects.equals(this.actors, other.actors)) {
+            return false;
+        }
         return true;
     }
+
+   
     
 }

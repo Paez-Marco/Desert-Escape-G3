@@ -6,6 +6,7 @@
 package byui.cit260.desertEscapeGame.model;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Objects;
 
 /**
@@ -14,38 +15,79 @@ import java.util.Objects;
  */
 public class Map implements Serializable{
     
-    private Integer rowSite;
-    private Integer columnSite;
+    private Integer noOfRows;
+    private Integer noOfColumns;
+    private Location[][] locations;
 
     public Map() {
     }
 
-    public Integer getRowSite() {
-        return rowSite;
+    
+    
+    public Map(int noOfRows, int noOfColumns){
+        
+        if(noOfRows < 1 || noOfColumns < 1){
+        System.out.println("\n number of rows and columns must be > zero");
+        return;
+    }
+        this.noOfRows = noOfRows;
+        this.noOfColumns = noOfColumns;
+        
+        //create 2-D array for location object
+        this.locations = new Location[noOfRows][noOfColumns];
+        
+        for(int row = 0; row < noOfRows; row++){
+            for(int column = 0; column < noOfColumns; column++) {
+                // create an initialise new location object instance
+                Location location = new Location();
+                location.setColumn(column);
+                location.setRow(row);
+                location.setPlaceVisited(false);
+                
+                //assign the location object to current position in array
+                locations[row][column] = location;
+            }
+        }
+
     }
 
-    public void setRowSite(Integer rowSite) {
-        this.rowSite = rowSite;
+    public Integer getNoOfRows() {
+        return noOfRows;
     }
 
-    public Integer getColumnSite() {
-        return columnSite;
+    public void setNoOfRows(Integer noOfRows) {
+        this.noOfRows = noOfRows;
     }
 
-    public void setColumnSite(Integer columnSite) {
-        this.columnSite = columnSite;
+    public Integer getNoOfColumns() {
+        return noOfColumns;
+    }
+
+    public void setNoOfColumns(Integer noOfColumns) {
+        this.noOfColumns = noOfColumns;
+    }
+
+    public Location[][] getLocations() {
+        return locations;
+    }
+
+    public void setLocations(Location[][] locations) {
+        this.locations = locations;
     }
 
     @Override
     public String toString() {
-        return "Map{" + "rowSite=" + rowSite + ", columnSite=" + columnSite + '}';
+        return "Map{" + "noOfRows=" + noOfRows + ", noOfColumns=" + noOfColumns + ", locations=" + locations + '}';
     }
 
+    
+    
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 67 * hash + Objects.hashCode(this.rowSite);
-        hash = 67 * hash + Objects.hashCode(this.columnSite);
+        int hash = 5;
+        hash = 59 * hash + Objects.hashCode(this.noOfRows);
+        hash = 59 * hash + Objects.hashCode(this.noOfColumns);
+        hash = 59 * hash + Arrays.deepHashCode(this.locations);
         return hash;
     }
 
@@ -61,13 +103,20 @@ public class Map implements Serializable{
             return false;
         }
         final Map other = (Map) obj;
-        if (!Objects.equals(this.rowSite, other.rowSite)) {
+        if (!Objects.equals(this.noOfRows, other.noOfRows)) {
             return false;
         }
-        if (!Objects.equals(this.columnSite, other.columnSite)) {
+        if (!Objects.equals(this.noOfColumns, other.noOfColumns)) {
+            return false;
+        }
+        if (!Arrays.deepEquals(this.locations, other.locations)) {
             return false;
         }
         return true;
     }
+
+   
+
+    
     
 }

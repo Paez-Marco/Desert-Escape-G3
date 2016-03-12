@@ -15,7 +15,15 @@ import java.util.Objects;
 public class Game implements Serializable{
     
     private double totalTime;
-    private Integer numberOfPeople;
+    private long numberOfPeople;
+    
+    private Mission mission;
+    private Player player;
+    private Inventory[ ] inventoryItem;
+    private Map map;
+    private Location location;
+        
+    
 
     public Game() {
     }
@@ -28,12 +36,48 @@ public class Game implements Serializable{
         this.totalTime = totalTime;
     }
 
-    public Integer getNumberOfPeople() {
+    public long getNumberOfPeople() {
         return numberOfPeople;
     }
 
-    public void setNumberOfPeople(Integer numberOfPeople) {
+    public void setNumberOfPeople(long numberOfPeople) {
         this.numberOfPeople = numberOfPeople;
+    }
+    
+    public Mission getMission(){
+        return mission;
+    }
+    
+    public void setMission(Mission mission){
+        this.mission = mission;
+    }
+    
+    public Player getPlayer(){
+        return player;
+    }
+    
+    public void setPlayer(Player player){
+        this.player = player;
+    }
+    
+    public Inventory[ ] getInventoryItem(){
+        return inventoryItem;
+    }
+    
+    public Map getMap(){
+        return map;
+    }
+    
+    public void setMap(Map map){
+        this.map = map;
+    }
+    
+    public Location getLocation(){
+        return location;
+    }
+    
+    public void setLocation(Location location){
+        this.location = location;
     }
 
     @Override
