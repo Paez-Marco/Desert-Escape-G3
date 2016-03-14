@@ -43,6 +43,7 @@ public class GameControl {
         Game game = new Game();  // create a new game
         DesertEscape.setCurrentGame(game); // save game in DesertEscape
 
+        
         game.setPlayer(player); // save player in the game
 
         //create the inventory list and save in the game
@@ -62,6 +63,13 @@ public class GameControl {
 
         Map map = MapControl.createMap();
         game.setMap(map);
+        
+        //Map gameMap = new Map();
+        //game.setMap(gameMap);
+        
+        player.setLocation(map.getLocation(0, 0));
+        
+        DesertEscape.setCurrentGame(game);
 
         //Move actor to starting position in the map
         MapControl.moveActorsToStartinglocation(map);

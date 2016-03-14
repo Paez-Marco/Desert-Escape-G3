@@ -8,6 +8,7 @@ package desertescape;
 import byui.cit260.desertEscapeGame.model.Difficulty;
 import byui.cit260.desertEscapeGame.model.Game;
 import byui.cit260.desertEscapeGame.model.Player;
+import citbyui.cit260.desertEscapeGame.view.GameMenuView;
 import citbyui.cit260.desertEscapeGame.view.MainMenuView;
 import citbyui.cit260.desertEscapeGame.view.StartProgramView;
 
@@ -20,8 +21,8 @@ public class DesertEscape {
     /**
      * @param args the command line arguments
      */
-    private static Game currentGame = null;
-    private static Player player = null;
+    private static Game currentGame; // = null;
+    private static Player player;  // = null;
 
     public static void main(String[] args) {
 
@@ -47,6 +48,13 @@ public class DesertEscape {
         MainMenuView mainMenuView = new MainMenuView();
         mainMenuView.display();
 
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
+        
+        //GameMenuView game = new GameMenuView();
+        //game.MoveNorth();
+        
+        
     }
 
     public static Game getCurrentGame() {
@@ -64,4 +72,5 @@ public class DesertEscape {
     public static void setPlayer(Player player) {
         DesertEscape.player = player;
     }
+    
 }

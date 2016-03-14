@@ -76,6 +76,10 @@ public class MainMenuView extends View {
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
         
+        GameMenuView game = new GameMenuView();
+        game.MoveNorth();
+       
+        
         // fuel use control
         /*FuelUseVolume fuelUse = new FuelUseVolume();
         fuelUse.fuelUse();*/

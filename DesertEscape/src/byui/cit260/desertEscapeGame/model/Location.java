@@ -13,33 +13,32 @@ import java.util.Objects;
  *
  * @author mambou & Paez
  */
-public class Location implements Serializable{
-    
-    private Integer row;
-    private Integer column;
+public class Location implements Serializable {
+
+    private int row;
+    private int column;
     private boolean placeVisited;
     private double amountRemaining;
     private Scene scene;
+    private SceneType type;
     private ArrayList<Actor> actors;
 
     public Location() {
     }
 
-    
-    
-    public Integer getRow() {
+    public int getRow() {
         return row;
     }
 
-    public void setRow(Integer row) {
+    public void setRow(int row) {
         this.row = row;
     }
 
-    public Integer getColumn() {
+    public int getColumn() {
         return column;
     }
 
-    public void setColumn(Integer column) {
+    public void setColumn(int column) {
         this.column = column;
     }
 
@@ -67,6 +66,14 @@ public class Location implements Serializable{
         this.scene = scene;
     }
 
+    public SceneType getType() {
+        return type;
+    }
+
+    public void setType(SceneType type) {
+        this.type = type;
+    }
+
     public ArrayList<Actor> getActors() {
         return actors;
     }
@@ -75,58 +82,4 @@ public class Location implements Serializable{
         this.actors = actors;
     }
 
-    @Override
-    public String toString() {
-        return "Location{" + "row=" + row + ", column=" + column + ", placeVisited=" + placeVisited + ", amountRemaining=" + amountRemaining + ", scene=" + scene + ", actors=" + actors + '}';
-    }
-
-    
-    
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 19 * hash + Objects.hashCode(this.row);
-        hash = 19 * hash + Objects.hashCode(this.column);
-        hash = 19 * hash + (this.placeVisited ? 1 : 0);
-        hash = 19 * hash + (int) (Double.doubleToLongBits(this.amountRemaining) ^ (Double.doubleToLongBits(this.amountRemaining) >>> 32));
-        hash = 19 * hash + Objects.hashCode(this.scene);
-        hash = 19 * hash + Objects.hashCode(this.actors);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Location other = (Location) obj;
-        if (this.placeVisited != other.placeVisited) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.amountRemaining) != Double.doubleToLongBits(other.amountRemaining)) {
-            return false;
-        }
-        if (!Objects.equals(this.row, other.row)) {
-            return false;
-        }
-        if (!Objects.equals(this.column, other.column)) {
-            return false;
-        }
-        if (!Objects.equals(this.scene, other.scene)) {
-            return false;
-        }
-        if (!Objects.equals(this.actors, other.actors)) {
-            return false;
-        }
-        return true;
-    }
-
-   
-    
 }

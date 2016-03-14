@@ -13,35 +13,43 @@ import java.util.Objects;
  *
  * @author mambou & Paez
  */
-public class Map implements Serializable{
-    
-    private Integer noOfRows;
-    private Integer noOfColumns;
+public class Map implements Serializable {
+
+    public static final int noOfRows = 5;
+    public static final int noOfColumns = 5;
+
     private Location[][] locations;
+    private String mapString;
 
     public Map() {
+        locations = new Location[noOfRows][noOfColumns];
+
     }
-    
-    public Map(int noOfRows, int noOfColumns){
-        
-        if(noOfRows < 1 || noOfColumns < 1){
-        System.out.println("\n number of rows and columns must be > zero");
-        return;
-    }
-        this.noOfRows = noOfRows;
-        this.noOfColumns = noOfColumns;
-        
+
+    public Map(int noOfRows, int noOfColumns) {
+
+        if (noOfRows < 1 || noOfColumns < 1) {
+            System.out.println("\n number of rows and columns must be > zero");
+            return;
+        }
+        /*this.noOfRows = noOfRows;
+        this.noOfColumns = noOfColumns;*/
+
         //create 2-D array for location object
         this.locations = new Location[noOfRows][noOfColumns];
-        
-        for(int row = 0; row < noOfRows; row++){
-            for(int column = 0; column < noOfColumns; column++) {
+
+        for (int row = 0; row < noOfRows; row++) {
+            for (int column = 0; column < noOfColumns; column++) {
                 // create an initialise new location object instance
                 Location location = new Location();
                 location.setColumn(column);
                 location.setRow(row);
                 location.setPlaceVisited(false);
-                
+
+                //create a random location type
+                location.setType(SceneType.values()[(int) (Math.random() * SceneType.values().length)]);
+               
+
                 //assign the location object to current position in array
                 locations[row][column] = location;
             }
@@ -49,20 +57,21 @@ public class Map implements Serializable{
 
     }
 
-    public Integer getNoOfRows() {
-        return noOfRows;
+    
+    public String getMapString() {
+        String rtn = "";
+
+        for (int row = 0; row < noOfRows; row++) {
+            for (int column = 0; column < noOfColumns; column++) {
+                rtn += locations[row][column].getType().name().charAt(0) + "\t";
+            }
+            rtn += "";
+        }
+        return rtn;
     }
 
-    public void setNoOfRows(Integer noOfRows) {
-        this.noOfRows = noOfRows;
-    }
-
-    public Integer getNoOfColumns() {
-        return noOfColumns;
-    }
-
-    public void setNoOfColumns(Integer noOfColumns) {
-        this.noOfColumns = noOfColumns;
+    public Location getLocation(int row, int column) {
+        return locations[row][column];
     }
 
     public Location[][] getLocations() {
@@ -73,48 +82,4 @@ public class Map implements Serializable{
         this.locations = locations;
     }
 
-    @Override
-    public String toString() {
-        return "Map{" + "noOfRows=" + noOfRows + ", noOfColumns=" + noOfColumns + ", locations=" + locations + '}';
-    }
-
-    
-    
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 59 * hash + Objects.hashCode(this.noOfRows);
-        hash = 59 * hash + Objects.hashCode(this.noOfColumns);
-        hash = 59 * hash + Arrays.deepHashCode(this.locations);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Map other = (Map) obj;
-        if (!Objects.equals(this.noOfRows, other.noOfRows)) {
-            return false;
-        }
-        if (!Objects.equals(this.noOfColumns, other.noOfColumns)) {
-            return false;
-        }
-        if (!Arrays.deepEquals(this.locations, other.locations)) {
-            return false;
-        }
-        return true;
-    }
-
-   
-
-    
-    
 }
