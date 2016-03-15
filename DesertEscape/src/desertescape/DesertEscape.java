@@ -47,14 +47,6 @@ public class DesertEscape {
         //create MainMenuProgramView() rig and display the main menu view
         MainMenuView mainMenuView = new MainMenuView();
         mainMenuView.display();
-
-        GameMenuView gameMenu = new GameMenuView();
-        gameMenu.display();
-        
-        //GameMenuView game = new GameMenuView();
-        //game.MoveNorth();
-        
-        
     }
 
     public static Game getCurrentGame() {

@@ -6,6 +6,7 @@
 package citbyui.cit260.desertEscapeGame.view;
 
 import byui.cit260.desertEscapeGame.control.GameControl;
+import byui.cit260.desertEscapeGame.model.Player;
 import citbyui.cit260.desertEscapeGame.view.ViewInterface.View;
 import desertescape.DesertEscape;
 
@@ -71,23 +72,19 @@ public class MainMenuView extends View {
 
         //create new Game
         GameControl.createNewGame(DesertEscape.getPlayer());
-        
+
         //display the game menu
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
-        
-        GameMenuView game = new GameMenuView();
-        game.MoveNorth();
-       
-        
+
+        //GameMenuView game = new GameMenuView();
+        //game.MoveNorth();
         // fuel use control
         /*FuelUseVolume fuelUse = new FuelUseVolume();
         fuelUse.fuelUse();*/
-
         //create BodyMassView() and display the calculation
         /*BodyMassView bodyMassView = new BodyMassView();
         bodyMassView.displayBodyMassView();*/
-        
         // Run Mission select
         // Mission(AlienCamp);
     }
@@ -109,4 +106,19 @@ public class MainMenuView extends View {
         SceneView sceneView = new SceneView();
         sceneView.display();
     }
+
+    public static Player createPlayer(String name) {
+
+        if (name == null) {
+            return null;
+        }
+
+        Player player = new Player();
+        player.setPlayerName(name);
+
+        DesertEscape.setPlayer(player); // save the player
+
+        return player;
+    }
+
 }

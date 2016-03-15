@@ -8,7 +8,7 @@ package byui.cit260.desertEscapeGame.control;
 import byui.cit260.desertEscapeGame.model.BuildTimeMachine;
 import byui.cit260.desertEscapeGame.model.FillPit;
 import byui.cit260.desertEscapeGame.model.Game;
-import byui.cit260.desertEscapeGame.model.Inventory;
+import byui.cit260.desertEscapeGame.model.InventoryItem;
 import byui.cit260.desertEscapeGame.model.Item;
 import byui.cit260.desertEscapeGame.model.Location;
 import byui.cit260.desertEscapeGame.model.Map;
@@ -25,19 +25,59 @@ import desertescape.DesertEscape;
  */
 public class GameControl {
 
-    public static Player createPlayer(String name) {
+    public static InventoryItem[] createInventoryList() {
+        // Created array(list) of inventory items
+        InventoryItem[] inventory = new InventoryItem[6];
 
-        if (name == null) {
-            return null;
-        }
+        InventoryItem medicine = new InventoryItem();
+        medicine.setDescription("Medicine");
+        medicine.setQuantityInStock(0);
+        medicine.setRequiredAmount(0);
+        inventory[Item.medicine.ordinal()] = medicine;
 
-        Player player = new Player();
-        player.setPlayerName(name);
+        InventoryItem water = new InventoryItem();
+        water.setDescription("Water");
+        water.setQuantityInStock(0);
+        water.setRequiredAmount(0);
+        inventory[Item.water.ordinal()] = water;
 
-        DesertEscape.setPlayer(player); // save the player
+        InventoryItem food = new InventoryItem();
+        food.setDescription("Food");
+        food.setQuantityInStock(0);
+        food.setRequiredAmount(0);
+        inventory[Item.food.ordinal()] = food;
 
-        return player;
+        InventoryItem knife = new InventoryItem();
+        knife.setDescription("Knife");
+        knife.setQuantityInStock(0);
+        knife.setRequiredAmount(0);
+        inventory[Item.knife.ordinal()] = knife;
+
+        InventoryItem boot = new InventoryItem();
+        boot.setDescription("Boot");
+        boot.setQuantityInStock(0);
+        boot.setRequiredAmount(0);
+        inventory[Item.boot.ordinal()] = boot;
+
+        InventoryItem shirt = new InventoryItem();
+        shirt.setDescription("Shirt");
+        shirt.setQuantityInStock(0);
+        shirt.setRequiredAmount(0);
+        inventory[Item.shirt.ordinal()] = shirt;
+
+        return inventory;
     }
+
+    /*static boolean getSortedInventoryList() {
+        InventoryItem[] inventoryItem = InventoryItem[8];
+
+        for (int i = 0; i < InventoryItem.class.getModifiers(); i++) {
+            System.out.println("\n" + InventoryItem(i);     
+        
+        }
+        return true;
+
+    }*/
 
     public static void createNewGame(Player player) {
         Game game = new Game();  // create a new game
@@ -47,7 +87,7 @@ public class GameControl {
         game.setPlayer(player); // save player in the game
 
         //create the inventory list and save in the game
-        Inventory[] inventoryList = GameControl.createInventoryList();
+        InventoryItem[] inventoryList = GameControl.createInventoryList();
 
         FillPit pit = new FillPit();
         game.setPit(pit);
@@ -75,47 +115,18 @@ public class GameControl {
         MapControl.moveActorsToStartinglocation(map);
     }
 
-    public static Inventory[] createInventoryList() {
-        Inventory[] inventoryItem = new Inventory[8];
-        //Constants.NUMBER_OF_INVENTORY_ITEMS
+    public static Player createPlayer(String name) {
 
-        Inventory medecine = new Inventory();
-        medecine.setDescription("Medecine");
-        medecine.setQuantityInStock(0);
-        medecine.setRequiredAmount(0);
-        inventoryItem[Item.medecine.ordinal()] = medecine;
+        if (name == null) {
+            return null;
+        }
 
-        Inventory water = new Inventory();
-        water.setDescription("Water");
-        water.setQuantityInStock(0);
-        water.setRequiredAmount(0);
-        inventoryItem[Item.water.ordinal()] = water;
+        Player player = new Player();
+        player.setPlayerName(name);
 
-        Inventory food = new Inventory();
-        food.setDescription("Food");
-        food.setQuantityInStock(0);
-        food.setRequiredAmount(0);
-        inventoryItem[Item.food.ordinal()] = food;
+        DesertEscape.setPlayer(player); // save the player
 
-        Inventory knife = new Inventory();
-        knife.setDescription("Knife");
-        knife.setQuantityInStock(0);
-        knife.setRequiredAmount(0);
-        inventoryItem[Item.knife.ordinal()] = knife;
-
-        Inventory boot = new Inventory();
-        boot.setDescription("Boot");
-        boot.setQuantityInStock(0);
-        boot.setRequiredAmount(0);
-        inventoryItem[Item.boot.ordinal()] = boot;
-
-        Inventory shirt = new Inventory();
-        shirt.setDescription("Shirt");
-        shirt.setQuantityInStock(0);
-        shirt.setRequiredAmount(0);
-        inventoryItem[Item.shirt.ordinal()] = shirt;
-
-        return inventoryItem;
+        return player;
     }
 
     static void assignScenesToLocations(Map map, Scene[] scenes) {
@@ -135,12 +146,4 @@ public class GameControl {
         locations[9][9].setScene(scenes[SceneType.pyramids.ordinal()]);
 
     }
-
-    public static Inventory[] getSortedInventoryList() {
-        System.out.println("\n*** getSortedInventoryList() stub function called ***");
-        return null;
-
 }
-}
-
-

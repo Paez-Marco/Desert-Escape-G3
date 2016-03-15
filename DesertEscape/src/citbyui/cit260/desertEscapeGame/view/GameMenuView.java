@@ -7,7 +7,8 @@ package citbyui.cit260.desertEscapeGame.view;
 
 import byui.cit260.desertEscapeGame.control.GameControl;
 import byui.cit260.desertEscapeGame.control.MovementController;
-import byui.cit260.desertEscapeGame.model.Inventory;
+import byui.cit260.desertEscapeGame.model.InventoryItem;
+//import byui.cit260.desertEscapeGame.model.InventoryItem;
 import byui.cit260.desertEscapeGame.model.Location;
 import citbyui.cit260.desertEscapeGame.view.ViewInterface.View;
 import desertescape.DesertEscape;
@@ -16,16 +17,17 @@ import desertescape.DesertEscape;
  *
  * @author mambou
  */
-public class GameMenuView extends View{
-
+public class GameMenuView extends View {
+    
     public GameMenuView() {
-       
+
         super("\n"
                 + "\n----------------------------"
                 + "\n         GAME MENU"
                 + "\n----------------------------"
                 + "\n  M - View Map"
-                + "\n  I - View list of item in the inventory"
+                + "\n  I - View inventory list with costs"
+                + "\n  Z - Sorted inventory list"
                 + "\n  A - View list of actors"
                 + "\n  T - View time machine status"
                 + "\n  L - View content of locations"
@@ -40,9 +42,9 @@ public class GameMenuView extends View{
                 + "\n  Please Ente Your Selection Below"
                 + "\n  "
                 + "\n----------------------------");
-    }    
-    
-     @Override
+    }
+
+    @Override
     public boolean doAction(String value) {
         value = value.toUpperCase(); // Convert menuOpton to uppercase
 
@@ -51,7 +53,10 @@ public class GameMenuView extends View{
                 this.Map();
                 break;
             case "I": // View list of item in the inventory
-                this.viewInventory();
+                this.ViewInventory();
+                break;
+            case "Z": // View list of actors
+                this.ListSortedInventory();
                 break;
             case "A": // View list of actors
                 this.Actors();
@@ -61,18 +66,18 @@ public class GameMenuView extends View{
                 break;
             case "L": // View content of locations
                 this.ContentLocation();
-                 break;
+                break;
             case "N": // Move person to New location
-                this.MoveNorth();            
+                this.MoveNorth();
                 break;
             case "E": // Move person to New location
-                this.MoveEast();            
+                this.MoveEast();
                 break;
             case "S": // Move person to New location
-                this.MoveSouth();            
+                this.MoveSouth();
                 break;
             case "W": // Move person to New location
-                this.MoveWest();            
+                this.MoveWest();
                 break;
             case "R": // Estimate the resource needed
                 this.displayEstimatedResource();
@@ -91,44 +96,47 @@ public class GameMenuView extends View{
 
     private void Map() {
         System.out.println(DesertEscape.getCurrentGame().getMap().getMapString());
-        
+
     }
 
-    public void viewInventory() {
-      
-        //get the sorted list of inventory items for the currunt game
-        Inventory[] inventoryItem = GameControl.getSortedInventoryList();
+    private void ViewInventory() {
+
+        InventoryItem[] inventory = null;
         
-        System.out.println("\n List of Inventory Items");
-        System.out.println("Description" + "\t" +
-                "Required" + "\t" +
-                "In Stock");
         
-        //for each inventory item
-        for(Inventory inventory : inventoryItem) {
+        System.out.println("\nList of Inventory Items");
+        System.out.println("Description \tInventory \tIn Stock");
+
+        for (InventoryItem item : inventory) {
             //display the description, the required amount and amount in stock
-            System.out.println(inventory.getDescription() + "\t" +
-                    inventory.getRequiredAmount() + "\t" +
-                    inventory.getQuantityInStock());
+            System.out.println(item.getDescription() + "\t"
+                    + item.getInventoryItem()+ "\t"
+                    + item.getRequiredAmount() + "\t"
+                    + item.getQuantityInStock());
         }
-        
+
     }
+
+    private void ListSortedInventory() {
+        System.out.println("\n *** ListSortedInventory stub function called ***");
+    }
+
 
     private void Actors() {
-         System.out.println("\n *** viewActors stub function called ***");
+        System.out.println("\n *** viewActors stub function called ***");
     }
 
     private void ContentLocation() {
         Location lc = DesertEscape.getCurrentGame().getPlayer().getLocation();
-         System.out.println("You are at: (" + lc.getRow() + "," + lc.getColumn() +")");
+        System.out.println("You are at: (" + lc.getRow() + "," + lc.getColumn() + ")");
     }
 
     private void displayEstimatedResource() {
-         System.out.println("\n *** viewEstimatedResourceNeeded stub function called ***");
+        System.out.println("\n *** viewEstimatedResourceNeeded stub function called ***");
     }
 
     private void displayHelp() {
-         System.out.println("\n *** viewhelp stub function called ***");
+        System.out.println("\n *** viewhelp stub function called ***");
     }
 
     private void displayTimeMachineStatus() {
@@ -136,31 +144,31 @@ public class GameMenuView extends View{
     }
 
     public void MoveNorth() {
-         MovementController mc = new MovementController();
-         if(mc.moveNorth(DesertEscape.getCurrentGame()) == false){
-             System.out.println("You cannot move there");
-         }
+        MovementController mc = new MovementController();
+        if (mc.moveNorth(DesertEscape.getCurrentGame()) == false) {
+            System.out.println("You cannot move there");
+        }
     }
 
     private void MoveEast() {
         MovementController mc = new MovementController();
-         if(mc.moveEast(DesertEscape.getCurrentGame()) == false){
-             System.out.println("You cannot move there");
-    }
+        if (mc.moveEast(DesertEscape.getCurrentGame()) == false) {
+            System.out.println("You cannot move there");
+        }
     }
 
     private void MoveSouth() {
         MovementController mc = new MovementController();
-         if(mc.moveSouth(DesertEscape.getCurrentGame()) == false){
-             System.out.println("You cannot move there");
-    }
+        if (mc.moveSouth(DesertEscape.getCurrentGame()) == false) {
+            System.out.println("You cannot move there");
+        }
     }
 
     private void MoveWest() {
-       MovementController mc = new MovementController();
-         if(mc.moveWest(DesertEscape.getCurrentGame()) == false){
-             System.out.println("You cannot move there");
-         }
+        MovementController mc = new MovementController();
+        if (mc.moveWest(DesertEscape.getCurrentGame()) == false) {
+            System.out.println("You cannot move there");
+        }
     }
 
 }

@@ -14,7 +14,7 @@ public enum Item {
     
     water,
     food,
-    medecine,
+    medicine,
     knife,
     boot,
     shirt;

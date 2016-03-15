@@ -7,6 +7,7 @@
 package byui.cit260.desertEscapeGame.view;
 
 import byui.cit260.desertEscapeGame.control.GameControl;
+import citbyui.cit260.desertEscapeGame.view.MainMenuView;
 import byui.cit260.desertEscapeGame.model.Player;
 import java.util.Scanner;
 

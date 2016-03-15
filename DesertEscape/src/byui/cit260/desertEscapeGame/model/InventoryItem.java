@@ -10,22 +10,25 @@ import java.util.Objects;
 
 /**
  *
- * @author mambou & Paez 
+ * @author Mambou & Paez 
+ * 
+ * Changes to lesson 9 individual: Paez
+ * 
  */
-public class Inventory implements Serializable {
+public class InventoryItem implements Serializable {
      
-    private String description;
-    private String inventoryItem;
-    private Integer quantityInStock;
-    private Integer requiredAmount;
-    private String medecine;
-    private String water;
-    private String knife;
-    private String boots;
-    private String food;
-    private String shirt;
+    public String description;
+    public String inventory;
+    public Integer quantityInStock;
+    public Integer requiredAmount;
+    public String medicine;
+    public String water;
+    public String knife;
+    public String boots;
+    public String food;
+    public String shirt;
 
-    public Inventory() {
+    public InventoryItem() {
     }
     
     public String getDescription() {
@@ -37,11 +40,11 @@ public class Inventory implements Serializable {
     }
 
     public String getInventoryItem() {
-        return inventoryItem;
+        return inventory;
     }
 
     public void setInventoryItem(String inventoryItem) {
-        this.inventoryItem = inventoryItem;
+        this.inventory = inventoryItem;
     }
 
     public Integer getQuantityInStock() {
@@ -60,12 +63,12 @@ public class Inventory implements Serializable {
         this.requiredAmount = requiredAmount;
     }
 
-    public String getMedecine() {
-        return medecine;
+    public String getMedicine() {
+        return medicine;
     }
 
-    public void setMedecine(String medecine) {
-        this.medecine = medecine;
+    public void setMedicine(String medicine) {
+        this.medicine = medicine;
     }
 
     public String getWater() {
@@ -110,17 +113,21 @@ public class Inventory implements Serializable {
 
     @Override
     public String toString() {
-        return "Inventory{" + "description=" + description + ", inventoryItem=" + inventoryItem + ", quantityInStock=" + quantityInStock + ", requiredAmount=" + requiredAmount + ", medecine=" + medecine + ", water=" + water + ", knife=" + knife + ", boots=" + boots + ", food=" + food + ", shirt=" + shirt + '}';
+        return "InventoryItem{" + "description=" + description + ", inventoryItem=" 
+                + inventory + ", quantityInStock=" + quantityInStock + ", requiredAmount=" 
+                + requiredAmount + ", medicine=" + medicine + ", water=" 
+                + water + ", knife=" + knife + ", boots=" + boots + ", food=" 
+                + food + ", shirt=" + shirt + '}';
     }
     
     @Override
     public int hashCode() {
         int hash = 7;
         hash = 43 * hash + Objects.hashCode(this.description);
-        hash = 43 * hash + Objects.hashCode(this.inventoryItem);
+        hash = 43 * hash + Objects.hashCode(this.inventory);
         hash = 43 * hash + Objects.hashCode(this.quantityInStock);
         hash = 43 * hash + Objects.hashCode(this.requiredAmount);
-        hash = 43 * hash + Objects.hashCode(this.medecine);
+        hash = 43 * hash + Objects.hashCode(this.medicine);
         hash = 43 * hash + Objects.hashCode(this.water);
         hash = 43 * hash + Objects.hashCode(this.knife);
         hash = 43 * hash + Objects.hashCode(this.boots);
@@ -140,14 +147,14 @@ public class Inventory implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Inventory other = (Inventory) obj;
+        final InventoryItem other = (InventoryItem) obj;
         if (!Objects.equals(this.description, other.description)) {
             return false;
         }
-        if (!Objects.equals(this.inventoryItem, other.inventoryItem)) {
+        if (!Objects.equals(this.inventory, other.inventory)) {
             return false;
         }
-        if (!Objects.equals(this.medecine, other.medecine)) {
+        if (!Objects.equals(this.medicine, other.medicine)) {
             return false;
         }
         if (!Objects.equals(this.water, other.water)) {
