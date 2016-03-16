@@ -23,11 +23,9 @@ public class GameMenuView extends View {
 
         super("\n"
                 + "\n----------------------------"
-                + "\n         GAME MENU"
+                + "\n     G A M E   M E N U " 
                 + "\n----------------------------"
                 + "\n  M - View Map"
-                + "\n  I - View inventory list with costs"
-                + "\n  Z - Sorted inventory list"
                 + "\n  A - View list of actors"
                 + "\n  T - View time machine status"
                 + "\n  L - View content of locations"
@@ -35,11 +33,13 @@ public class GameMenuView extends View {
                 + "\n  E - Move person to East"
                 + "\n  S - Move person to South"
                 + "\n  W - Move person to West"
+                + "\n  I - View inventory list with costs"
+                + "\n  Z - Sort inventory list"
                 + "\n  R - Estimate the resource needed"
                 + "\n  H - Help"
                 + "\n  Q - Quit"
                 + "\n"
-                + "\n  Please Ente Your Selection Below"
+                + "\n  Please Enter Your Selection Below"
                 + "\n  "
                 + "\n----------------------------");
     }
@@ -51,12 +51,6 @@ public class GameMenuView extends View {
         switch (value) {
             case "M": // travel to new location
                 this.Map();
-                break;
-            case "I": // View list of item in the inventory
-                this.ViewInventory();
-                break;
-            case "Z": // View list of actors
-                this.ListSortedInventory();
                 break;
             case "A": // View list of actors
                 this.Actors();
@@ -78,6 +72,12 @@ public class GameMenuView extends View {
                 break;
             case "W": // Move person to New location
                 this.MoveWest();
+                break;
+            case "I": // View inventory list with costs
+                this.ViewInventory();
+                break;
+            case "Z": // Sorted inventory list
+                this.ListSortedInventory();
                 break;
             case "R": // Estimate the resource needed
                 this.displayEstimatedResource();
@@ -102,23 +102,24 @@ public class GameMenuView extends View {
     private void ViewInventory() {
 
         InventoryItem[] inventory = null;
-        
-        
+                
         System.out.println("\nList of Inventory Items");
-        System.out.println("Description \tInventory \tIn Stock");
+        System.out.println("Description \t\t\tInventory \t\tIn Stock");
 
         for (InventoryItem item : inventory) {
             //display the description, the required amount and amount in stock
-            System.out.println(item.getDescription() + "\t"
-                    + item.getInventoryItem()+ "\t"
-                    + item.getRequiredAmount() + "\t"
+            System.out.println(item.getDescription() + "\t\t"
+                    + item.getInventoryItem()+ "\t\t"
+                    + item.getRequiredAmount() + "\t\t"
                     + item.getQuantityInStock());
         }
-
     }
 
     private void ListSortedInventory() {
-        System.out.println("\n *** ListSortedInventory stub function called ***");
+
+        InventorySort inventorySortItem = new InventorySort();
+        inventorySortItem.display();
+
     }
 
 

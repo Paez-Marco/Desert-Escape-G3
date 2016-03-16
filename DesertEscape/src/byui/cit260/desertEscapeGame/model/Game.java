@@ -22,7 +22,7 @@ public class Game implements Serializable{
     private FillPit pit;
     private ShopDownTree tree;
     private Player player;
-    private Inventory[ ] inventoryItem;
+    private InventoryItem[] inventoryItem;
     private Map map;
     private Location location;
         
@@ -89,7 +89,7 @@ public class Game implements Serializable{
         this.player = player;
     }
     
-    public Inventory[ ] getInventoryItem(){
+    public InventoryItem[ ] getInventoryItem(){
         return inventoryItem;
     }
     

@@ -17,16 +17,16 @@ import java.util.Objects;
  */
 public class InventoryItem implements Serializable {
      
-    public String description;
-    public String inventory;
-    public Integer quantityInStock;
-    public Integer requiredAmount;
-    public String medicine;
-    public String water;
-    public String knife;
-    public String boots;
-    public String food;
-    public String shirt;
+    private String description;
+    private String inventory;
+    private Integer quantityInStock;
+    private Integer requiredAmount;
+    private String medicine;
+    private String water;
+    private String knife;
+    private String boots;
+    private String food;
+    private String shirt;
 
     public InventoryItem() {
     }
@@ -111,7 +111,7 @@ public class InventoryItem implements Serializable {
         this.shirt = shirt;
     }
 
-    @Override
+    /*@Override
     public String toString() {
         return "InventoryItem{" + "description=" + description + ", inventoryItem=" 
                 + inventory + ", quantityInStock=" + quantityInStock + ", requiredAmount=" 
@@ -180,7 +180,7 @@ public class InventoryItem implements Serializable {
         }
         return true;
     }
-
+*/
     
     
     
