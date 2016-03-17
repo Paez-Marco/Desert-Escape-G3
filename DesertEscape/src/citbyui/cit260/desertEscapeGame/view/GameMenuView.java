@@ -77,7 +77,7 @@ public class GameMenuView extends View {
                 this.ViewInventory();
                 break;
             case "Z": // Sorted inventory list
-                this.ListSortedInventory();
+                this.SortInventory();
                 break;
             case "R": // Estimate the resource needed
                 this.displayEstimatedResource();
@@ -103,18 +103,18 @@ public class GameMenuView extends View {
 
         InventoryItem[] inventory = DesertEscape.getCurrentGame().getInventoryItem();
                 
-        System.out.println("\nList of Inventory Items");
-        System.out.println(String.format("%1$20s%2$20s%3$20s", "Description", "Inventory", "In Stock"));
+        System.out.println("\tList of Inventory Items");
+        System.out.println(String.format("%1$10s%2$10s%3$15s", "Description", "In Stock", "Requirement"));
 
         for (InventoryItem item : inventory) {
             //display the description, the required amount and amount in stock
-            System.out.println(String.format("%1$20s%2$20s%3$20s", item.getDescription(),
-                    item.getRequiredAmount(),
-                    item.getQuantityInStock()));
+            System.out.println(String.format("%1$10s%2$10s%3$15s", item.getDescription(),
+                    item.getQuantityInStock(),
+                    item.getRequiredAmount()));
         }
     }
 
-    private void ListSortedInventory() {
+    private void SortInventory() {
 
         InventorySort inventorySortItem = new InventorySort();
         inventorySortItem.display();

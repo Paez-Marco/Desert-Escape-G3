@@ -31,37 +31,37 @@ public class GameControl {
 
         InventoryItem medicine = new InventoryItem();
         medicine.setDescription("Medicine");
-        medicine.setQuantityInStock(2);
+        medicine.setQuantityInStock(8);
         medicine.setRequiredAmount(1);
         inventory[Item.medicine.ordinal()] = medicine;
 
         InventoryItem water = new InventoryItem();
         water.setDescription("Water");
-        water.setQuantityInStock(0);
-        water.setRequiredAmount(0);
+        water.setQuantityInStock(20);
+        water.setRequiredAmount(2);
         inventory[Item.water.ordinal()] = water;
 
         InventoryItem food = new InventoryItem();
         food.setDescription("Food");
-        food.setQuantityInStock(0);
-        food.setRequiredAmount(0);
+        food.setQuantityInStock(10);
+        food.setRequiredAmount(2);
         inventory[Item.food.ordinal()] = food;
 
         InventoryItem knife = new InventoryItem();
         knife.setDescription("Knife");
-        knife.setQuantityInStock(0);
+        knife.setQuantityInStock(1);
         knife.setRequiredAmount(0);
         inventory[Item.knife.ordinal()] = knife;
 
         InventoryItem boot = new InventoryItem();
         boot.setDescription("Boot");
-        boot.setQuantityInStock(0);
+        boot.setQuantityInStock(1);
         boot.setRequiredAmount(0);
         inventory[Item.boot.ordinal()] = boot;
 
         InventoryItem shirt = new InventoryItem();
         shirt.setDescription("Shirt");
-        shirt.setQuantityInStock(0);
+        shirt.setQuantityInStock(1);
         shirt.setRequiredAmount(0);
         inventory[Item.shirt.ordinal()] = shirt;
 

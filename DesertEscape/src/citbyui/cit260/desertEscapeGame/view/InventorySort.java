@@ -24,15 +24,10 @@ public class InventorySort extends View {
             + "\n#   INVENTORY ORDER SELECTION       #"
             + "\n#   =========================       #"
             + "\n#                                   #"
-            + "\n#   LETTER    SORT BY               #"
+            + "\n#   LETTER       SORT BY            #"
             + "\n#     D       Item Description      #"
-            + "\n#     I       Item Inventory        #"
-            + "\n#     M       Medicine              #"
-            + "\n#     W       Water                 #"
-            + "\n#     K       Knife                 #"
-            + "\n#     B       Boots                 #"
-            + "\n#     F       Food                  #"
-            + "\n#     S       Shirt                 #"            
+            + "\n#     S       Item Stock            #"
+            + "\n#     R       Item Requirement      #"
             + "\n#     Q       Quit                  #"
             + "\n#                                   #"
             + "\n#####################################");
@@ -47,26 +42,11 @@ public class InventorySort extends View {
       case "D": // Sort by Item description
         this.SortItemDescription();       
         break;
-      case "I": // Sort by Item Inventory
+      case "S": // Sort by Item Inventory
         this.SortItemInventory();
         break;
-      case "M": // Sort by Medicine
-        this.SortMedicine();
-        break;
-      case "W": // Sort by Water
-        this.SortWater();
-        break;
-      case "K": // Sort by Knife
-        this.SortKnife();
-        break;
-      case "B": // Sort by Boots
-        this.SortBoots();
-        break;
-      case "F": // Sort by Food
-        this.SortFood();
-        break;
-      case "S": // Sort by Shirt
-        this.SortShirt();
+      case "R": // Sort by Requirements
+        this.SortItemRequirment();
         break;
       case "Q": // return previous menu
         break;
@@ -85,28 +65,8 @@ public class InventorySort extends View {
     System.out.println("\n*** SortItemInventory() function called ***");
   }
 
-  private void SortMedicine() {
-    System.out.println("\n*** SortMedicine() function called ***");
-  }
-
-  private void SortWater() {
-    System.out.println("\n*** SortWater() function called ***");
-  }
-
-  private void SortKnife() {
-    System.out.println("\n*** SortKnife() function called ***");
-  }
-
-  private void SortBoots() {
-    System.out.println("\n*** SortBoots() function called ***");
-  }
-  
-  private void SortFood() {
-    System.out.println("\n*** SortFood() function called ***");
-  }
-  
-  private void SortShirt() {
-    System.out.println("\n*** SortShirt() function called ***");
+  private void SortItemRequirment() {
+    System.out.println("\n*** SortItemRequirment() function called ***");
   }
 }
 
