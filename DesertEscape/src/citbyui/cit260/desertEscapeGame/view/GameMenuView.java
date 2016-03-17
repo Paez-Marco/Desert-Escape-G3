@@ -101,17 +101,16 @@ public class GameMenuView extends View {
 
     private void ViewInventory() {
 
-        InventoryItem[] inventory = null;
+        InventoryItem[] inventory = DesertEscape.getCurrentGame().getInventoryItem();
                 
         System.out.println("\nList of Inventory Items");
-        System.out.println("Description \t\t\tInventory \t\tIn Stock");
+        System.out.println(String.format("%1$20s%2$20s%3$20s", "Description", "Inventory", "In Stock"));
 
         for (InventoryItem item : inventory) {
             //display the description, the required amount and amount in stock
-            System.out.println(item.getDescription() + "\t\t"
-                    + item.getInventoryItem()+ "\t\t"
-                    + item.getRequiredAmount() + "\t\t"
-                    + item.getQuantityInStock());
+            System.out.println(String.format("%1$20s%2$20s%3$20s", item.getDescription(),
+                    item.getRequiredAmount(),
+                    item.getQuantityInStock()));
         }
     }
 

@@ -31,8 +31,8 @@ public class GameControl {
 
         InventoryItem medicine = new InventoryItem();
         medicine.setDescription("Medicine");
-        medicine.setQuantityInStock(0);
-        medicine.setRequiredAmount(0);
+        medicine.setQuantityInStock(2);
+        medicine.setRequiredAmount(1);
         inventory[Item.medicine.ordinal()] = medicine;
 
         InventoryItem water = new InventoryItem();
@@ -88,6 +88,7 @@ public class GameControl {
 
         //create the inventory list and save in the game
         InventoryItem[] inventoryList = GameControl.createInventoryList();
+        game.setInventoryItem(inventoryList);
 
         FillPit pit = new FillPit();
         game.setPit(pit);
