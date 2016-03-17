@@ -6,7 +6,9 @@
 package citbyui.cit260.desertEscapeGame.view;
 
 import byui.cit260.desertEscapeGame.control.GameControl;
+import byui.cit260.desertEscapeGame.control.MapControl;
 import byui.cit260.desertEscapeGame.control.MovementController;
+import byui.cit260.desertEscapeGame.model.Actor;
 import byui.cit260.desertEscapeGame.model.InventoryItem;
 //import byui.cit260.desertEscapeGame.model.InventoryItem;
 import byui.cit260.desertEscapeGame.model.Location;

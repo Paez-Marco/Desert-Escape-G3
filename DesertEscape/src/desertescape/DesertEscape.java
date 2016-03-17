@@ -42,7 +42,14 @@ public class DesertEscape {
 
         //create StartProgramView()rig and display the start program view
         StartProgramView startProgramView = new StartProgramView();
+       try {
         startProgramView.display();
+       } catch (Throwable te) {
+           System.out.println(te.getMessage());
+           te.printStackTrace();
+           startProgramView.display();
+       }
+        
 
         //create MainMenuProgramView() rig and display the main menu view
         MainMenuView mainMenuView = new MainMenuView();

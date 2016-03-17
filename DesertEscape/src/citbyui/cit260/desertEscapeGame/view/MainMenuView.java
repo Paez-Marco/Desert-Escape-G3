@@ -6,9 +6,15 @@
 package citbyui.cit260.desertEscapeGame.view;
 
 import byui.cit260.desertEscapeGame.control.GameControl;
+import byui.cit260.desertEscapeGame.control.MapControl;
+import byui.cit260.desertEscapeGame.exceptions.MapControlException;
+import byui.cit260.desertEscapeGame.model.Actor;
 import byui.cit260.desertEscapeGame.model.Player;
 import citbyui.cit260.desertEscapeGame.view.ViewInterface.View;
 import desertescape.DesertEscape;
+import java.awt.Point;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -44,8 +50,19 @@ public class MainMenuView extends View {
         value = value.toUpperCase(); // Convert menuOpton to uppercase
 
         switch (value) {
-            case "N": // Create and Start New Game
+            case "N": 
+        {
+            try {
+                // Create and Start New Game
                 this.startNewGame();
+            } catch (MapControlException ex) {
+                GameMenuView gameMenu = new GameMenuView();
+                gameMenu.display();
+                    
+                    //System.out.println();
+                    //Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
                 break;
             case "R": // resume the game
                 this.resumeGame();
@@ -68,9 +85,9 @@ public class MainMenuView extends View {
         return false;
     }
 
-    private void startNewGame() {
+    private void startNewGame() throws MapControlException{
 
-        //create new Game
+        //create new Game 
         GameControl.createNewGame(DesertEscape.getPlayer());
 
         //display the game menu

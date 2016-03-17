@@ -16,6 +16,8 @@ public class BodyMassView {
     private String displayMessage1 = "";
     private String displayMessage2 = "";
     private String promptMessage = "";
+    private String value1 = " Enter Value Weight";
+    private String value2 = " Enter Value height";
 
     public BodyMassView() {
         this.displayMessage1 = "Enter weight value here (maximun value is 140)";
@@ -58,7 +60,7 @@ public class BodyMassView {
 
     private double getInput() {
         Scanner keyboard = new Scanner(System.in); //get infile for keyboard
-        double weight, height;
+        double  weight, height;
         double mass = 25;
 
         boolean valid = false; //initialize to not valid
@@ -66,9 +68,11 @@ public class BodyMassView {
         while (!valid) { //loop while an invalid is entered
             System.out.println("\n" + this.displayMessage1);
             weight = keyboard.nextDouble();// get next line typed on keyboard
+            weight = Double.parseDouble(value1);
 
             System.out.println("\n" + this.displayMessage2);
             height = keyboard.nextDouble();// get next line typed on keyboard
+            height = Double.parseDouble(value2);
 
             if (weight <= 0 || height <= 0) {
                 System.out.println("Invalid: error : weight and height cannot be less than 0");
@@ -89,7 +93,9 @@ public class BodyMassView {
     private boolean doAction(double bodyMass) {
         Scanner keyboard = new Scanner(System.in);
         double weight = keyboard.nextDouble();
+        weight = Double.parseDouble(value1);
         double height = keyboard.nextDouble();
+        height = Double.parseDouble(value2);
         double mass;
 
         if (weight <= 0 || height <= 0) {

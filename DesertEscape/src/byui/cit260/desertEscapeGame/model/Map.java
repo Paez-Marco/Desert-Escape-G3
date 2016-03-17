@@ -20,6 +20,10 @@ public class Map implements Serializable {
 
     private Location[][] locations;
     private String mapString;
+    private int noOfRow;
+    private int noOfColumn;
+    
+   
 
     public Map() {
         locations = new Location[noOfRows][noOfColumns];
@@ -57,6 +61,23 @@ public class Map implements Serializable {
 
     }
 
+    public int getNoOfRow() {
+        return noOfRow;
+    }
+
+    public void setNoOfRow(int noOfRow) {
+        this.noOfRow = noOfRow;
+    }
+
+    public int getNoOfColumn() {
+        return noOfColumn;
+    }
+
+    public void setNoOfColumn(int noOfColumn) {
+        this.noOfColumn = noOfColumn;
+    }
+    
+    
     
     public String getMapString() {
         String rtn = "";

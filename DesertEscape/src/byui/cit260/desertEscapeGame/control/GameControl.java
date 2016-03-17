@@ -5,6 +5,8 @@
  */
 package byui.cit260.desertEscapeGame.control;
 
+import byui.cit260.desertEscapeGame.exceptions.MapControlException;
+import byui.cit260.desertEscapeGame.model.Actor;
 import byui.cit260.desertEscapeGame.model.BuildTimeMachine;
 import byui.cit260.desertEscapeGame.model.FillPit;
 import byui.cit260.desertEscapeGame.model.Game;
@@ -18,6 +20,7 @@ import byui.cit260.desertEscapeGame.model.Scene;
 import byui.cit260.desertEscapeGame.model.SceneType;
 import byui.cit260.desertEscapeGame.model.ShopDownTree;
 import desertescape.DesertEscape;
+import java.awt.Point;
 
 /**
  *
@@ -79,7 +82,7 @@ public class GameControl {
 
     }*/
 
-    public static void createNewGame(Player player) {
+    public static void createNewGame(Player player) throws MapControlException{
         Game game = new Game();  // create a new game
         DesertEscape.setCurrentGame(game); // save game in DesertEscape
 

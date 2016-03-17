@@ -20,6 +20,7 @@ public class InventoryControl {
         if (weight <= 0 || height <= 0) {
 		//weight (lbs) or height (inch) value cannot be less than 1
 		return -1;
+                
         }
 		
 	if (weight > 140 || height > 63) {

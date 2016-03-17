@@ -25,6 +25,7 @@ public class Game implements Serializable{
     private InventoryItem[] inventoryItem;
     private Map map;
     private Location location;
+    private Actor actor;
         
     
 
@@ -113,5 +114,12 @@ public class Game implements Serializable{
         this.location = location;
     }
 
-    
+    public Actor getActor() {
+        return actor;
+    }
+
+    public void setActor(Actor actor) {
+        this.actor = actor;
+    }
+  
 }

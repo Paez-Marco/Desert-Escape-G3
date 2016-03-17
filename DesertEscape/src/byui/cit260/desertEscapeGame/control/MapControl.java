@@ -5,11 +5,14 @@
  */
 package byui.cit260.desertEscapeGame.control;
 
+import byui.cit260.desertEscapeGame.exceptions.MapControlException;
+import byui.cit260.desertEscapeGame.model.Actor;
 import byui.cit260.desertEscapeGame.model.Game;
 import byui.cit260.desertEscapeGame.model.Map;
 import byui.cit260.desertEscapeGame.model.Scene;
 import byui.cit260.desertEscapeGame.model.SceneType;
 import desertescape.DesertEscape;
+import java.awt.Point;
 
 /**
  *
@@ -55,8 +58,34 @@ public class MapControl {
         return scenes;
         }
 
-    static void moveActorsToStartinglocation(Map map) {
-        System.out.println("\n moveActorsToStartinglocation() stub function called");
+    public static void moveActorsToStartinglocation(Map map) throws MapControlException {
+        //System.out.println("\n moveActorsToStartinglocation() stub function called");
+       
+        
+        Actor[] actors = Actor.values();
+        //for every Actor
+        for (Actor actor : actors){
+            Point coordinate = actor.getCoordinate();
+          MapControl.moveActorTolocation(actor, coordinate);
+        
+        } 
+      }
+   
+     public static void moveActorTolocation(Actor actor, Point coordinate)
+                      throws MapControlException   {
+        
+        Map map = DesertEscape.getCurrentGame().getMap();
+        int newRow = coordinate.x-1;
+        int newColumn = coordinate.y-1;
+        
+        if (newRow < 0 || newRow >= map.getNoOfRow() ||
+                newColumn < 0 || newColumn >= map.getNoOfColumn()) {
+           throw new MapControlException ("Can not move actor to location"
+                                          + coordinate.x + ", " + coordinate.y
+                                          + " because that location is outside"
+                                          + " the bounds of the map");
+        }
+        //return 0;
     }
     
      public void visitLocation(String nameOfPlayer, String location) {
