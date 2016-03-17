@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
  * @author MarcoA
  */
 public class MapControlTest {
-    
+
     public MapControlTest() {
     }
 
@@ -27,7 +27,7 @@ public class MapControlTest {
         String location = "1. The Alien Camp";
         MapControl instance = new MapControl();
         instance.visitLocation(nameOfPlayer, location);
-        
+
     }
 
     /**
@@ -42,7 +42,7 @@ public class MapControlTest {
         String expResult = "1. The Alien Camp";
         String result = instance.moveLocation(player, location);
         assertEquals(expResult, result);
-        
+
     }
 
     /**
@@ -57,7 +57,7 @@ public class MapControlTest {
         boolean expResult = false;
         boolean result = instance.validLocation(player, location);
         assertEquals(expResult, result);
-        
+
     }
-    
+
 }
