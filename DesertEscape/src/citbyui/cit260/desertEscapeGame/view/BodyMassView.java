@@ -5,6 +5,7 @@
  */
 package citbyui.cit260.desertEscapeGame.view;
 
+import byui.cit.desertEscapeGame.exceptions.MapControlException;
 import java.util.Scanner;
 
 /**
@@ -60,7 +61,7 @@ public class BodyMassView {
 
     private double getInput() {
         Scanner keyboard = new Scanner(System.in); //get infile for keyboard
-        double  weight, height;
+        double weight, height;
         double mass = 25;
 
         boolean valid = false; //initialize to not valid
@@ -98,14 +99,19 @@ public class BodyMassView {
         height = Double.parseDouble(value2);
         double mass;
 
-        if (weight <= 0 || height <= 0) {
-            System.out.println("Invalid: weight and height cannot be less than 0");
-        } else if (weight > 140 || height > 63) {
-            System.out.println("Invalid: Values to high; weight must be less than 140 and height less than 63." + "\n Please try again");
-        } else {
-            mass = (weight / Math.pow(height, 2)) * 703;
-            System.out.println(" Body Mass Index is:" + mass);
+        try {
+            if (weight <= 0 || height <= 0) {
+                System.out.println("Invalid: weight and height cannot be less than 0");
+            } else if (weight > 140 || height > 63) {
+                System.out.println("Invalid: Values to high; weight must be less than 140 and height less than 63." + "\n Please try again");
+            } else {
+                mass = (weight / Math.pow(height, 2)) * 703;
+                System.out.println(" Body Mass Index is:" + mass);
+            }
+            return true;
+        } catch (MapControlException mce) {
+            System.out.println(mce.getMessage());
+            return false;
         }
-        return true;
     }
 }

@@ -5,6 +5,7 @@
  */
 package citbyui.cit260.desertEscapeGame.view;
 
+import byui.cit.desertEscapeGame.exceptions.MapControlException;
 import byui.cit260.desertEscapeGame.control.GameControl;
 import java.util.Scanner;
 
@@ -90,6 +91,19 @@ public class FuelUseVolume {
         }
     }
 
+    private void doAction() {
+
+        double volTank = 0;
+
+        try {
+            tankVolume(volTank);
+        } catch (MapControlException mce) {
+            System.out.println(mce.getMessage());
+            return;
+        }
+        this.displayBanner();
+    }
+
     private String getInput() {
         Scanner keyboard = new Scanner(System.in);
         boolean valid = false;
@@ -125,7 +139,7 @@ public class FuelUseVolume {
         return selection;
     }
 
-    private void doAction() {
+    private double tankVolume(double volumeTank) {
 
         boolean valid = false;
 
@@ -187,6 +201,7 @@ public class FuelUseVolume {
             }
             valid = true;
         }
+        return volumeTank;
     }
 
     private void startNewGame() {
@@ -194,9 +209,9 @@ public class FuelUseVolume {
         if (volumeTank < 500) {
             System.out.println("You need 500 gallons at least");
         } else {
-              System.out.println("GOOD TRAVEL!!!");
+            System.out.println("GOOD TRAVEL!!!");
         }
-        
+
         /*
         // Create a new game
         GameControl.createNewGame(.getPlayer()
@@ -205,6 +220,6 @@ public class FuelUseVolume {
         // Display the game menu
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
-        */
+         */
     }
 }

@@ -50,20 +50,20 @@ public class MainMenuView extends View {
         value = value.toUpperCase(); // Convert menuOpton to uppercase
 
         switch (value) {
-            case "N": 
-        {
-            try {
-                // Create and Start New Game
-                this.startNewGame();
-            } catch (MapControlException ex) {
-                GameMenuView gameMenu = new GameMenuView();
-                gameMenu.display();
-                    
+            case "N": {
+                try {
+                    // Create and Start New Game
+                    this.startNewGame();
+                } catch (MapControlException ex) {
+                    System.out.println(ex.getMessage());
+                    GameMenuView gameMenu = new GameMenuView();
+                    gameMenu.display();
+
                     //System.out.println();
                     //Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
-        }
-                break;
+            break;
             case "R": // resume the game
                 this.resumeGame();
                 break;
@@ -85,7 +85,16 @@ public class MainMenuView extends View {
         return false;
     }
 
-    private void startNewGame() throws MapControlException{
+    private void startNewGame() throws MapControlException {
+
+        // fuel use control
+        FuelUseVolume fuelUse = new FuelUseVolume();
+        fuelUse.fuelUse();
+
+        //create BodyMassView() and display the calculation
+        BodyMassView bodyMassView = new BodyMassView();
+        bodyMassView.displayBodyMassView();
+
 
         //create new Game 
         GameControl.createNewGame(DesertEscape.getPlayer());
@@ -96,12 +105,6 @@ public class MainMenuView extends View {
 
         //GameMenuView game = new GameMenuView();
         //game.MoveNorth();
-        // fuel use control
-        /*FuelUseVolume fuelUse = new FuelUseVolume();
-        fuelUse.fuelUse();*/
-        //create BodyMassView() and display the calculation
-        /*BodyMassView bodyMassView = new BodyMassView();
-        bodyMassView.displayBodyMassView();*/
         // Run Mission select
         // Mission(AlienCamp);
     }
