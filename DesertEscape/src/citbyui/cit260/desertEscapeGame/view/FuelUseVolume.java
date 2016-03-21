@@ -21,15 +21,18 @@ public class FuelUseVolume {
     private double volumeTank;
 
     // public FuelUseVolume(Integer CurrentFuelLevel) {
-    public void fuelUse() throws MapControlException{
+    public void fuelUse() throws MapControlException {
 
         //Display a banner when view is created
-        this.displayBanner();
-
+        Boolean backMenu = this.displayBanner();
+        
+        if (backMenu)
+            return;
+        
         this.doAction();
     }
 
-    private void displayBanner() {
+    private Boolean displayBanner() {
         System.out.println(
                 "\n*****************************************************************"
                 + "\n*                                                               *"
@@ -46,6 +49,7 @@ public class FuelUseVolume {
                 + "\n*   2     BrOnChTis   Infection contagion expander    500 Gal   *"
                 + "\n*   3     CrampMusc   Muscle Cramp in all body       1000 Gal   *"
                 + "\n*   4     DermTiTis   Skin destroy without return    2000 Gal   *"
+                + "\n*   Q     Quit        Return to previous menu                   *"
                 + "\n*                                                               *"
                 + "\n* Each destroyed planet gives you 10 times their GGal required  *"
                 + "\n* and you win 100GGal in each war win.                          *"
@@ -85,13 +89,17 @@ public class FuelUseVolume {
                     System.out.println("YOU NEED: 2000 Giga Gallons");
                     valid = true;
                     break;
+                case "Q":
+                    valid = true;
+                    return true;
                 default:
                     System.out.println("Invalid level selection");
             }
         }
+        return false;
     }
 
-    private void doAction() {
+    private void doAction() throws MapControlException {
 
         double volTank = 0;
 
@@ -117,24 +125,40 @@ public class FuelUseVolume {
         return selection;
     }
 
-    private double getValueInput() {
+    private double getValueInput() throws MapControlException {
+        Double selection = null;
+
+        /*
         Scanner keyboard = new Scanner(System.in);
         boolean valid = false;
         double selection = 10;
+         */
+        // while (!valid) {
+        while (selection == null) {
+            String value = this.getInput();
+            value = value.trim().toUpperCase();
 
-        while (!valid) {
-            selection = keyboard.nextDouble();
+            if (value.equals("Q")) {
+                break;
+            }
 
-            if (selection < 10) {
+            try {
+                // selection = keyboard.nextDouble();
+                selection = Double.parseDouble(value);
+            } catch (NumberFormatException nfe) {
+                System.out.println("\n*** Value less than 10 or Q to quit, try again ***");
+            }
+
+            /* if (selection < 10) {
                 System.out.println("\n*** Value less than 10, try again ***");
                 continue;
             }
-            break;
+            break;*/
         }
         return selection;
     }
 
-    private double tankVolume(double volumeTank) {
+    private double tankVolume(double volumeTank) throws MapControlException {
 
         boolean valid = false;
 

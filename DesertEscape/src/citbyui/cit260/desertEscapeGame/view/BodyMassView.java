@@ -42,12 +42,14 @@ public class BodyMassView {
                 + "\n* to build either a stronger or weaker time machine.      *"
                 + "\n*                  **GOOD LUCK**                          *"
                 + "\n*                                                         *"
+                + "\n*                 Press Q to exit                         *"
+                + "\n*                                                         *"                
                 + "\n***********************************************************";
 
         System.out.println(this.promptMessage);
     }
 
-    public void displayBodyMassView() {
+    public void displayBodyMassView() throws MapControlException {
 
         boolean done = false; // set flag to not done
         //do {
@@ -59,25 +61,25 @@ public class BodyMassView {
         // } while (!done);
     }
 
-    private double getInput() {
+    private double getInput() throws MapControlException {
         Scanner keyboard = new Scanner(System.in); //get infile for keyboard
-        double weight, height;
+        double weight = 0, height = 0;
         double mass = 25;
 
         boolean valid = false; //initialize to not valid
 
         while (!valid) { //loop while an invalid is entered
-            System.out.println("\n" + this.displayMessage1);
-            weight = keyboard.nextDouble();// get next line typed on keyboard
             try {
+                System.out.println("\n" + this.displayMessage1);
+                weight = keyboard.nextDouble();// get next line typed on keyboard
                 weight = Double.parseDouble(value1);
             } catch (NumberFormatException nfe) {
                 System.out.println("Please write a correct number");
             }
 
-            System.out.println("\n" + this.displayMessage2);
-            height = keyboard.nextDouble();// get next line typed on keyboard
             try {
+                System.out.println("\n" + this.displayMessage2);
+                height = keyboard.nextDouble();// get next line typed on keyboard
                 height = Double.parseDouble(value2);
             } catch (NumberFormatException nfe) {
                 System.out.println("Please write a correct number");
