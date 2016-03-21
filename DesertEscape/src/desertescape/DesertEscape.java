@@ -5,12 +5,15 @@
  */
 package desertescape;
 
+import byui.cit260.desertEscapeGame.exceptions.MapControlException;
 import byui.cit260.desertEscapeGame.model.Difficulty;
 import byui.cit260.desertEscapeGame.model.Game;
 import byui.cit260.desertEscapeGame.model.Player;
 import citbyui.cit260.desertEscapeGame.view.GameMenuView;
 import citbyui.cit260.desertEscapeGame.view.MainMenuView;
 import citbyui.cit260.desertEscapeGame.view.StartProgramView;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -42,17 +45,21 @@ public class DesertEscape {
 
         //create StartProgramView()rig and display the start program view
         StartProgramView startProgramView = new StartProgramView();
-       try {
-        startProgramView.display();
-       } catch (Throwable te) {
-           System.out.println(te.getMessage());
-           te.printStackTrace();
-           startProgramView.display();
-       }
-        
+        try {
+            startProgramView.display();
+        } catch (Throwable te) {
+            System.out.println(te.getMessage());
+            te.printStackTrace();
+            startProgramView.display();
+        }
 
         //create MainMenuProgramView() rig and display the main menu view
-        MainMenuView mainMenuView = new MainMenuView();
+        MainMenuView mainMenuView = null;
+        try {
+            mainMenuView = new MainMenuView();
+        } catch (MapControlException ex) {
+            Logger.getLogger(DesertEscape.class.getName()).log(Level.SEVERE, null, ex);
+        }
         mainMenuView.display();
     }
 
@@ -71,5 +78,5 @@ public class DesertEscape {
     public static void setPlayer(Player player) {
         DesertEscape.player = player;
     }
-    
+
 }

@@ -69,11 +69,19 @@ public class BodyMassView {
         while (!valid) { //loop while an invalid is entered
             System.out.println("\n" + this.displayMessage1);
             weight = keyboard.nextDouble();// get next line typed on keyboard
-            weight = Double.parseDouble(value1);
+            try {
+                weight = Double.parseDouble(value1);
+            } catch (NumberFormatException nfe) {
+                System.out.println("Please write a correct number");
+            }
 
             System.out.println("\n" + this.displayMessage2);
             height = keyboard.nextDouble();// get next line typed on keyboard
-            height = Double.parseDouble(value2);
+            try {
+                height = Double.parseDouble(value2);
+            } catch (NumberFormatException nfe) {
+                System.out.println("Please write a correct number");
+            }
 
             if (weight <= 0 || height <= 0) {
                 System.out.println("Invalid: error : weight and height cannot be less than 0");
@@ -99,19 +107,15 @@ public class BodyMassView {
         height = Double.parseDouble(value2);
         double mass;
 
-        try {
-            if (weight <= 0 || height <= 0) {
-                System.out.println("Invalid: weight and height cannot be less than 0");
-            } else if (weight > 140 || height > 63) {
-                System.out.println("Invalid: Values to high; weight must be less than 140 and height less than 63." + "\n Please try again");
-            } else {
-                mass = (weight / Math.pow(height, 2)) * 703;
-                System.out.println(" Body Mass Index is:" + mass);
-            }
-            return true;
-        } catch (MapControlException mce) {
-            System.out.println(mce.getMessage());
-            return false;
+        if (weight <= 0 || height <= 0) {
+            System.out.println("Invalid: weight and height cannot be less than 0");
+        } else if (weight > 140 || height > 63) {
+            System.out.println("Invalid: Values to high; weight must be less than 140 and height less than 63." + "\n Please try again");
+        } else {
+            mass = (weight / Math.pow(height, 2)) * 703;
+            System.out.println(" Body Mass Index is:" + mass);
         }
+        return true;
     }
+
 }

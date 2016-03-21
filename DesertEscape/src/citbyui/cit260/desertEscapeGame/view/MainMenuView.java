@@ -6,13 +6,10 @@
 package citbyui.cit260.desertEscapeGame.view;
 
 import byui.cit260.desertEscapeGame.control.GameControl;
-import byui.cit260.desertEscapeGame.control.MapControl;
 import byui.cit260.desertEscapeGame.exceptions.MapControlException;
-import byui.cit260.desertEscapeGame.model.Actor;
 import byui.cit260.desertEscapeGame.model.Player;
 import citbyui.cit260.desertEscapeGame.view.ViewInterface.View;
 import desertescape.DesertEscape;
-import java.awt.Point;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -25,7 +22,7 @@ public class MainMenuView extends View {
     private String displayMessage = "";
     private String displayMenu = "";
 
-    public MainMenuView() {
+    public MainMenuView() throws MapControlException{
 
         // displayPromptMessage = "Please enter any menu option ";       
         //this.displayMessage = "\nPlease enter menu option";
@@ -87,26 +84,30 @@ public class MainMenuView extends View {
 
     private void startNewGame() throws MapControlException {
 
-        // fuel use control
-        FuelUseVolume fuelUse = new FuelUseVolume();
-        fuelUse.fuelUse();
-
-        //create BodyMassView() and display the calculation
-        BodyMassView bodyMassView = new BodyMassView();
-        bodyMassView.displayBodyMassView();
-
-
-        //create new Game 
-        GameControl.createNewGame(DesertEscape.getPlayer());
-
-        //display the game menu
-        GameMenuView gameMenu = new GameMenuView();
-        gameMenu.display();
-
-        //GameMenuView game = new GameMenuView();
-        //game.MoveNorth();
-        // Run Mission select
-        // Mission(AlienCamp);
+        try {
+            // fuel use control
+            FuelUseVolume fuelUse = new FuelUseVolume();
+            fuelUse.fuelUse();
+            
+            //create BodyMassView() and display the calculation
+            BodyMassView bodyMassView = new BodyMassView();
+            bodyMassView.displayBodyMassView();
+            
+            
+            //create new Game
+            GameControl.createNewGame(DesertEscape.getPlayer());
+            
+            //display the game menu
+            GameMenuView gameMenu = new GameMenuView();
+            gameMenu.display();
+            
+            //GameMenuView game = new GameMenuView();
+            //game.MoveNorth();
+            // Run Mission select
+            // Mission(AlienCamp);
+        } catch (byui.cit.desertEscapeGame.exceptions.MapControlException ex) {
+            Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     private void resumeGame() {

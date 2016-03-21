@@ -5,6 +5,7 @@
  */
 package byui.cit260.desertEscapeGame.control;
 
+import byui.cit260.desertEscapeGame.exceptions.GameControlException;
 import byui.cit260.desertEscapeGame.exceptions.MapControlException;
 import byui.cit260.desertEscapeGame.model.Actor;
 import byui.cit260.desertEscapeGame.model.BuildTimeMachine;
@@ -119,10 +120,11 @@ public class GameControl {
         MapControl.moveActorsToStartinglocation(map);
     }
 
-    public static Player createPlayer(String name) {
+    public static Player createPlayer(String name) throws GameControlException {
 
         if (name == null) {
-            return null;
+            throw new GameControlException("No name write");
+                    //+ "return null;
         }
 
         Player player = new Player();

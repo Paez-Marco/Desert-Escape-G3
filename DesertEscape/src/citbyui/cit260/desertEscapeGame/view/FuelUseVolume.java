@@ -21,7 +21,7 @@ public class FuelUseVolume {
     private double volumeTank;
 
     // public FuelUseVolume(Integer CurrentFuelLevel) {
-    public void fuelUse() {
+    public void fuelUse() throws MapControlException{
 
         //Display a banner when view is created
         this.displayBanner();
@@ -95,12 +95,7 @@ public class FuelUseVolume {
 
         double volTank = 0;
 
-        try {
-            tankVolume(volTank);
-        } catch (MapControlException mce) {
-            System.out.println(mce.getMessage());
-            return;
-        }
+        tankVolume(volTank);
         this.displayBanner();
     }
 

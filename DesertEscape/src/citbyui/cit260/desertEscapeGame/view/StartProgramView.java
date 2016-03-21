@@ -6,9 +6,12 @@
 package citbyui.cit260.desertEscapeGame.view;
 
 import byui.cit260.desertEscapeGame.control.GameControl;
+import byui.cit260.desertEscapeGame.exceptions.GameControlException;
 import byui.cit260.desertEscapeGame.model.Player;
 import citbyui.cit260.desertEscapeGame.view.ViewInterface.View;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -67,12 +70,17 @@ public class StartProgramView extends View {
         }
 
         //call createPlayer() control function
-        Player player = GameControl.createPlayer(value);
+        Player player = null;
+        try {
+            player = GameControl.createPlayer(value);
+        } catch (GameControlException ex) {
+            Logger.getLogger(StartProgramView.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
-        if (player == null) { // if unsuccesful
+        /*if (player == null) { // if unsuccesful
             System.out.println("\nError creating the player.");
             return false;
-        }
+        }*/
 
         //display next view
         this.displayNextView(player);

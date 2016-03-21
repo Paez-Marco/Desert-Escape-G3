@@ -5,27 +5,27 @@
  */
 package citbyui.cit260.desertEscapeGame.view;
 
-import byui.cit260.desertEscapeGame.control.GameControl;
-import byui.cit260.desertEscapeGame.control.MapControl;
+import byui.cit260.desertEscapeGame.exceptions.MovementControllerException;
 import byui.cit260.desertEscapeGame.control.MovementController;
-import byui.cit260.desertEscapeGame.model.Actor;
 import byui.cit260.desertEscapeGame.model.InventoryItem;
 //import byui.cit260.desertEscapeGame.model.InventoryItem;
 import byui.cit260.desertEscapeGame.model.Location;
 import citbyui.cit260.desertEscapeGame.view.ViewInterface.View;
 import desertescape.DesertEscape;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author mambou
  */
 public class GameMenuView extends View {
-    
+
     public GameMenuView() {
 
         super("\n"
                 + "\n----------------------------"
-                + "\n     G A M E   M E N U " 
+                + "\n     G A M E   M E N U "
                 + "\n----------------------------"
                 + "\n  M - View Map"
                 + "\n  A - View list of actors"
@@ -63,7 +63,7 @@ public class GameMenuView extends View {
             case "L": // View content of locations
                 this.ContentLocation();
                 break;
-            case "N": // Move person to New location
+            case "N":
                 this.MoveNorth();
                 break;
             case "E": // Move person to New location
@@ -104,7 +104,7 @@ public class GameMenuView extends View {
     private void ViewInventory() {
 
         InventoryItem[] inventory = DesertEscape.getCurrentGame().getInventoryItem();
-                
+
         System.out.println("\tList of Inventory Items");
         System.out.println(String.format("%1$10s%2$10s%3$15s", "Description", "In Stock", "Requirement"));
 
@@ -122,7 +122,6 @@ public class GameMenuView extends View {
         inventorySortItem.display();
 
     }
-
 
     private void Actors() {
         System.out.println("\n *** viewActors stub function called ***");
@@ -147,30 +146,56 @@ public class GameMenuView extends View {
 
     public void MoveNorth() {
         MovementController mc = new MovementController();
-        if (mc.moveNorth(DesertEscape.getCurrentGame()) == false) {
-            System.out.println("You cannot move there");
+        try {
+            mc.moveNorth(DesertEscape.getCurrentGame());
+        } catch (MovementControllerException ex) {
+            System.out.println(ex.getMessage());
+            //Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+        // if (mc.moveNorth(DesertEscape.getCurrentGame()) == false) {
+        // System.out.println("You cannot move there");
     }
 
     private void MoveEast() {
         MovementController mc = new MovementController();
-        if (mc.moveEast(DesertEscape.getCurrentGame()) == false) {
-            System.out.println("You cannot move there");
+        try {
+            mc.moveEast(DesertEscape.getCurrentGame());
+        } catch (MovementControllerException ex) {
+            System.out.println(ex.getMessage());
+            //Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+        //mc.moveEast(DesertEscape.getCurrentGame();
+//        if (mc.moveEast(DesertEscape.getCurrentGame()) == false) {
+//            System.out.println("You cannot move there");
+//        }
     }
 
     private void MoveSouth() {
         MovementController mc = new MovementController();
-        if (mc.moveSouth(DesertEscape.getCurrentGame()) == false) {
-            System.out.println("You cannot move there");
+        try {
+            mc.moveSouth(DesertEscape.getCurrentGame());
+        } catch (MovementControllerException ex) {
+            System.out.println(ex.getMessage());
+            //Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
         }
+        //if (mc.moveSouth(DesertEscape.getCurrentGame()) == false) {
+        //    System.out.println("You cannot move there");
+        //}
     }
 
     private void MoveWest() {
         MovementController mc = new MovementController();
-        if (mc.moveWest(DesertEscape.getCurrentGame()) == false) {
-            System.out.println("You cannot move there");
+        try {
+            mc.moveWest(DesertEscape.getCurrentGame());
+        } catch (MovementControllerException ex) {
+            System.out.println(ex.getMessage());
+            //Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
         }
+        /*if (mc.moveWest(DesertEscape.getCurrentGame()) == false) {
+            System.out.println("You cannot move there");
+        }*/
     }
 
 }
