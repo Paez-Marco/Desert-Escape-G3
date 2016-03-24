@@ -32,15 +32,13 @@ public class StartProgramView extends View {
         // this.displayPromptMessage = "\nPlease enter your name";
         super("\n*****************************************************************"
                 + "\n*                                                               *"
-                + "\n*    T H E <<<<< = = = = = = = = = =                            *"
-                + "\n*                                                 ///\\\\\\        *"
-                + "\n*        DDD  EEEE  SSS  EEEE RRR  TTTTT        //  /\\  \\\\      *"
-                + "\n*        D  D E    S     E    R  R   T        //    /\\    \\\\    *"
-                + "\n*        D  D EEE   SS   EEE  RRR    T              /\\          *"
-                + "\n*        D  D E       S  E    R  R   T              /\\          *"
-                + "\n*        DDD  EEDE SSS   EEEE R  R   T       _______/\\__ __     *"
-                + "\n*                                                               *"
-                + "\n*            = = = = = = = >>>>> E S C A P E                    *"
+                + "\n*   ||EEEE\\\\         DDD  EEEE  SSS  EEEE RRR  TTTTT            *"
+                + "\n*   ||     \\\\        D  D E    S     E    R  R   T              *"
+                + "\n*   ||EEE   ||       D  D EEE   SS   EEE  RRR    T              *"
+                + "\n*   ||     //        D  D E       S  E    R  R   T              *"
+                + "\n*   ||EEEE//         DDD  EEDE SSS   EEEE R  R   T              *"
+                + "\n*                                  ||                           *"
+                + "\n*                                   = = = >>>>> E S C A P E     *"
                 + "\n*                                                               *"
                 + "\n* This is Nicolas Williams Desert Escape Game                   *"
                 + "\n* In this game you will take the role of Nicolas Williams       *"
@@ -85,7 +83,7 @@ public class StartProgramView extends View {
         }
 
         /*if (player == null) { // if unsuccesful
-            System.out.println("\nError creating the player.");
+            this.console.println("\nError creating the player.");
             return false;
         }*/
 

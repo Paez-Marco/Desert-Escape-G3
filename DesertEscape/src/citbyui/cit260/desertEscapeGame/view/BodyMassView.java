@@ -68,6 +68,7 @@ public class BodyMassView {
     }
 
     private double getInput() throws MapControlException {
+        
         Scanner keyboard = new Scanner(System.in); //get infile for keyboard
         double weight = 0, height = 0;
         double mass = 25;
@@ -85,7 +86,8 @@ public class BodyMassView {
             }
 
             try {
-                System.out.println("\n" + this.displayMessage2);
+                this.console.println("\n" + this.displayMessage2);
+                //height = keyboard.nextDouble();// get next line typed on keyboard
                 height = keyboard.nextDouble();// get next line typed on keyboard
                 height = Double.parseDouble(value2);
             } catch (NumberFormatException nfe) {
@@ -113,8 +115,10 @@ public class BodyMassView {
 
     private boolean doAction(double bodyMass) {
         Scanner keyboard = new Scanner(System.in);
+        
         double weight = keyboard.nextDouble();
         weight = Double.parseDouble(value1);
+       
         double height = keyboard.nextDouble();
         height = Double.parseDouble(value2);
         double mass;

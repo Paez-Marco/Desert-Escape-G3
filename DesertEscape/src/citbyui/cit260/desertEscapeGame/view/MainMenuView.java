@@ -61,7 +61,7 @@ public class MainMenuView extends View {
                     GameMenuView gameMenu = new GameMenuView();
                     gameMenu.display();
 
-                    //System.out.println();
+                    //this.console.println();
                     //Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }

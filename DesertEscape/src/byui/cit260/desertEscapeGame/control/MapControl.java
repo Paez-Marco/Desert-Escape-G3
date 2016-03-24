@@ -64,7 +64,7 @@ public class MapControl {
         }
 
     public static void moveActorsToStartinglocation(Map map) throws MapControlException {
-        //System.out.println("\n moveActorsToStartinglocation() stub function called");
+        //this.console.println("\n moveActorsToStartinglocation() stub function called");
        
         
         Actor[] actors = Actor.values();

@@ -54,25 +54,25 @@ public class GettingHelpView extends View {
             case "Q":
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                this.console.println("\n*** Invalid selection *** Try again");
                 break;
         }
         return false;
     }
 
     private void goalGame() {
-        System.out.println("\n*** goalGame stub function called ***");
+        this.console.println("\n*** goalGame stub function called ***");
     }
 
     private void moveGame() {
-        System.out.println("\n*** moveGame stub function called ***");
+        this.console.println("\n*** moveGame stub function called ***");
     }
 
     private void displayEstimatedResource() {
-        System.out.println("\n*** displayEstimatedResource stub function called ***");
+        this.console.println("\n*** displayEstimatedResource stub function called ***");
     }
 
     private void stockResource() {
-        System.out.println("\n*** stockResource stub function called ***");
+        this.console.println("\n*** stockResource stub function called ***");
     }
 }

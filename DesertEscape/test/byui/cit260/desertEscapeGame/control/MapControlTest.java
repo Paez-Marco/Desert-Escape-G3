@@ -5,6 +5,9 @@
  */
 package byui.cit260.desertEscapeGame.control;
 
+import desertescape.DesertEscape;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -13,6 +16,8 @@ import static org.junit.Assert.*;
  * @author MarcoA
  */
 public class MapControlTest {
+    protected final BufferedReader keyboard = DesertEscape.getInFile();
+        protected final PrintWriter console = DesertEscape.getOutFile();
 
     public MapControlTest() {
     }
@@ -22,7 +27,7 @@ public class MapControlTest {
      */
     @Test
     public void testVisitLocation() {
-        System.out.println("visitLocation");
+        this.console.println("visitLocation");
         String nameOfPlayer = "Marco";
         String location = "1. The Alien Camp";
         MapControl instance = new MapControl();
@@ -35,7 +40,7 @@ public class MapControlTest {
      */
     @Test
     public void testMoveLocation() {
-        System.out.println("moveLocation");
+        this.console.println("moveLocation");
         String player = "Marco";
         String location = "1. The Alien Camp";
         MapControl instance = new MapControl();
@@ -50,7 +55,7 @@ public class MapControlTest {
      */
     @Test
     public void testValidLocation() {
-        System.out.println("validLocation");
+        this.console.println("validLocation");
         String player = "Marco";
         String location = "1. The Alien Camp";
         MapControl instance = new MapControl();

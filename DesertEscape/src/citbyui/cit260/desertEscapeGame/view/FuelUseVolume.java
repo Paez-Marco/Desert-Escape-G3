@@ -165,7 +165,7 @@ public class FuelUseVolume {
             }
 
             /* if (selection < 10) {
-                System.out.println("\n*** Value less than 10, try again ***");
+                this.console.println("\n*** Value less than 10, try again ***");
                 continue;
             }
             break;*/
@@ -193,45 +193,45 @@ public class FuelUseVolume {
                     this.startNewGame();
                     break;
                 /* if (volumeTank < 100) {
-                        System.out.println("You need 100 gallons at least");
+                        this.console.println("You need 100 gallons at least");
                     } else {
                         valid = true;
-                        System.out.println("GOOD TRAVEL!!!");
+                        this.console.println("GOOD TRAVEL!!!");
                     }
                     break; */
                 case "2":
                     this.startNewGame();
                     break;
                 /* if (volumeTank < 500) {
-                        System.out.println("You need 500 gallons at least");
+                        this.console.println("You need 500 gallons at least");
                     } else {
                         valid = true;
-                        System.out.println("GOOD TRAVEL!!!");
+                        this.console.println("GOOD TRAVEL!!!");
                     }
                     break; */
                 case "3":
                     this.startNewGame();
                     break;
                 /* if (volumeTank < 1000) {
-                        System.out.println("You need 1000 gallons at least");
+                        this.console.println("You need 1000 gallons at least");
                     } else {
                         valid = true;
-                        System.out.println("GOOD TRAVEL!!!");
+                        this.console.println("GOOD TRAVEL!!!");
                     }
                     break; */
                 case "4":
                     this.startNewGame();
                     break;
                 /* if (volumeTank < 2000) {
-                        System.out.println("You need 2000 gallons at least");
+                        this.console.println("You need 2000 gallons at least");
                     } else {
                         valid = true;
-                        System.out.println("GOOD TRAVEL!!!");
+                        this.console.println("GOOD TRAVEL!!!");
                     }
                     break; */
                 default:
                     // valid = true;
-                    System.out.println("GOOD TRAVEL!!!");
+                    this.console.println("GOOD TRAVEL!!!");
             }
             valid = true;
         }

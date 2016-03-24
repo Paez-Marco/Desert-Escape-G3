@@ -9,6 +9,7 @@ import byui.cit260.desertEscapeGame.exceptions.MapControlException;
 import byui.cit260.desertEscapeGame.model.Difficulty;
 import byui.cit260.desertEscapeGame.model.Game;
 import byui.cit260.desertEscapeGame.model.Player;
+import citbyui.cit260.desertEscapeGame.view.ErrorView;
 import citbyui.cit260.desertEscapeGame.view.GameMenuView;
 import citbyui.cit260.desertEscapeGame.view.MainMenuView;
 import citbyui.cit260.desertEscapeGame.view.StartProgramView;
@@ -107,7 +108,65 @@ public class DesertEscape {
 
          
 
-        //Class instance variable Player 
+        try {
+
+            // Open character stream files for input and output 
+            DesertEscape.inFile = new BufferedReader(new InputStreamReader(System.in));
+            DesertEscape.outFile = new PrintWriter(System.out, true);
+
+            // Open log file
+            String filePath = "log.txt";
+            DesertEscape.logFile = new PrintWriter(filePath);
+
+            //create StartProgramView()rig and display the start program view
+            StartProgramView startProgramView = new StartProgramView();
+            startProgramView.display();
+
+            //create MainMenuProgramView() rig and display the main menu view
+            MainMenuView mainMenuView = new MainMenuView();
+            mainMenuView.display();
+
+            return;
+            
+        } catch (Throwable e) {
+        
+            System.out.println( "Exception: " + e.toString()
+                    + "\nCause:" + e.getCause()
+                    + "\nMesssage: " + e.getMessage());
+            e.printStackTrace();
+            
+        } finally {
+            try {
+                if (DesertEscape.inFile != null)  
+                    DesertEscape.inFile.close();
+                 
+                if (DesertEscape.outFile != null)  
+                    DesertEscape.outFile.close();
+                 
+                if (DesertEscape.logFile != null)  
+                    DesertEscape.logFile.close();
+                 
+            } catch (IOException ex) {
+                //Logger.getLogger(DesertEscape.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println("Error closing files");
+                return;
+            }
+        }
+
+        /*try {
+            startProgramView.display();
+        } catch (Throwable te) {
+            System.out.println(te.getMessage());
+            te.printStackTrace();
+            startProgramView.display();
+            );                    
+        }*/
+ /*try {
+                mainMenuView = new MainMenuView();
+            } catch (MapControlException ex) {
+                Logger.getLogger(DesertEscape.class.getName()).log(Level.SEVERE, null, ex);
+            }*/
+ /*//Class instance variable Player 
         Player playerOne = new Player();
         playerOne.setPlayerName("Gilles");
         playerOne.setPlayerTime(5);

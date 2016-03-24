@@ -81,7 +81,7 @@ public class GameControl {
         InventoryItem[] inventoryItem = InventoryItem[8];
 
         for (int i = 0; i < InventoryItem.class.getModifiers(); i++) {
-            System.out.println("\n" + InventoryItem(i);     
+            this.console.println("\n" + InventoryItem(i);     
         
         }
         return true;
