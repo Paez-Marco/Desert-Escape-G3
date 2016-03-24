@@ -5,6 +5,7 @@
  */
 package byui.cit260.desertEscapeGame.model;
 
+import citbyui.cit260.desertEscapeGame.view.ErrorView;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Objects;
@@ -33,7 +34,8 @@ public class Map implements Serializable {
     public Map(int noOfRows, int noOfColumns) {
 
         if (noOfRows < 1 || noOfColumns < 1) {
-            this.console.println("\n number of rows and columns must be > zero");
+            ErrorView.display(this.getClass().getName(),
+                "\n number of rows and columns must be > zero");
             return;
         }
         /*this.noOfRows = noOfRows;

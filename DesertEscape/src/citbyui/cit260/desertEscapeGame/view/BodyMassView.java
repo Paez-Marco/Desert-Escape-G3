@@ -6,6 +6,9 @@
 package citbyui.cit260.desertEscapeGame.view;
 
 import byui.cit.desertEscapeGame.exceptions.MapControlException;
+import desertescape.DesertEscape;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 /**
@@ -19,6 +22,9 @@ public class BodyMassView {
     private String promptMessage = "";
     private String value1 = " Enter Value Weight";
     private String value2 = " Enter Value height";
+    
+    protected final BufferedReader keyboard = DesertEscape.getInFile();
+    protected final PrintWriter console = DesertEscape.getOutFile();
 
     public BodyMassView() {
         this.displayMessage1 = "Enter weight value here (maximun value is 140)";
@@ -63,7 +69,7 @@ public class BodyMassView {
 
     private double getInput() throws MapControlException {
         
-        // Scanner keyboard = new Scanner(System.in); //get infile for keyboard
+        Scanner keyboard = new Scanner(System.in); //get infile for keyboard
         double weight = 0, height = 0;
         double mass = 25;
 
@@ -72,27 +78,30 @@ public class BodyMassView {
         while (!valid) { //loop while an invalid is entered
             try {
                 this.console.println("\n" + this.displayMessage1);
-                // weight = keyboard.nextDouble();// get next line typed on keyboard
-                weight = this.keyboard.readLine();// get next line typed on keyboard
+                weight = keyboard.nextDouble();// get next line typed on keyboard
                 weight = Double.parseDouble(value1);
             } catch (NumberFormatException nfe) {
-                this.console.println("Please write a correct number");
+                ErrorView.display(this.getClass().getName(),
+                       "Please write a correct number");
             }
 
             try {
                 this.console.println("\n" + this.displayMessage2);
                 //height = keyboard.nextDouble();// get next line typed on keyboard
-                height = this.keyboard.readLine();// get next line typed on keyboard
+                height = keyboard.nextDouble();// get next line typed on keyboard
                 height = Double.parseDouble(value2);
             } catch (NumberFormatException nfe) {
-                this.console.println("Please write a correct number");
+                 ErrorView.display(this.getClass().getName(),
+                        "Please write a correct number");
             }
 
             if (weight <= 0 || height <= 0) {
-                this.console.println("Invalid: error : weight and height cannot be less than 0");
+                 ErrorView.display(this.getClass().getName(),
+                    "Invalid: error : weight and height cannot be less than 0");
                 continue;
             } else if (weight > 140 || height > 63) {
-                this.console.println("Error!!!: Values to high; weight must be less than 140 and height less than 63." + "\n Please try again");
+                 ErrorView.display(this.getClass().getName(),
+              "Error!!!: Values to high; weight must be less than 140 and height less than 63." + "\n Please try again");
                 continue;
             } else {
                 mass = (weight / Math.pow(height, 2)) * 703;
@@ -105,19 +114,21 @@ public class BodyMassView {
     }
 
     private boolean doAction(double bodyMass) {
-        // Scanner keyboard = new Scanner(System.in);
-        // double weight = keyboard.nextDouble();
-        double weight = this.keyboard.readLine();
+        Scanner keyboard = new Scanner(System.in);
+        
+        double weight = keyboard.nextDouble();
         weight = Double.parseDouble(value1);
-        // double height = keyboard.nextDouble();
-        double height = this.keyboard.readLine();
+       
+        double height = keyboard.nextDouble();
         height = Double.parseDouble(value2);
         double mass;
 
         if (weight <= 0 || height <= 0) {
-            this.console.println("Invalid: weight and height cannot be less than 0");
+             ErrorView.display(this.getClass().getName(),
+                   "Invalid: weight and height cannot be less than 0");
         } else if (weight > 140 || height > 63) {
-            this.console.println("Invalid: Values to high; weight must be less than 140 and height less than 63." + "\n Please try again");
+             ErrorView.display(this.getClass().getName(),
+             "Invalid: Values to high; weight must be less than 140 and height less than 63." + "\n Please try again");
         } else {
             mass = (weight / Math.pow(height, 2)) * 703;
             this.console.println(" Body Mass Index is:" + mass);

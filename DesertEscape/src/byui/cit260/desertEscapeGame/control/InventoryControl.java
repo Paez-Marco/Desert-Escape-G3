@@ -5,6 +5,7 @@
  */
 package byui.cit260.desertEscapeGame.control;
 
+import byui.cit.desertEscapeGame.exceptions.MapControlException;
 import citbyui.cit260.desertEscapeGame.view.BodyMassView;
 
 /**
@@ -14,7 +15,7 @@ import citbyui.cit260.desertEscapeGame.view.BodyMassView;
 public class InventoryControl {
     
     // Body Mass Index
-    public double calcBodyMassIndex(double weight, double height) {
+    public double calcBodyMassIndex(double weight, double height) throws MapControlException {
         BodyMassView body = new BodyMassView();
         body.displayBodyMassView();
         if (weight <= 0 || height <= 0) {

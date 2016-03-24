@@ -5,6 +5,10 @@
  */
 package byui.cit260.desertEscapeGame.control;
 
+import byui.cit.desertEscapeGame.exceptions.MapControlException;
+import desertescape.DesertEscape;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -13,6 +17,8 @@ import static org.junit.Assert.*;
  * @author mambou
  */
 public class InventoryControlTest {
+   protected final BufferedReader keyboard = DesertEscape.getInFile();
+        protected final PrintWriter console = DesertEscape.getOutFile();
     
     public InventoryControlTest() {
     }
@@ -21,7 +27,7 @@ public class InventoryControlTest {
      * Test of calcBodyMassIndex method, of class InventoryControl.
      */
     @Test
-    public void testCalcBodyMassIndex() {
+    public void testCalcBodyMassIndex() throws MapControlException {
         
         this.console.println("calcBodyMassIndex");
         

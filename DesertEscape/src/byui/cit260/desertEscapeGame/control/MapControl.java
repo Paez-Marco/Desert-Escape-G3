@@ -11,14 +11,19 @@ import byui.cit260.desertEscapeGame.model.Game;
 import byui.cit260.desertEscapeGame.model.Map;
 import byui.cit260.desertEscapeGame.model.Scene;
 import byui.cit260.desertEscapeGame.model.SceneType;
+import citbyui.cit260.desertEscapeGame.view.ErrorView;
 import desertescape.DesertEscape;
 import java.awt.Point;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 
 /**
  *
  * @author Mambou & Paez
  */
 public class MapControl {
+    protected final BufferedReader keyboard = DesertEscape.getInFile();
+        protected final PrintWriter console = DesertEscape.getOutFile();
 
     public static Map createMap() {
         //create the map
@@ -117,7 +122,8 @@ public class MapControl {
         if (validLocation(nameOfPlayer, nameSite))
             this.console.println("Time to win: " + nameSite);
         else
-            this.console.println("Can not visit this Location, please restart");
+            ErrorView.display(this.getClass().getName(),
+                    "Can not visit this Location, please restart");
                 
     }
     

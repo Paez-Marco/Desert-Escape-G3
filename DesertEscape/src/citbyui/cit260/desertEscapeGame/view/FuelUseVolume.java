@@ -7,6 +7,9 @@ package citbyui.cit260.desertEscapeGame.view;
 
 import byui.cit.desertEscapeGame.exceptions.MapControlException;
 import byui.cit260.desertEscapeGame.control.GameControl;
+import desertescape.DesertEscape;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 /**
@@ -19,6 +22,9 @@ public class FuelUseVolume {
     private double radiusTank;
     private double lenghtTank;
     private double volumeTank;
+    
+    protected final BufferedReader keyboard = DesertEscape.getInFile();
+        protected final PrintWriter console = DesertEscape.getOutFile();
 
     // public FuelUseVolume(Integer CurrentFuelLevel) {
     public void fuelUse() throws MapControlException {
@@ -93,7 +99,8 @@ public class FuelUseVolume {
                     valid = true;
                     return true;
                 default:
-                    this.console.println("Invalid level selection");
+                    ErrorView.display(this.getClass().getName(),
+                           "Invalid level selection");
             }
         }
         return false;
@@ -108,23 +115,30 @@ public class FuelUseVolume {
     }
 
     private String getInput() {
-        // Scanner keyboard = new Scanner(System.in);
+        //Scanner keyboard = new Scanner(System.in);
         boolean valid = false;
         String selection = null;
-
+       try {
         while (!valid) {
-            // selection = keyboard.nextLine();
             selection = this.keyboard.readLine();
             selection = selection.trim();
 
             if (selection.length() < 1) {
-                this.console.println("\n*** Invalid value, try again ***");
+                ErrorView.display(this.getClass().getName(),
+                        "\n*** Invalid value, try again ***");
                 continue;
             }
-            break;
+        break;
+        }
+        
+            
+        } catch (Exception e) {
+            ErrorView.display(this.getClass().getName(),
+                    "Error reading input:" + e.getMessage());
         }
         return selection;
     }
+    
 
     private double getValueInput() throws MapControlException {
         Double selection = null;

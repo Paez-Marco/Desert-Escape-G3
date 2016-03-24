@@ -5,6 +5,9 @@
  */
 package byui.cit260.desertEscapeGame.control;
 
+import desertescape.DesertEscape;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -13,6 +16,8 @@ import static org.junit.Assert.*;
  * @author MarcoA
  */
 public class MapControlTest {
+    protected final BufferedReader keyboard = DesertEscape.getInFile();
+        protected final PrintWriter console = DesertEscape.getOutFile();
 
     public MapControlTest() {
     }

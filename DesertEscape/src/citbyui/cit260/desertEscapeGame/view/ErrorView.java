@@ -10,21 +10,19 @@ import java.io.PrintWriter;
 
 /**
  *
- * @author USER
+ * @author mambou
  */
 public class ErrorView {
-    
     private static final PrintWriter errorFile = DesertEscape.getOutFile();
     private static final PrintWriter logFile = DesertEscape.getLogFile();
     
-    public static void display(String className, String errorMessage) {
-        
+    public static void display(String className, String errorMessage){
         errorFile.println(
-                "-----------------------------------------------"
-              + "\n- ERROR - " + errorMessage
-              + "\n-----------------------------------------------");
+                    "-------------------------------------------------"
+                  + "\n- ERROR -" + errorMessage
+                  + "\n-----------------------------------------------");
         
-        // log error
+        //log error
         logFile.println(className + " - " + errorMessage);
     }
 }
