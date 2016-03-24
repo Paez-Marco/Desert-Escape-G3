@@ -42,7 +42,7 @@ public class SceneView extends View {
   
   @Override
   public boolean doAction(String value) {
-    System.out.println("\n Choose your Scene");
+    this.console.println("\n Choose your Scene");
     value = value.toUpperCase(); // Convert menuOpton to uppercase
 
     switch (value) {
@@ -67,34 +67,34 @@ public class SceneView extends View {
       case "Q": // quit the game
         break;
       default:
-        System.out.println("\n*** Invalid selection *** Try again");
+        this.console.println("\n*** Invalid selection *** Try again");
         break;
     }
     return false;
   }
 
   private void alienCampScene() {
-    System.out.println("\n*** alienCampScene() function called ***");
+    this.console.println("\n*** alienCampScene() function called ***");
   }
 
   private void cavesScene() {
-    System.out.println("\n*** cavesScene() function called ***");
+    this.console.println("\n*** cavesScene() function called ***");
   }
 
   private void cliffsScene() {
-    System.out.println("\n*** cliffsScene() function called ***");
+    this.console.println("\n*** cliffsScene() function called ***");
   }
 
   private void desertScene() {
-    System.out.println("\n*** desertScene() function called ***");
+    this.console.println("\n*** desertScene() function called ***");
   }
 
   private void mountainScene() {
-    System.out.println("\n*** mountainScene() function called ***");
+    this.console.println("\n*** mountainScene() function called ***");
   }
 
   private void pyramidScene() {
-    System.out.println("\n*** pyramidScene() function called ***");
+    this.console.println("\n*** pyramidScene() function called ***");
   }
 }
 

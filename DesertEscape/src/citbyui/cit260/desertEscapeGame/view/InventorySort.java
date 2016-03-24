@@ -37,7 +37,7 @@ public class InventorySort extends View {
 
     @Override
     public boolean doAction(String value) {
-        System.out.println("\n Choose your Scene");
+        this.console.println("\n Choose your Scene");
         value = value.toUpperCase(); // Convert menuOpton to uppercase
 
         switch (value) {
@@ -53,7 +53,7 @@ public class InventorySort extends View {
             case "Q": // return previous menu
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                this.console.println("\n*** Invalid selection *** Try again");
                 break;
         }
         return false;
@@ -66,8 +66,8 @@ public class InventorySort extends View {
         Integer tempReq;
         Boolean breaked = false;
 
-        System.out.println("Items ordered by Description");
-        System.out.println(String.format("%1$10s%2$10s%3$15s", "Description", "In Stock", "Requirement"));
+        this.console.println("Items ordered by Description");
+        this.console.println(String.format("%1$10s%2$10s%3$15s", "Description", "In Stock", "Requirement"));
 
         while (!breaked) {
             for (InventoryItem item1 : inventory) {
@@ -100,11 +100,11 @@ public class InventorySort extends View {
 
         for (InventoryItem item : inventory2) {
             //display the description, the required amount and amount in stock
-            System.out.println(String.format("%1$10s%2$10s%3$15s", item.getDescription(),
+            this.console.println(String.format("%1$10s%2$10s%3$15s", item.getDescription(),
                     item.getQuantityInStock(),
                     item.getRequiredAmount()));
         }
-        // System.out.println("\n*** SortItemDescription() function called ***");
+        // this.console.println("\n*** SortItemDescription() function called ***");
     }
 
     private void SortItemInventory() {
@@ -113,8 +113,8 @@ public class InventorySort extends View {
         Integer tempSotck;
         Integer tempReq;
 
-        System.out.println("Items ordered by Inventory Stock");
-        System.out.println(String.format("%1$10s%2$10s%3$15s", "Description", "In Stock", "Requirement"));
+        this.console.println("Items ordered by Inventory Stock");
+        this.console.println(String.format("%1$10s%2$10s%3$15s", "Description", "In Stock", "Requirement"));
 
         for (InventoryItem item1 : inventory) {
             for (InventoryItem item2 : inventory) {
@@ -137,11 +137,11 @@ public class InventorySort extends View {
 
         for (InventoryItem item : inventory2) {
             //display the description, the required amount and amount in stock
-            System.out.println(String.format("%1$10s%2$10s%3$15s", item.getDescription(),
+            this.console.println(String.format("%1$10s%2$10s%3$15s", item.getDescription(),
                     item.getQuantityInStock(),
                     item.getRequiredAmount()));
         }
-        // System.out.println("\n*** SortItemInventory() function called ***");
+        // this.console.println("\n*** SortItemInventory() function called ***");
     }
 
     private void SortItemRequirment() {
@@ -150,8 +150,8 @@ public class InventorySort extends View {
         Integer tempSotck;
         Integer tempReq;
 
-        System.out.println("Items ordered by Inventory Stock");
-        System.out.println(String.format("%1$10s%2$10s%3$15s", "Description", "In Stock", "Requirement"));
+        this.console.println("Items ordered by Inventory Stock");
+        this.console.println(String.format("%1$10s%2$10s%3$15s", "Description", "In Stock", "Requirement"));
 
         for (InventoryItem item1 : inventory) {
             for (InventoryItem item2 : inventory) {
@@ -174,11 +174,11 @@ public class InventorySort extends View {
 
         for (InventoryItem item : inventory2) {
             //display the description, the required amount and amount in stock
-            System.out.println(String.format("%1$10s%2$10s%3$15s", item.getDescription(),
+            this.console.println(String.format("%1$10s%2$10s%3$15s", item.getDescription(),
                     item.getQuantityInStock(),
                     item.getRequiredAmount()));
         }
 
-        //System.out.println("\n*** SortItemRequirment() function called ***");
+        //this.console.println("\n*** SortItemRequirment() function called ***");
     }
 }

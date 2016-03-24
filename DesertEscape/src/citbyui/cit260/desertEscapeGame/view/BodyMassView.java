@@ -46,7 +46,7 @@ public class BodyMassView {
                 + "\n*                                                         *"                
                 + "\n***********************************************************";
 
-        System.out.println(this.promptMessage);
+        this.console.println(this.promptMessage);
     }
 
     public void displayBodyMassView() throws MapControlException {
@@ -62,7 +62,8 @@ public class BodyMassView {
     }
 
     private double getInput() throws MapControlException {
-        Scanner keyboard = new Scanner(System.in); //get infile for keyboard
+        
+        // Scanner keyboard = new Scanner(System.in); //get infile for keyboard
         double weight = 0, height = 0;
         double mass = 25;
 
@@ -70,30 +71,32 @@ public class BodyMassView {
 
         while (!valid) { //loop while an invalid is entered
             try {
-                System.out.println("\n" + this.displayMessage1);
-                weight = keyboard.nextDouble();// get next line typed on keyboard
+                this.console.println("\n" + this.displayMessage1);
+                // weight = keyboard.nextDouble();// get next line typed on keyboard
+                weight = this.keyboard.readLine();// get next line typed on keyboard
                 weight = Double.parseDouble(value1);
             } catch (NumberFormatException nfe) {
-                System.out.println("Please write a correct number");
+                this.console.println("Please write a correct number");
             }
 
             try {
-                System.out.println("\n" + this.displayMessage2);
-                height = keyboard.nextDouble();// get next line typed on keyboard
+                this.console.println("\n" + this.displayMessage2);
+                //height = keyboard.nextDouble();// get next line typed on keyboard
+                height = this.keyboard.readLine();// get next line typed on keyboard
                 height = Double.parseDouble(value2);
             } catch (NumberFormatException nfe) {
-                System.out.println("Please write a correct number");
+                this.console.println("Please write a correct number");
             }
 
             if (weight <= 0 || height <= 0) {
-                System.out.println("Invalid: error : weight and height cannot be less than 0");
+                this.console.println("Invalid: error : weight and height cannot be less than 0");
                 continue;
             } else if (weight > 140 || height > 63) {
-                System.out.println("Error!!!: Values to high; weight must be less than 140 and height less than 63." + "\n Please try again");
+                this.console.println("Error!!!: Values to high; weight must be less than 140 and height less than 63." + "\n Please try again");
                 continue;
             } else {
                 mass = (weight / Math.pow(height, 2)) * 703;
-                System.out.println(" Your BODY MASS INDEX is: " + mass);
+                this.console.println(" Your BODY MASS INDEX is: " + mass);
             }
             break;
         }// end loop
@@ -102,20 +105,22 @@ public class BodyMassView {
     }
 
     private boolean doAction(double bodyMass) {
-        Scanner keyboard = new Scanner(System.in);
-        double weight = keyboard.nextDouble();
+        // Scanner keyboard = new Scanner(System.in);
+        // double weight = keyboard.nextDouble();
+        double weight = this.keyboard.readLine();
         weight = Double.parseDouble(value1);
-        double height = keyboard.nextDouble();
+        // double height = keyboard.nextDouble();
+        double height = this.keyboard.readLine();
         height = Double.parseDouble(value2);
         double mass;
 
         if (weight <= 0 || height <= 0) {
-            System.out.println("Invalid: weight and height cannot be less than 0");
+            this.console.println("Invalid: weight and height cannot be less than 0");
         } else if (weight > 140 || height > 63) {
-            System.out.println("Invalid: Values to high; weight must be less than 140 and height less than 63." + "\n Please try again");
+            this.console.println("Invalid: Values to high; weight must be less than 140 and height less than 63." + "\n Please try again");
         } else {
             mass = (weight / Math.pow(height, 2)) * 703;
-            System.out.println(" Body Mass Index is:" + mass);
+            this.console.println(" Body Mass Index is:" + mass);
         }
         return true;
     }

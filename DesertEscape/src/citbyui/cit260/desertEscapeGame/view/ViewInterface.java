@@ -25,6 +25,9 @@ public interface ViewInterface {
         protected String displayScene;
         protected String displayHelp;
         protected String displayPromptMessage;
+        
+        protected final BufferReader keyboard = DesertEscape.getInFile();
+        protected final PrintReader console = DesertEscape.getOutFile();
 
         public View() {
         }
@@ -59,18 +62,19 @@ public interface ViewInterface {
         @Override
         public String getInput() {
 
-            Scanner keyboard = new Scanner(System.in); //get infile for keyboard
+            // Scanner keyboard = new Scanner(System.in); //get infile for keyboard
             String value = ""; //value to be returned
             boolean valid = false; //initialize to not valid
 
             while (!valid) { //loop while an invalid is entered
-                System.out.println(this.displayMessage);
+                this.console.println(this.displayMessage);
 
-                value = keyboard.nextLine();// get next line typed on keyboard
+                // value = keyboard.nextLine();// get next line typed on keyboard
+                value = this.keyboard.readLine();// get next line typed on keyboard
                 value = value.trim();// trim of leading and trailing blanks
 
                 if (value.length() < 1) { // value is blank
-                    System.out.println("Invalid value: value cannot be blank, please enter a value");
+                    this.console.println("Invalid value: value cannot be blank, please enter a value");
                     continue;
                 }
                 break; // end loop

@@ -23,12 +23,12 @@ public class InventoryControlTest {
     @Test
     public void testCalcBodyMassIndex() {
         
-        System.out.println("calcBodyMassIndex");
+        this.console.println("calcBodyMassIndex");
         
         /*********************************
          * Test Case 1
          ********************************/
-        System.out.println("\tTest case #1"); 
+        this.console.println("\tTest case #1"); 
         //input values for test case 1 ( weight in pounds and height in inches) 
         double weight = 140; 
         double height = 62.74;
@@ -48,7 +48,7 @@ public class InventoryControlTest {
         /*********************************
          * Test Case 2
          ********************************/
-        System.out.println("\tTest case #2");
+        this.console.println("\tTest case #2");
         //input values for test case 2        
         weight = -1.0;
         height = 62.74;
@@ -64,7 +64,7 @@ public class InventoryControlTest {
         /*********************************
          * Test Case 3
          ********************************/
-        System.out.println("\tTest case #3");
+        this.console.println("\tTest case #3");
         //input values for test case 3       
         weight = 140;
         height = -1.0;
@@ -79,7 +79,7 @@ public class InventoryControlTest {
          /*********************************
          * Test Case 4
          ********************************/
-        System.out.println("\tTest case #4");
+        this.console.println("\tTest case #4");
         //input values for test case 4      
         weight = 10000;
         height = 120;
@@ -97,13 +97,13 @@ public class InventoryControlTest {
      */
     @Test
     public void testCalcPitSize() {
-        System.out.println("calcPitSize");
+        this.console.println("calcPitSize");
         
         
         /*********************************
          * Test Case 1
          ********************************/
-        System.out.println("\tTest case #1");
+        this.console.println("\tTest case #1");
         //input values for test case 1     
         double height = 30;
         double radius = 15;
@@ -124,7 +124,7 @@ public class InventoryControlTest {
         /*********************************
          * Test Case 2
          ********************************/
-        System.out.println("\tTest case #2");
+        this.console.println("\tTest case #2");
         //input values for test case 2        
         height = -12;
         radius = 12;
@@ -141,7 +141,7 @@ public class InventoryControlTest {
         /*********************************
          * Test Case 3
          ********************************/
-        System.out.println("\tTest case #3");
+        this.console.println("\tTest case #3");
         //input values for test case 3       
         height = 100;
         radius = -10;
@@ -159,12 +159,12 @@ public class InventoryControlTest {
      */
     @Test
     public void testCalcShovelSize() {
-        System.out.println("calcShovelSize");
+        this.console.println("calcShovelSize");
         
         /*********************************
          * Test Case 1
          ********************************/
-        System.out.println("\tTest case #1");
+        this.console.println("\tTest case #1");
         //input values for test case 1     
         double height = 30;
         double radius = 10;
@@ -185,7 +185,7 @@ public class InventoryControlTest {
         /*********************************
          * Test Case 2
          ********************************/
-        System.out.println("\tTest case #2");
+        this.console.println("\tTest case #2");
         //input values for test case 2        
         height = 30;
         radius = -1;
@@ -202,7 +202,7 @@ public class InventoryControlTest {
         /*********************************
          * Test Case 3
          ********************************/
-        System.out.println("\tTest case #3");
+        this.console.println("\tTest case #3");
         //input values for test case 3       
         height = -29;
         radius = 10;
@@ -220,12 +220,12 @@ public class InventoryControlTest {
      */
     @Test
     public void testCalcTreeHeight() {
-        System.out.println("calcTreeHeight");
+        this.console.println("calcTreeHeight");
         
         /*********************************
          * Test Case 1
          ********************************/
-        System.out.println("\tTest case #1");
+        this.console.println("\tTest case #1");
         //input values for test case 1     
         double dimension = 45;
         double angle = 30; //use angle in degree
@@ -246,7 +246,7 @@ public class InventoryControlTest {
         /*********************************
          * Test Case 2
          ********************************/
-        System.out.println("\tTest case #2");
+        this.console.println("\tTest case #2");
         //input values for test case 2        
         dimension = -30;
         angle = 75; //use angle in degree
@@ -263,7 +263,7 @@ public class InventoryControlTest {
         /*********************************
          * Test Case 3
          ********************************/
-        System.out.println("\tTest case #3");
+        this.console.println("\tTest case #3");
         //input values for test case 3       
         dimension = 45;
         angle = -30; //use angle in degree

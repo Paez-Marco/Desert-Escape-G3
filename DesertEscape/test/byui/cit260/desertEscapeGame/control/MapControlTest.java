@@ -22,7 +22,7 @@ public class MapControlTest {
      */
     @Test
     public void testVisitLocation() {
-        System.out.println("visitLocation");
+        this.console.println("visitLocation");
         String nameOfPlayer = "Marco";
         String location = "1. The Alien Camp";
         MapControl instance = new MapControl();
@@ -35,7 +35,7 @@ public class MapControlTest {
      */
     @Test
     public void testMoveLocation() {
-        System.out.println("moveLocation");
+        this.console.println("moveLocation");
         String player = "Marco";
         String location = "1. The Alien Camp";
         MapControl instance = new MapControl();
@@ -50,7 +50,7 @@ public class MapControlTest {
      */
     @Test
     public void testValidLocation() {
-        System.out.println("validLocation");
+        this.console.println("validLocation");
         String player = "Marco";
         String location = "1. The Alien Camp";
         MapControl instance = new MapControl();

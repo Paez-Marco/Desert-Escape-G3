@@ -52,11 +52,11 @@ public class MainMenuView extends View {
                     // Create and Start New Game
                     this.startNewGame();
                 } catch (MapControlException ex) {
-                    System.out.println(ex.getMessage());
+                    this.console.println(ex.getMessage());
                     GameMenuView gameMenu = new GameMenuView();
                     gameMenu.display();
 
-                    //System.out.println();
+                    //this.console.println();
                     //Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
@@ -76,7 +76,7 @@ public class MainMenuView extends View {
             case "Q": // quit the game
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                this.console.println("\n*** Invalid selection *** Try again");
                 break;
         }
         return false;
@@ -111,7 +111,7 @@ public class MainMenuView extends View {
     }
 
     private void resumeGame() {
-        System.out.println("\n*** resumeGame() function called ***");
+        this.console.println("\n*** resumeGame() function called ***");
     }
 
     private void displayHelpMenu() {
@@ -120,7 +120,7 @@ public class MainMenuView extends View {
     }
 
     private void saveGame() {
-        System.out.println("\n*** saveGame() function called ***");
+        this.console.println("\n*** saveGame() function called ***");
     }
 
     private void goToScene() {

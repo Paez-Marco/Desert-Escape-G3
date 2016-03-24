@@ -27,7 +27,8 @@ public class MapControlLocationView extends View {
        try {
       MapControl.moveActorTolocation(actor, coordinate);
        } catch (MapControlException me) {
-           System.out.println(me.getMessage());
+           ErrorView.display(this.getClass().getName(), 
+                   "Error reading input: " + me.getMessage());
        }
        return false;
     }

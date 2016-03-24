@@ -59,7 +59,7 @@ public class MapControl {
         }
 
     public static void moveActorsToStartinglocation(Map map) throws MapControlException {
-        //System.out.println("\n moveActorsToStartinglocation() stub function called");
+        //this.console.println("\n moveActorsToStartinglocation() stub function called");
        
         
         Actor[] actors = Actor.values();
@@ -99,14 +99,14 @@ public class MapControl {
         }
         
         // locations to visit
-        System.out.println("Welcome " + nameOfPlayer + "\n");
-        System.out.println("Site to visit:\n");
-        System.out.println("1. The Alien Camp");
-        System.out.println("2. The Terrible Caves");
-        System.out.println("3. Big Cliffs");
-        System.out.println("4. Climb the Mountains");
-        System.out.println("5. Walk in the Desert");
-        System.out.println("6. Search the Pyramids");
+        this.console.println("Welcome " + nameOfPlayer + "\n");
+        this.console.println("Site to visit:\n");
+        this.console.println("1. The Alien Camp");
+        this.console.println("2. The Terrible Caves");
+        this.console.println("3. Big Cliffs");
+        this.console.println("4. Climb the Mountains");
+        this.console.println("5. Walk in the Desert");
+        this.console.println("6. Search the Pyramids");
         
         // select location
         String selectSite = System.in.toString();
@@ -115,9 +115,9 @@ public class MapControl {
         String nameSite = moveLocation(nameOfPlayer, selectSite);
         
         if (validLocation(nameOfPlayer, nameSite))
-            System.out.println("Time to win: " + nameSite);
+            this.console.println("Time to win: " + nameSite);
         else
-            System.out.println("Can not visit this Location, please restart");
+            this.console.println("Can not visit this Location, please restart");
                 
     }
     
