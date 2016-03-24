@@ -60,8 +60,8 @@ public class DesertEscape {
             
         } catch (Throwable e) {
         
-            ErrorView.display(this.getClass().getName(),
-                    "Exception: " + e.toString()
+            System.out.println(
+                      "Exception: " + e.toString()
                     + "\nCause:" + e.getCause()
                     + "\nMesssage: " + e.getMessage());
             e.printStackTrace();
@@ -80,7 +80,7 @@ public class DesertEscape {
             } catch (IOException ex) {
                 //Logger.getLogger(DesertEscape.class.getName()).log(Level.SEVERE, null, ex);
                 System.out.println("Error closing files");
-                return
+                return;
             }
         }
 

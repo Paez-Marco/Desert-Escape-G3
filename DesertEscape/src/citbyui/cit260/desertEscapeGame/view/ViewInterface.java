@@ -5,6 +5,9 @@
  */
 package citbyui.cit260.desertEscapeGame.view;
 
+import desertescape.DesertEscape;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 /**
@@ -25,9 +28,9 @@ public interface ViewInterface {
         protected String displayScene;
         protected String displayHelp;
         protected String displayPromptMessage;
-        
-        protected final BufferReader keyboard = DesertEscape.getInFile();
-        protected final PrintReader console = DesertEscape.getOutFile();
+
+        protected final BufferedReader keyboard = DesertEscape.getInFile();
+        protected final PrintWriter console = DesertEscape.getOutFile();
 
         public View() {
         }
@@ -66,23 +69,27 @@ public interface ViewInterface {
             String value = ""; //value to be returned
             boolean valid = false; //initialize to not valid
 
-            while (!valid) { //loop while an invalid is entered
-                this.console.println(this.displayMessage);
+            try {
+                while (!valid) { //loop while an invalid is entered
+                    this.console.println(this.displayMessage);
 
-                // value = keyboard.nextLine();// get next line typed on keyboard
-                value = this.keyboard.readLine();// get next line typed on keyboard
-                value = value.trim();// trim of leading and trailing blanks
+                    // value = keyboard.nextLine();// get next line typed on keyboard
+                    value = this.keyboard.readLine();// get next line typed on keyboard
+                    value = value.trim();// trim of leading and trailing blanks
 
-                if (value.length() < 1) { // value is blank
-                    this.console.println("Invalid value: value cannot be blank, please enter a value");
-                    continue;
+                    if (value.length() < 1) { // value is blank
+                        this.console.println("Invalid value: value cannot be blank, please enter a value");
+                        continue;
+                    }
+                    break; // end loop
                 }
-                break; // end loop
+            } catch (Exception e) {
+                
             }
             return value; // return value entered
         }
 
-       @Override
+        @Override
         public boolean doAction(String value) {
 
             value = value.toUpperCase();
