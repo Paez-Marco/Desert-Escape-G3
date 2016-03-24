@@ -78,19 +78,22 @@ public interface ViewInterface {
                     value = value.trim();// trim of leading and trailing blanks
 
                     if (value.length() < 1) { // value is blank
-                        this.console.println("Invalid value: value cannot be blank, please enter a value");
+                        ErrorView.display(this.getClass().getName(),
+                                "Invalid value: value cannot be blank, please enter a value");
                         continue;
                     }
                     break; // end loop
                 }
             } catch (Exception e) {
-                
+                ErrorView.display(this.getClass().getName(),
+                        "Error reading input:" + e.getMessage());
             }
             return value; // return value entered
         }
 
         @Override
-        public boolean doAction(String value) {
+        public boolean doAction(String value
+        ) {
 
             value = value.toUpperCase();
             return false;
