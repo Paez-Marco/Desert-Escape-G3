@@ -7,6 +7,9 @@ package citbyui.cit260.desertEscapeGame.view;
 
 import byui.cit.desertEscapeGame.exceptions.MapControlException;
 import byui.cit260.desertEscapeGame.control.GameControl;
+import desertescape.DesertEscape;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 /**
@@ -19,6 +22,9 @@ public class FuelUseVolume {
     private double radiusTank;
     private double lenghtTank;
     private double volumeTank;
+    
+    protected final BufferedReader keyboard = DesertEscape.getInFile();
+        protected final PrintWriter console = DesertEscape.getOutFile();
 
     // public FuelUseVolume(Integer CurrentFuelLevel) {
     public void fuelUse() throws MapControlException {
@@ -33,7 +39,7 @@ public class FuelUseVolume {
     }
 
     private Boolean displayBanner() {
-        System.out.println(
+        this.console.println(
                 "\n*****************************************************************"
                 + "\n*                                                               *"
                 + "\n*    XXX  X    XXXX  X  X XXXX XXXXX  XXX        XX=XX0X        *"
@@ -61,39 +67,40 @@ public class FuelUseVolume {
 
         while (!valid) {
             planetLevel = "\nLevel of the Planet to visit";
-            System.out.println(planetLevel);
+            this.console.println(planetLevel);
             planetLevel = this.getInput();
 
             switch (planetLevel) {
                 case "1":
-                    System.out.println("YOU GOING TO Ar3this");
-                    System.out.println("REMEMBER IT: Stop and destry your stones");
-                    System.out.println("YOU NEED: 100 Giga Gallons");
+                    this.console.println("YOU GOING TO Ar3this");
+                    this.console.println("REMEMBER IT: Stop and destry your stones");
+                    this.console.println("YOU NEED: 100 Giga Gallons");
                     valid = true;
                     break;
                 case "2":
-                    System.out.println("YOU GOING TO BrOnChTis");
-                    System.out.println("REMEMBER IT: Infection contagion expander");
-                    System.out.println("YOU NEED: 500 Giga Gallons");
+                    this.console.println("YOU GOING TO BrOnChTis");
+                    this.console.println("REMEMBER IT: Infection contagion expander");
+                    this.console.println("YOU NEED: 500 Giga Gallons");
                     valid = true;
                     break;
                 case "3":
-                    System.out.println("YOU GOING TO CrampMusc");
-                    System.out.println("REMEMBER IT: Muscle Cramp in all body");
-                    System.out.println("YOU NEED: 1000 Giga Gallons");
+                    this.console.println("YOU GOING TO CrampMusc");
+                    this.console.println("REMEMBER IT: Muscle Cramp in all body");
+                    this.console.println("YOU NEED: 1000 Giga Gallons");
                     valid = true;
                     break;
                 case "4":
-                    System.out.println("YOU GOING TO DermTiTis");
-                    System.out.println("REMEMBER IT: Skin destroy without return");
-                    System.out.println("YOU NEED: 2000 Giga Gallons");
+                    this.console.println("YOU GOING TO DermTiTis");
+                    this.console.println("REMEMBER IT: Skin destroy without return");
+                    this.console.println("YOU NEED: 2000 Giga Gallons");
                     valid = true;
                     break;
                 case "Q":
                     valid = true;
                     return true;
                 default:
-                    System.out.println("Invalid level selection");
+                    ErrorView.display(this.getClass().getName(),
+                           "Invalid level selection");
             }
         }
         return false;
@@ -108,22 +115,30 @@ public class FuelUseVolume {
     }
 
     private String getInput() {
-        Scanner keyboard = new Scanner(System.in);
+        //Scanner keyboard = new Scanner(System.in);
         boolean valid = false;
         String selection = null;
-
+       try {
         while (!valid) {
-            selection = keyboard.nextLine();
+            selection = this.keyboard.readLine();
             selection = selection.trim();
 
             if (selection.length() < 1) {
-                System.out.println("\n*** Invalid value, try again ***");
+                ErrorView.display(this.getClass().getName(),
+                        "\n*** Invalid value, try again ***");
                 continue;
             }
-            break;
+        break;
+        }
+        
+            
+        } catch (Exception e) {
+            ErrorView.display(this.getClass().getName(),
+                    "Error reading input:" + e.getMessage());
         }
         return selection;
     }
+    
 
     private double getValueInput() throws MapControlException {
         Double selection = null;
@@ -146,7 +161,7 @@ public class FuelUseVolume {
                 // selection = keyboard.nextDouble();
                 selection = Double.parseDouble(value);
             } catch (NumberFormatException nfe) {
-                System.out.println("\n*** Value less than 10 or Q to quit, try again ***");
+                this.console.println("\n*** Value less than 10 or Q to quit, try again ***");
             }
 
             /* if (selection < 10) {
@@ -163,15 +178,15 @@ public class FuelUseVolume {
         boolean valid = false;
 
         while (!valid) {
-            System.out.println("\nLenght of Tank (in meters and more than 10)");
+            this.console.println("\nLenght of Tank (in meters and more than 10)");
             radiusTank = this.getValueInput();
 
-            System.out.println("Wide of Tank (in meters and more than 10)");
+            this.console.println("Wide of Tank (in meters and more than 10)");
             lenghtTank = this.getValueInput();
 
-            System.out.println("The Volume of Tank is ");
+            this.console.println("The Volume of Tank is ");
             volumeTank = Math.PI * Math.pow(radiusTank, 2) * lenghtTank;
-            System.out.println(volumeTank);
+            this.console.println(volumeTank);
 
             switch (planetLevel) {
                 case "1":
@@ -226,9 +241,9 @@ public class FuelUseVolume {
     private void startNewGame() {
 
         if (volumeTank < 500) {
-            System.out.println("You need 500 gallons at least");
+            this.console.println("You need 500 gallons at least");
         } else {
-            System.out.println("GOOD TRAVEL!!!");
+            this.console.println("GOOD TRAVEL!!!");
         }
 
         /*

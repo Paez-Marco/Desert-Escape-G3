@@ -9,6 +9,9 @@ import byui.cit260.desertEscapeGame.control.GameControl;
 import byui.cit260.desertEscapeGame.exceptions.GameControlException;
 import byui.cit260.desertEscapeGame.model.Player;
 import citbyui.cit260.desertEscapeGame.view.ViewInterface.View;
+import desertescape.DesertEscape;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,6 +23,9 @@ import java.util.logging.Logger;
 public class StartProgramView extends View {
 
     private String displayPromptMessage;
+    
+    protected final BufferedReader keyboard = DesertEscape.getInFile();
+        protected final PrintWriter console = DesertEscape.getOutFile();
 
     public StartProgramView() {
 
@@ -64,9 +70,10 @@ public class StartProgramView extends View {
     public boolean doAction(String value) {
 
         if (value.length() < 2) {
-            System.out.println("\nInvalid player name: "
+             ErrorView.display(this.getClass().getName(),
+                     "\nInvalid player name: "
                     + "The name must be greater than one character in length");
-            return false;
+            return true;
         }
 
         //call createPlayer() control function
@@ -88,7 +95,7 @@ public class StartProgramView extends View {
     }
 
     private void displayNextView(Player player) {
-        System.out.println("\n================================================"
+        this.console.println("\n================================================"
                 + "\n Welcome to Desert Escape *** " + player.getPlayerName() + " ***"
                 + "\n We hope that you have a lot of fun!"
                 + "\n=================================================="

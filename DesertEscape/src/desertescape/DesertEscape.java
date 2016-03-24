@@ -12,6 +12,10 @@ import byui.cit260.desertEscapeGame.model.Player;
 import citbyui.cit260.desertEscapeGame.view.GameMenuView;
 import citbyui.cit260.desertEscapeGame.view.MainMenuView;
 import citbyui.cit260.desertEscapeGame.view.StartProgramView;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -26,8 +30,82 @@ public class DesertEscape {
      */
     private static Game currentGame; // = null;
     private static Player player;  // = null;
+    
+    private static PrintWriter outFile = null;
+    private static BufferedReader inFile = null;
+    
+    private static PrintWriter logFile = null;
+    
+    protected final BufferedReader keyboard = DesertEscape.getInFile();
+        protected final PrintWriter console = DesertEscape.getOutFile();
+    
 
+    public static PrintWriter getOutFile() {
+        return outFile;
+    }
+
+    public static void setOutFile(PrintWriter outFile) {
+        DesertEscape.outFile = outFile;
+    }
+
+    public static BufferedReader getInFile() {
+        return inFile;
+    }
+
+    public static void setInFile(BufferedReader inFile) {
+        DesertEscape.inFile = inFile;
+    } 
+
+    public static PrintWriter getLogFile() {
+        return logFile;
+    }
+
+    public static void setLogFile(PrintWriter logFile) {
+        DesertEscape.logFile = logFile;
+    }
+    
     public static void main(String[] args) {
+        
+       try { 
+        //open character stream files for end user input and output
+         DesertEscape.inFile = new BufferedReader(new InputStreamReader(System.in));
+         DesertEscape.outFile = new PrintWriter(System.out, true);
+         
+         //open log file
+         String filePath = "log.txt";
+         DesertEscape.logFile = new PrintWriter(filePath);
+         
+         //create StartProgramView()rig and display the start program view
+        StartProgramView startProgramView = new StartProgramView();
+        startProgramView.display();
+        
+        MainMenuView main = new MainMenuView();
+        main.display();
+        return;
+        } catch (Throwable te) {
+            System.out.println("Exception:" + te.toString() +
+                               "\nCause:" + te.getCause() +
+                               "\nMessage:" + te.getMessage());
+            te.printStackTrace();;
+           
+        }
+       finally {
+           try {
+               if(DesertEscape.inFile != null)
+                 DesertEscape.inFile.close();
+               
+               if(DesertEscape.outFile != null)
+                 DesertEscape.outFile.close();
+               
+               if(DesertEscape.logFile != null)
+                  DesertEscape.logFile.close();
+           } catch (IOException ex) {
+               System.out.println("Error closing files");
+               return;
+           } 
+       }
+
+         
 
         //Class instance variable Player 
         Player playerOne = new Player();
@@ -43,24 +121,14 @@ public class DesertEscape {
         diff.setName("BEGINNER");
         diff.setDescription("Starting level");
 
-        //create StartProgramView()rig and display the start program view
-        StartProgramView startProgramView = new StartProgramView();
-        try {
-            startProgramView.display();
-        } catch (Throwable te) {
-            System.out.println(te.getMessage());
-            te.printStackTrace();
-            startProgramView.display();
-        }
-
         //create MainMenuProgramView() rig and display the main menu view
-        MainMenuView mainMenuView = null;
+        /*MainMenuView mainMenuView = null;
         try {
             mainMenuView = new MainMenuView();
         } catch (MapControlException ex) {
             Logger.getLogger(DesertEscape.class.getName()).log(Level.SEVERE, null, ex);
         }
-        mainMenuView.display();
+        mainMenuView.display();*/
     }
 
     public static Game getCurrentGame() {
@@ -78,5 +146,7 @@ public class DesertEscape {
     public static void setPlayer(Player player) {
         DesertEscape.player = player;
     }
+
+    
 
 }

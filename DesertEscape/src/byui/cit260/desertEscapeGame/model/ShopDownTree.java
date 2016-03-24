@@ -5,6 +5,9 @@
  */
 package byui.cit260.desertEscapeGame.model;
 
+import desertescape.DesertEscape;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.io.Serializable;
 
 /**
@@ -13,10 +16,12 @@ import java.io.Serializable;
  */
 public class ShopDownTree implements Serializable {
     private String description;
+    protected final BufferedReader keyboard = DesertEscape.getInFile();
+        protected final PrintWriter console = DesertEscape.getOutFile();
     
     public ShopDownTree(){
         this.description = description;
-        System.out.println("\n You are required to chop down a tree to the exact length"
+        this.console.println("\n You are required to chop down a tree to the exact length"
                 + "\n in order to span the length of a crevasse."
                 + "\n If the length is too long, it will not fit, "
                 + "\n if it is too short, the tree will not fit.");
