@@ -37,7 +37,7 @@ public class DesertEscape {
     private static PrintWriter logFile = null;
     
     protected final BufferedReader keyboard = DesertEscape.getInFile();
-        protected final PrintWriter console = DesertEscape.getOutFile();
+    protected final PrintWriter console = DesertEscape.getOutFile();
     
 
     public static PrintWriter getOutFile() {
@@ -75,7 +75,7 @@ public class DesertEscape {
          String filePath = "log.txt";
          DesertEscape.logFile = new PrintWriter(filePath);
          
-         //create StartProgramView()rig and display the start program view
+         //create StartProgramView()rig and display the start program view here
         StartProgramView startProgramView = new StartProgramView();
         startProgramView.display();
         

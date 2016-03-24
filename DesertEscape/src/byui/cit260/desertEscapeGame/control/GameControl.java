@@ -182,7 +182,5 @@ public class GameControl {
         }
         // close the output file
         DesertEscape.setCurrentGame(currentGame);// saved in DesertEscape
-    }
-
-    
+    }  
 }
