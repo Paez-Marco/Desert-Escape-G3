@@ -87,12 +87,10 @@ public class GameControl {
         return true;
 
     }*/
-
-    public static void createNewGame(Player player) throws MapControlException{
+    public static void createNewGame(Player player) throws MapControlException {
         Game game = new Game();  // create a new game
         DesertEscape.setCurrentGame(game); // save game in DesertEscape
 
-        
         game.setPlayer(player); // save player in the game
 
         //create the inventory list and save in the game
@@ -113,12 +111,11 @@ public class GameControl {
 
         Map map = MapControl.createMap();
         game.setMap(map);
-        
+
         //Map gameMap = new Map();
         //game.setMap(gameMap);
-        
         player.setLocation(map.getLocation(0, 0));
-        
+
         DesertEscape.setCurrentGame(game);
 
         //Move actor to starting position in the map
@@ -129,7 +126,7 @@ public class GameControl {
 
         if (name == null) {
             throw new GameControlException("No name write");
-                    //+ "return null;
+            //+ "return null;
         }
 
         Player player = new Player();
@@ -153,34 +150,37 @@ public class GameControl {
         locations[0][6].setScene(scenes[SceneType.cliffs.ordinal()]);
         locations[0][7].setScene(scenes[SceneType.cliffs.ordinal()]);
         locations[0][8].setScene(scenes[SceneType.desert.ordinal()]);
-        
+
         locations[9][9].setScene(scenes[SceneType.pyramids.ordinal()]);
 
     }
 
     public static void saveGame(Game currentGame, String filePath) throws GameControlException {
-        
-        try(FileOutputStream fops = new FileOutputStream(filePath)){
+
+        try (FileOutputStream fops = new FileOutputStream(filePath)) {
             ObjectOutputStream output = new ObjectOutputStream(fops);
-            
+
             output.writeObject(currentGame);// write game object out to file
-            } catch (Exception e) {
-                throw new GameControlException(e.getMessage());
-            }
+        } catch (IOException e) {
+            throw new GameControlException(e.getMessage());
+        }
     }
 
     public static void getSavedGame(String filePath) throws GameControlException {
         Game currentGame = null;
-        
-        try (FileInputStream fips = new FileInputStream(filePath)){
-            ObjectInputStream input =  new ObjectInputStream(fips);
-            
+
+        try (FileInputStream fips = new FileInputStream(filePath)) {
+            ObjectInputStream input = new ObjectInputStream(fips);
+
             currentGame = (Game) input.readObject();// read the game object from file
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             throw new GameControlException(e.getMessage());
         }
         // close the output file
         DesertEscape.setCurrentGame(currentGame);// saved in DesertEscape
-    }  
+    }
+
+    /* public static void getSavedGame(String filePath) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }*/
 }

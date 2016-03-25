@@ -89,15 +89,15 @@ public interface ViewInterface {
                         "Error reading input:" + e.getMessage());
             }
             return value; // return value entered
-        }
-
-        @Override
-        public boolean doAction(String value
-        ) {
-
-            value = value.toUpperCase();
-            return false;
-        }
-
     }
+
+    @Override
+    public boolean doAction(String value
+    ) {
+
+        value = value.toUpperCase();
+        return false;
+    }
+
+}
 }

@@ -31,14 +31,15 @@ public class DesertEscape {
      */
     private static Game currentGame; // = null;
     private static Player player;  // = null;
+    
     private static PrintWriter outFile = null;
     private static BufferedReader inFile = null;
-
+    
     private static PrintWriter logFile = null;
-
+    
     protected final BufferedReader keyboard = DesertEscape.getInFile();
     protected final PrintWriter console = DesertEscape.getOutFile();
-
+    
     public static PrintWriter getOutFile() {
         return outFile;
     }
@@ -77,10 +78,14 @@ public class DesertEscape {
             //create StartProgramView()rig and display the start program view here
             StartProgramView startProgramView = new StartProgramView();
             startProgramView.display();
+            
+            //GameMenuView game = new GameMenuView();
+            //game.display();
 
             MainMenuView main = new MainMenuView();
             main.display();
             return;
+            
         } catch (Throwable te) {
             System.out.println("Exception:" + te.toString()
                     + "\nCause:" + te.getCause()
