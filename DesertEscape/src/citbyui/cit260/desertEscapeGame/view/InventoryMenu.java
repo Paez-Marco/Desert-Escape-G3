@@ -9,6 +9,8 @@ import byui.cit260.desertEscapeGame.model.InventoryItem;
 import citbyui.cit260.desertEscapeGame.view.ViewInterface.View;
 import citbyui.cit260.desertEscapeGame.view.GameMenuView;
 import desertescape.DesertEscape;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 
 /**
  *
@@ -27,38 +29,39 @@ public class InventoryMenu extends View {
                 + "\n#   =========================       #"
                 + "\n#                                   #"
                 + "\n#   LETTER      INVENTORY           #"
-                + "\n#     D     Sorted by Description   #"
-                + "\n#     S     Sorted by Stock         #"
-                + "\n#     R     Sorted by Requirement   #"
+                + "\n#     L     Load stock from a file  #"
+                + "\n#     S     Save stock to a file    #"
                 + "\n#                                   #"
-                + "\n#   LETTER       REPORTS            #"
-                + "\n#     L     Inventory List Save     #"
-                + "\n#     F     Inventory File Report   #"
-                + "\n#     Q     Quit                    #"
+                + "\n#   LETTER      SORTED LISTS        #"
+                + "\n#     D     by Description          #"
+                + "\n#     T     by Stock                #"
+                + "\n#     R     by Requirement          #"
+                + "\n#                                   #"
+                + "\n#     Q     return previous menu    #"
                 + "\n#                                   #"
                 + "\n#####################################");
     }
 
     @Override
     public boolean doAction(String value) {
-        this.console.println("\n Choose your Scene");
+        this.console.println("\n Choose your inventory selection");
         value = value.toUpperCase(); // Convert menuOpton to uppercase
 
         switch (value) {
+            case "L": // Load from file
+                this.InventoryLoad();
+                break;
+            case "S": // Save to a file
+                this.InventorySave();
+                break;
             case "D": // Sort by Item description
                 this.SortItemDescription();
                 break;
-            case "S": // Sort by Item Inventory
+            case "T": // Sort by Item Inventory
                 this.SortItemInventory();
                 break;
             case "R": // Sort by Requirements
                 this.SortItemRequirment();
-                break;
-            case "L": // Inventory List 
-                this.InventoryList();
-                break;
-            case "F": // Inventory File Report
-                this.ReportList();
                 break;
             case "Q": // return previous menu
                 break;
@@ -69,10 +72,26 @@ public class InventoryMenu extends View {
         return false;
     }
 
-    private void InventoryList() {
+    private String InventoryFileName() {
+
+        String filePath = "";
+        this.console.println("\n\nEnter the file path for the file: ");
+        try {
+            filePath = this.getInput();            
+        } catch (Exception e) {
+            ErrorView.display(this.getClass().getName(), "Error on input");
+        }
+        return filePath;
+    }
+
+    private void InventoryLoad() {
+
+        String filePath = InventoryFileName();
+
+        this.console.println("Loading from " + filePath);
+
         InventoryItem[] inventory = DesertEscape.getCurrentGame().getInventoryItem();
 
-        //InventoryList inventoryList = new InventoryList();
         //inventoryList.display();
         this.console.println("\tList of Inventory Items");
         this.console.println(String.format("%1$10s%2$10s%3$15s", "Description", "In Stock", "Requirement"));
@@ -85,19 +104,19 @@ public class InventoryMenu extends View {
         }
     }
 
-    private void ReportList() {
+    private void InventorySave() {
+
+        String filePath = InventoryFileName();
+
         InventoryItem[] inventory = DesertEscape.getCurrentGame().getInventoryItem();
 
-        //InventoryList inventoryMenu = new InventoryList();
-        //inventoryMenu.display();
-        this.console.println("\tList of Inventory Items");
-        this.console.println(String.format("%1$10s%2$10s%3$15s", "Description", "In Stock", "Requirement"));
+        try {
+            FileOutputStream fos = new FileOutputStream(filePath);
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
 
-        for (InventoryItem item : inventory) {
-            //display the description, the required amount and amount in stock
-            this.console.println(String.format("%1$10s%2$10s%3$15s", item.getDescription(),
-                    item.getQuantityInStock(),
-                    item.getRequiredAmount()));
+            oos.writeObject(inventory);
+        } catch (Exception e) {
+            ErrorView.display("Program controller", e.getMessage());
         }
     }
 
