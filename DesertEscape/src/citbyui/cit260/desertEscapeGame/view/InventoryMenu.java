@@ -12,25 +12,29 @@ import desertescape.DesertEscape;
 
 /**
  *
- * @author Paez & Mambou
+ * @author Paez
  */
-public class InventorySort extends View {
+public class InventoryMenu extends View {
 
     private String message = "";
     private String displayScene = "";
 
-    public InventorySort() {
+    public InventoryMenu() {
 
         super("\n#####################################"
                 + "\n#                                   #"
-                + "\n#   INVENTORY ORDER SELECTION       #"
+                + "\n#       I N V E N T O R Y           #"
                 + "\n#   =========================       #"
                 + "\n#                                   #"
-                + "\n#   LETTER       SORT BY            #"
-                + "\n#     D       Item Description      #"
-                + "\n#     S       Item Stock            #"
-                + "\n#     R       Item Requirement      #"
-                + "\n#     Q       Quit                  #"
+                + "\n#   LETTER      INVENTORY           #"
+                + "\n#     D     Sorted by Description   #"
+                + "\n#     S     Sorted by Stock         #"
+                + "\n#     R     Sorted by Requirement   #"
+                + "\n#                                   #"
+                + "\n#   LETTER       REPORTS            #"
+                + "\n#     L     Inventory List Save     #"
+                + "\n#     F     Inventory File Report   #"
+                + "\n#     Q     Quit                    #"
                 + "\n#                                   #"
                 + "\n#####################################");
     }
@@ -50,6 +54,12 @@ public class InventorySort extends View {
             case "R": // Sort by Requirements
                 this.SortItemRequirment();
                 break;
+            case "L": // Inventory List 
+                this.InventoryList();
+                break;
+            case "F": // Inventory File Report
+                this.ReportList();
+                break;
             case "Q": // return previous menu
                 break;
             default:
@@ -57,6 +67,38 @@ public class InventorySort extends View {
                 break;
         }
         return false;
+    }
+
+    private void InventoryList() {
+        InventoryItem[] inventory = DesertEscape.getCurrentGame().getInventoryItem();
+
+        //InventoryList inventoryList = new InventoryList();
+        //inventoryList.display();
+        this.console.println("\tList of Inventory Items");
+        this.console.println(String.format("%1$10s%2$10s%3$15s", "Description", "In Stock", "Requirement"));
+
+        for (InventoryItem item : inventory) {
+            //display the description, the required amount and amount in stock
+            this.console.println(String.format("%1$10s%2$10s%3$15s", item.getDescription(),
+                    item.getQuantityInStock(),
+                    item.getRequiredAmount()));
+        }
+    }
+
+    private void ReportList() {
+        InventoryItem[] inventory = DesertEscape.getCurrentGame().getInventoryItem();
+
+        //InventoryList inventoryMenu = new InventoryList();
+        //inventoryMenu.display();
+        this.console.println("\tList of Inventory Items");
+        this.console.println(String.format("%1$10s%2$10s%3$15s", "Description", "In Stock", "Requirement"));
+
+        for (InventoryItem item : inventory) {
+            //display the description, the required amount and amount in stock
+            this.console.println(String.format("%1$10s%2$10s%3$15s", item.getDescription(),
+                    item.getQuantityInStock(),
+                    item.getRequiredAmount()));
+        }
     }
 
     private void SortItemDescription() {
@@ -92,8 +134,8 @@ public class InventorySort extends View {
             if (breaked) {
                 breaked = false;
                 break;
-            } 
-            
+            }
+
         }
 
         InventoryItem[] inventory2 = DesertEscape.getCurrentGame().getInventoryItem();
@@ -181,4 +223,5 @@ public class InventorySort extends View {
 
         //this.console.println("\n*** SortItemRequirment() function called ***");
     }
+
 }

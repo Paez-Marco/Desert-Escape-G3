@@ -7,13 +7,10 @@ package citbyui.cit260.desertEscapeGame.view;
 
 import byui.cit260.desertEscapeGame.exceptions.MovementControllerException;
 import byui.cit260.desertEscapeGame.control.MovementController;
-import byui.cit260.desertEscapeGame.model.InventoryItem;
 //import byui.cit260.desertEscapeGame.model.InventoryItem;
 import byui.cit260.desertEscapeGame.model.Location;
 import citbyui.cit260.desertEscapeGame.view.ViewInterface.View;
 import desertescape.DesertEscape;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -35,8 +32,7 @@ public class GameMenuView extends View {
                 + "\n  E - Move person to East"
                 + "\n  S - Move person to South"
                 + "\n  W - Move person to West"
-                + "\n  I - View inventory list with costs"
-                + "\n  Z - Sort inventory list"
+                + "\n  I - Inventory activities"
                 + "\n  R - Estimate the resource needed"
                 + "\n  H - Help"
                 + "\n  Q - Quit"
@@ -75,11 +71,8 @@ public class GameMenuView extends View {
             case "W": // Move person to New location
                 this.MoveWest();
                 break;
-            case "I": // View inventory list with costs
-                this.ViewInventory();
-                break;
-            case "Z": // Sorted inventory list
-                this.SortInventory();
+            case "I": // Inventory activities
+                this.InventoryMenu();
                 break;
             case "R": // Estimate the resource needed
                 this.displayEstimatedResource();
@@ -96,30 +89,15 @@ public class GameMenuView extends View {
         return false;
     }
 
+    private void InventoryMenu() {
+
+        InventoryMenu inventoryMenu = new InventoryMenu();
+        inventoryMenu.display();
+
+    }
+
     private void Map() {
         this.console.println(DesertEscape.getCurrentGame().getMap().getMapString());
-
-    }
-
-    private void ViewInventory() {
-
-        InventoryItem[] inventory = DesertEscape.getCurrentGame().getInventoryItem();
-
-        this.console.println("\tList of Inventory Items");
-        this.console.println(String.format("%1$10s%2$10s%3$15s", "Description", "In Stock", "Requirement"));
-
-        for (InventoryItem item : inventory) {
-            //display the description, the required amount and amount in stock
-            this.console.println(String.format("%1$10s%2$10s%3$15s", item.getDescription(),
-                    item.getQuantityInStock(),
-                    item.getRequiredAmount()));
-        }
-    }
-
-    private void SortInventory() {
-
-        InventorySort inventorySortItem = new InventorySort();
-        inventorySortItem.display();
 
     }
 

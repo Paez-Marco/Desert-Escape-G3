@@ -83,28 +83,30 @@ public class MainMenuView extends View {
                 + "is to be saved");
         String filePath = this.getInput();
 
-        /*try {
+        try {
             GameControl.getSavedGame(filePath);
         } catch (Exception ex) {
             ErrorView.display("MainMenuView ", ex.getMessage());
             Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-
+        }
+/*
         // fuel use control
-        FuelUseVolume fuelUse = new FuelUseVolume();
+        /*FuelUseVolume fuelUse = new FuelUseVolume();
         try {
             fuelUse.fuelUse();
         } catch (byui.cit.desertEscapeGame.exceptions.MapControlException ex) {
             Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-        //create BodyMassView() and display the calculation
+*/
+/*
+        //create BodyMassView() and display the calculation 
         BodyMassView bodyMassView = new BodyMassView();
         try {
             bodyMassView.displayBodyMassView();
         } catch (byui.cit.desertEscapeGame.exceptions.MapControlException ex) {
             Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
         }
+*/
         try {
             //create new Game
             GameControl.createNewGame(DesertEscape.getPlayer());
